@@ -1,0 +1,37 @@
+test_equal_schema_and_uuid_shape_do_not_merge_unrelated_families (test_resource_maps.ResourceMapTests.test_equal_schema_and_uuid_shape_do_not_merge_unrelated_families) ... ok
+test_explicit_nested_food_unit_and_recipe_links_are_retained (test_resource_maps.ResourceMapTests.test_explicit_nested_food_unit_and_recipe_links_are_retained) ... ok
+test_foreign_path_identity_is_not_mistaken_for_owning_resource (test_resource_maps.ResourceMapTests.test_foreign_path_identity_is_not_mistaken_for_owning_resource) ... ok
+test_name_based_links_remain_candidates_and_analysis_is_deterministic (test_resource_maps.ResourceMapTests.test_name_based_links_remain_candidates_and_analysis_is_deterministic) ... ok
+test_optional_analysis_keeps_generated_files_and_reports_identical (test_resource_maps.ResourceMapTests.test_optional_analysis_keeps_generated_files_and_reports_identical) ... ok
+test_recursive_views_are_not_flattened_into_creation_prerequisites (test_resource_maps.ResourceMapTests.test_recursive_views_are_not_flattened_into_creation_prerequisites) ... ok
+test_relationship_plan_reuses_instances_and_defers_recursive_links (test_resource_maps.ResourceMapTests.test_relationship_plan_reuses_instances_and_defers_recursive_links) ... ok
+test_tag_lookup_aliases_share_type_and_keep_wire_identity_views (test_resource_maps.ResourceMapTests.test_tag_lookup_aliases_share_type_and_keep_wire_identity_views) ... ok
+test_all_existing_cli_profiles_preserve_plan_reports_and_model_source (test_transport_separation.SeparationRegressionTests.test_all_existing_cli_profiles_preserve_plan_reports_and_model_source) ... ok
+test_configured_request_rules_and_auth_environment_remain_compatible (test_transport_separation.SeparationRegressionTests.test_configured_request_rules_and_auth_environment_remain_compatible) ... ok
+test_multiple_logical_workers_and_instances_preserve_binding_and_cleanup (test_transport_separation.SeparationRegressionTests.test_multiple_logical_workers_and_instances_preserve_binding_and_cleanup) ... ok
+test_prefix_observation_is_lifted_without_changing_caller_state (test_transport_separation.SeparationRegressionTests.test_prefix_observation_is_lifted_without_changing_caller_state) ... ok
+test_repeated_generation_is_deterministic (test_transport_separation.SeparationRegressionTests.test_repeated_generation_is_deterministic) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 49.875s
+
+OK
+
+Final resource-map checks after the last scoped changes:
+test_equal_schema_and_uuid_shape_do_not_merge_unrelated_families (test_resource_maps.ResourceMapTests.test_equal_schema_and_uuid_shape_do_not_merge_unrelated_families) ... ok
+test_explicit_nested_food_unit_and_recipe_links_are_retained (test_resource_maps.ResourceMapTests.test_explicit_nested_food_unit_and_recipe_links_are_retained) ... ok
+test_foreign_path_identity_is_not_mistaken_for_owning_resource (test_resource_maps.ResourceMapTests.test_foreign_path_identity_is_not_mistaken_for_owning_resource) ... ok
+test_name_based_links_remain_candidates_and_analysis_is_deterministic (test_resource_maps.ResourceMapTests.test_name_based_links_remain_candidates_and_analysis_is_deterministic) ... ok
+test_optional_analysis_keeps_generated_files_and_reports_identical (test_resource_maps.ResourceMapTests.test_optional_analysis_keeps_generated_files_and_reports_identical) ... ok
+test_recursive_views_are_not_flattened_into_creation_prerequisites (test_resource_maps.ResourceMapTests.test_recursive_views_are_not_flattened_into_creation_prerequisites) ... ok
+test_relationship_plan_reuses_instances_and_defers_recursive_links (test_resource_maps.ResourceMapTests.test_relationship_plan_reuses_instances_and_defers_recursive_links) ... ok
+test_tag_lookup_aliases_share_type_and_keep_wire_identity_views (test_resource_maps.ResourceMapTests.test_tag_lookup_aliases_share_type_and_keep_wire_identity_views) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 2.145s
+
+OK
+
+PASS: 466 Node-stub transport comparisons.
+PASS: Original CLI with both new flags, 266 mapped operations.
+PASS: Existing generated JavaScript and reports byte-identical.

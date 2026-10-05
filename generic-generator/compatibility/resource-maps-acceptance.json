@@ -1,0 +1,24 @@
+{
+  "revision": "resource-maps.1",
+  "requires": "http-interface-separation.1",
+  "contracts": [
+    "keycloak",
+    "mealie"
+  ],
+  "baseline_contract_profile_comparisons": 28,
+  "test_methods_passed": 13,
+  "final_resource_map_tests_repeated": 8,
+  "node_transport_sites_compared": 466,
+  "mealie_operations_mapped": 266,
+  "endpoint_resource_types": 34,
+  "relationship_templates": 571,
+  "schema_cycles_preserved": 2,
+  "legacy_cli_output_byte_identical": true,
+  "pilot_symbolic_instances": 21,
+  "pilot_proposed_link_tasks": 27,
+  "pilot_relationship_action_candidates": 2,
+  "new_relationship_tasks_compiled_into_stories": false,
+  "server_requests_sent": 0,
+  "powershell_executed_here": false,
+  "live_provengo_accepted": false
+}

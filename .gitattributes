@@ -1,0 +1,6 @@
+
+
+# Research evidence must preserve binary bytes
+*.zip -text
+*.docx -text
+*.pdf -text

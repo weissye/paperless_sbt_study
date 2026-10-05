@@ -1,0 +1,3053 @@
+{
+  "operations": [
+    {
+      "operation": "POST /api/bulk_edit_objects/",
+      "operation_id": "bulk_edit_objects",
+      "path_slots": [],
+      "request_schemas": [
+        "BulkEditObjectsRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "BulkEditResult"
+      ]
+    },
+    {
+      "operation": "GET /api/config/",
+      "operation_id": "config_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/config",
+      "response_schemas": [
+        "ApplicationConfiguration"
+      ]
+    },
+    {
+      "operation": "DELETE /api/config/{id}/",
+      "operation_id": "config_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/config",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/config",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/config/{id}/",
+      "operation_id": "config_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/config",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/config",
+      "response_schemas": [
+        "ApplicationConfiguration"
+      ]
+    },
+    {
+      "operation": "PATCH /api/config/{id}/",
+      "operation_id": "config_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/config",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedApplicationConfigurationRequest",
+        "PatchedApplicationConfigurationRequest",
+        "PatchedApplicationConfigurationRequest"
+      ],
+      "resource_type": "api/config",
+      "response_schemas": [
+        "ApplicationConfiguration"
+      ]
+    },
+    {
+      "operation": "PUT /api/config/{id}/",
+      "operation_id": "config_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/config",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "ApplicationConfigurationRequest",
+        "ApplicationConfigurationRequest",
+        "ApplicationConfigurationRequest"
+      ],
+      "resource_type": "api/config",
+      "response_schemas": [
+        "ApplicationConfiguration"
+      ]
+    },
+    {
+      "operation": "GET /api/correspondents/",
+      "operation_id": "correspondents_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/correspondents",
+      "response_schemas": [
+        "Correspondent"
+      ]
+    },
+    {
+      "operation": "POST /api/correspondents/",
+      "operation_id": "correspondents_create",
+      "path_slots": [],
+      "request_schemas": [
+        "CorrespondentRequest",
+        "CorrespondentRequest",
+        "CorrespondentRequest"
+      ],
+      "resource_type": "api/correspondents",
+      "response_schemas": [
+        "Correspondent"
+      ]
+    },
+    {
+      "operation": "DELETE /api/correspondents/{id}/",
+      "operation_id": "correspondents_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/correspondents",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/correspondents",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/correspondents/{id}/",
+      "operation_id": "correspondents_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/correspondents",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/correspondents",
+      "response_schemas": [
+        "Correspondent"
+      ]
+    },
+    {
+      "operation": "PATCH /api/correspondents/{id}/",
+      "operation_id": "correspondents_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/correspondents",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedCorrespondentRequest",
+        "PatchedCorrespondentRequest",
+        "PatchedCorrespondentRequest"
+      ],
+      "resource_type": "api/correspondents",
+      "response_schemas": [
+        "Correspondent"
+      ]
+    },
+    {
+      "operation": "PUT /api/correspondents/{id}/",
+      "operation_id": "correspondents_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/correspondents",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "CorrespondentRequest",
+        "CorrespondentRequest",
+        "CorrespondentRequest"
+      ],
+      "resource_type": "api/correspondents",
+      "response_schemas": [
+        "Correspondent"
+      ]
+    },
+    {
+      "operation": "GET /api/custom_fields/",
+      "operation_id": "custom_fields_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/custom_fields",
+      "response_schemas": [
+        "CustomField"
+      ]
+    },
+    {
+      "operation": "POST /api/custom_fields/",
+      "operation_id": "custom_fields_create",
+      "path_slots": [],
+      "request_schemas": [
+        "CustomFieldRequest",
+        "CustomFieldRequest",
+        "CustomFieldRequest"
+      ],
+      "resource_type": "api/custom_fields",
+      "response_schemas": [
+        "CustomField"
+      ]
+    },
+    {
+      "operation": "DELETE /api/custom_fields/{id}/",
+      "operation_id": "custom_fields_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/custom_fields",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/custom_fields",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/custom_fields/{id}/",
+      "operation_id": "custom_fields_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/custom_fields",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/custom_fields",
+      "response_schemas": [
+        "CustomField"
+      ]
+    },
+    {
+      "operation": "PATCH /api/custom_fields/{id}/",
+      "operation_id": "custom_fields_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/custom_fields",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedCustomFieldRequest",
+        "PatchedCustomFieldRequest",
+        "PatchedCustomFieldRequest"
+      ],
+      "resource_type": "api/custom_fields",
+      "response_schemas": [
+        "CustomField"
+      ]
+    },
+    {
+      "operation": "PUT /api/custom_fields/{id}/",
+      "operation_id": "custom_fields_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/custom_fields",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "CustomFieldRequest",
+        "CustomFieldRequest",
+        "CustomFieldRequest"
+      ],
+      "resource_type": "api/custom_fields",
+      "response_schemas": [
+        "CustomField"
+      ]
+    },
+    {
+      "operation": "GET /api/document_types/",
+      "operation_id": "document_types_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/document_types",
+      "response_schemas": [
+        "DocumentType"
+      ]
+    },
+    {
+      "operation": "POST /api/document_types/",
+      "operation_id": "document_types_create",
+      "path_slots": [],
+      "request_schemas": [
+        "DocumentTypeRequest",
+        "DocumentTypeRequest",
+        "DocumentTypeRequest"
+      ],
+      "resource_type": "api/document_types",
+      "response_schemas": [
+        "DocumentType"
+      ]
+    },
+    {
+      "operation": "DELETE /api/document_types/{id}/",
+      "operation_id": "document_types_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/document_types",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/document_types",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/document_types/{id}/",
+      "operation_id": "document_types_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/document_types",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/document_types",
+      "response_schemas": [
+        "DocumentType"
+      ]
+    },
+    {
+      "operation": "PATCH /api/document_types/{id}/",
+      "operation_id": "document_types_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/document_types",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedDocumentTypeRequest",
+        "PatchedDocumentTypeRequest",
+        "PatchedDocumentTypeRequest"
+      ],
+      "resource_type": "api/document_types",
+      "response_schemas": [
+        "DocumentType"
+      ]
+    },
+    {
+      "operation": "PUT /api/document_types/{id}/",
+      "operation_id": "document_types_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/document_types",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "DocumentTypeRequest",
+        "DocumentTypeRequest",
+        "DocumentTypeRequest"
+      ],
+      "resource_type": "api/document_types",
+      "response_schemas": [
+        "DocumentType"
+      ]
+    },
+    {
+      "operation": "GET /api/documents/",
+      "operation_id": "documents_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "Document"
+      ]
+    },
+    {
+      "operation": "POST /api/documents/bulk_download/",
+      "operation_id": "bulk_download",
+      "path_slots": [],
+      "request_schemas": [
+        "BulkDownloadRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "POST /api/documents/bulk_edit/",
+      "operation_id": "bulk_edit",
+      "path_slots": [],
+      "request_schemas": [
+        "BulkEditRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "BulkEditDocumentsResult"
+      ]
+    },
+    {
+      "operation": "POST /api/documents/chat/",
+      "operation_id": "documents_chat_create",
+      "path_slots": [],
+      "request_schemas": [
+        "ChatStreamingRequest",
+        "ChatStreamingRequest",
+        "ChatStreamingRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "ChatStreaming"
+      ]
+    },
+    {
+      "operation": "POST /api/documents/delete/",
+      "operation_id": "documents_delete",
+      "path_slots": [],
+      "request_schemas": [
+        "DeleteDocumentsRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "DeleteDocumentsResult"
+      ]
+    },
+    {
+      "operation": "POST /api/documents/edit_pdf/",
+      "operation_id": "documents_edit_pdf",
+      "path_slots": [],
+      "request_schemas": [
+        "EditPdfDocumentsRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "EditPdfDocumentsResult"
+      ]
+    },
+    {
+      "operation": "POST /api/documents/email/",
+      "operation_id": "email_documents",
+      "path_slots": [],
+      "request_schemas": [
+        "EmailRequest",
+        "EmailRequest",
+        "EmailRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "EmailDocumentsResponse"
+      ]
+    },
+    {
+      "operation": "POST /api/documents/merge/",
+      "operation_id": "documents_merge",
+      "path_slots": [],
+      "request_schemas": [
+        "MergeDocumentsRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "MergeDocumentsResult"
+      ]
+    },
+    {
+      "operation": "POST /api/documents/merge_as_versions/",
+      "operation_id": "documents_merge_as_versions",
+      "path_slots": [],
+      "request_schemas": [
+        "MergeDocumentsAsVersionsRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "MergeDocumentsAsVersionsResult"
+      ]
+    },
+    {
+      "operation": "GET /api/documents/next_asn/",
+      "operation_id": "documents_next_asn_retrieve",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "POST /api/documents/post_document/",
+      "operation_id": "documents_post_document_create",
+      "path_slots": [],
+      "request_schemas": [
+        "PostDocumentRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "POST /api/documents/remove_password/",
+      "operation_id": "documents_remove_password",
+      "path_slots": [],
+      "request_schemas": [
+        "RemovePasswordDocumentsRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "RemovePasswordDocumentsResult"
+      ]
+    },
+    {
+      "operation": "POST /api/documents/reprocess/",
+      "operation_id": "documents_reprocess",
+      "path_slots": [],
+      "request_schemas": [
+        "ReprocessDocumentsRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "ReprocessDocumentsResult"
+      ]
+    },
+    {
+      "operation": "POST /api/documents/rotate/",
+      "operation_id": "documents_rotate",
+      "path_slots": [],
+      "request_schemas": [
+        "RotateDocumentsRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "RotateDocumentsResult"
+      ]
+    },
+    {
+      "operation": "POST /api/documents/selection_data/",
+      "operation_id": "documents_selection_data_create",
+      "path_slots": [],
+      "request_schemas": [
+        "DocumentSelectionRequest",
+        "DocumentSelectionRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "SelectionData"
+      ]
+    },
+    {
+      "operation": "DELETE /api/documents/{id}/",
+      "operation_id": "documents_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/documents",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/documents/{id}/",
+      "operation_id": "documents_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/documents",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "Document"
+      ]
+    },
+    {
+      "operation": "PATCH /api/documents/{id}/",
+      "operation_id": "documents_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/documents",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedDocumentRequest",
+        "PatchedDocumentRequest",
+        "PatchedDocumentRequest"
+      ],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "Document"
+      ]
+    },
+    {
+      "operation": "PUT /api/documents/{id}/",
+      "operation_id": "documents_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/documents",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "DocumentRequest",
+        "DocumentRequest",
+        "DocumentRequest"
+      ],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "Document"
+      ]
+    },
+    {
+      "operation": "GET /api/documents/{id}/ai_suggestions/",
+      "operation_id": "documents_ai_suggestions_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "AISuggestions"
+      ]
+    },
+    {
+      "operation": "GET /api/documents/{id}/download/",
+      "operation_id": "documents_download_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": []
+    },
+    {
+      "operation": "POST /api/documents/{id}/email/",
+      "operation_id": "documents_email_document",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "EmailDocumentRequestRequest",
+        "EmailDocumentRequestRequest",
+        "EmailDocumentRequestRequest"
+      ],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "EmailDocumentResponse"
+      ]
+    },
+    {
+      "operation": "GET /api/documents/{id}/history/",
+      "operation_id": "documents_history_list",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "LogEntry"
+      ]
+    },
+    {
+      "operation": "GET /api/documents/{id}/metadata/",
+      "operation_id": "documents_metadata_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "Metadata"
+      ]
+    },
+    {
+      "operation": "DELETE /api/documents/{id}/notes/",
+      "operation_id": "documents_notes_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "Notes"
+      ]
+    },
+    {
+      "operation": "GET /api/documents/{id}/notes/",
+      "operation_id": "documents_notes_list",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "Notes"
+      ]
+    },
+    {
+      "operation": "POST /api/documents/{id}/notes/",
+      "operation_id": "documents_notes_create",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "NoteCreateRequestRequest",
+        "NoteCreateRequestRequest",
+        "NoteCreateRequestRequest"
+      ],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "Notes"
+      ]
+    },
+    {
+      "operation": "GET /api/documents/{id}/preview/",
+      "operation_id": "documents_preview_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/documents/{id}/root/",
+      "operation_id": "documents_root",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "DocumentRootResponse"
+      ]
+    },
+    {
+      "operation": "GET /api/documents/{id}/share_links/",
+      "operation_id": "document_share_links",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/documents/{id}/suggestions/",
+      "operation_id": "documents_suggestions_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "Suggestions"
+      ]
+    },
+    {
+      "operation": "GET /api/documents/{id}/thumb/",
+      "operation_id": "documents_thumb_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": []
+    },
+    {
+      "operation": "POST /api/documents/{id}/update_version/",
+      "operation_id": "documents_update_version",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "DocumentVersionRequest"
+      ],
+      "resource_type": "api/documents",
+      "response_schemas": []
+    },
+    {
+      "operation": "DELETE /api/documents/{id}/versions/{version_id}/",
+      "operation_id": "documents_delete_version",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "version_id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/documents",
+      "response_schemas": []
+    },
+    {
+      "operation": "PATCH /api/documents/{id}/versions/{version_id}/",
+      "operation_id": "documents_update_version_label",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "version_id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedDocumentVersionLabelRequest",
+        "PatchedDocumentVersionLabelRequest",
+        "PatchedDocumentVersionLabelRequest"
+      ],
+      "resource_type": "api/documents",
+      "response_schemas": [
+        "UpdateDocumentVersionLabelResult"
+      ]
+    },
+    {
+      "operation": "GET /api/groups/",
+      "operation_id": "groups_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/groups",
+      "response_schemas": [
+        "Group"
+      ]
+    },
+    {
+      "operation": "POST /api/groups/",
+      "operation_id": "groups_create",
+      "path_slots": [],
+      "request_schemas": [
+        "GroupRequest",
+        "GroupRequest",
+        "GroupRequest"
+      ],
+      "resource_type": "api/groups",
+      "response_schemas": [
+        "Group"
+      ]
+    },
+    {
+      "operation": "DELETE /api/groups/{id}/",
+      "operation_id": "groups_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/groups",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/groups",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/groups/{id}/",
+      "operation_id": "groups_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/groups",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/groups",
+      "response_schemas": [
+        "Group"
+      ]
+    },
+    {
+      "operation": "PATCH /api/groups/{id}/",
+      "operation_id": "groups_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/groups",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedGroupRequest",
+        "PatchedGroupRequest",
+        "PatchedGroupRequest"
+      ],
+      "resource_type": "api/groups",
+      "response_schemas": [
+        "Group"
+      ]
+    },
+    {
+      "operation": "PUT /api/groups/{id}/",
+      "operation_id": "groups_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/groups",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "GroupRequest",
+        "GroupRequest",
+        "GroupRequest"
+      ],
+      "resource_type": "api/groups",
+      "response_schemas": [
+        "Group"
+      ]
+    },
+    {
+      "operation": "GET /api/logs/",
+      "operation_id": "logs_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/logs",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/logs/{id}/",
+      "operation_id": "retrieve_log",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/logs",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/logs",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/mail_accounts/",
+      "operation_id": "mail_accounts_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/mail_accounts",
+      "response_schemas": [
+        "MailAccount"
+      ]
+    },
+    {
+      "operation": "POST /api/mail_accounts/",
+      "operation_id": "mail_accounts_create",
+      "path_slots": [],
+      "request_schemas": [
+        "MailAccountRequest",
+        "MailAccountRequest",
+        "MailAccountRequest"
+      ],
+      "resource_type": "api/mail_accounts",
+      "response_schemas": [
+        "MailAccount"
+      ]
+    },
+    {
+      "operation": "POST /api/mail_accounts/test/",
+      "operation_id": "mail_account_test",
+      "path_slots": [],
+      "request_schemas": [
+        "MailAccountRequest",
+        "MailAccountRequest",
+        "MailAccountRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "MailAccountTestResponse"
+      ]
+    },
+    {
+      "operation": "DELETE /api/mail_accounts/{id}/",
+      "operation_id": "mail_accounts_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/mail_accounts",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/mail_accounts",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/mail_accounts/{id}/",
+      "operation_id": "mail_accounts_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/mail_accounts",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/mail_accounts",
+      "response_schemas": [
+        "MailAccount"
+      ]
+    },
+    {
+      "operation": "PATCH /api/mail_accounts/{id}/",
+      "operation_id": "mail_accounts_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/mail_accounts",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedMailAccountRequest",
+        "PatchedMailAccountRequest",
+        "PatchedMailAccountRequest"
+      ],
+      "resource_type": "api/mail_accounts",
+      "response_schemas": [
+        "MailAccount"
+      ]
+    },
+    {
+      "operation": "PUT /api/mail_accounts/{id}/",
+      "operation_id": "mail_accounts_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/mail_accounts",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "MailAccountRequest",
+        "MailAccountRequest",
+        "MailAccountRequest"
+      ],
+      "resource_type": "api/mail_accounts",
+      "response_schemas": [
+        "MailAccount"
+      ]
+    },
+    {
+      "operation": "POST /api/mail_accounts/{id}/process/",
+      "operation_id": "mail_account_process",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "MailAccountRequest",
+        "MailAccountRequest",
+        "MailAccountRequest"
+      ],
+      "resource_type": "api/mail_accounts",
+      "response_schemas": [
+        "MailAccountProcessResponse"
+      ]
+    },
+    {
+      "operation": "GET /api/mail_rules/",
+      "operation_id": "mail_rules_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/mail_rules",
+      "response_schemas": [
+        "MailRule"
+      ]
+    },
+    {
+      "operation": "POST /api/mail_rules/",
+      "operation_id": "mail_rules_create",
+      "path_slots": [],
+      "request_schemas": [
+        "MailRuleRequest",
+        "MailRuleRequest",
+        "MailRuleRequest"
+      ],
+      "resource_type": "api/mail_rules",
+      "response_schemas": [
+        "MailRule"
+      ]
+    },
+    {
+      "operation": "DELETE /api/mail_rules/{id}/",
+      "operation_id": "mail_rules_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/mail_rules",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/mail_rules",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/mail_rules/{id}/",
+      "operation_id": "mail_rules_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/mail_rules",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/mail_rules",
+      "response_schemas": [
+        "MailRule"
+      ]
+    },
+    {
+      "operation": "PATCH /api/mail_rules/{id}/",
+      "operation_id": "mail_rules_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/mail_rules",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedMailRuleRequest",
+        "PatchedMailRuleRequest",
+        "PatchedMailRuleRequest"
+      ],
+      "resource_type": "api/mail_rules",
+      "response_schemas": [
+        "MailRule"
+      ]
+    },
+    {
+      "operation": "PUT /api/mail_rules/{id}/",
+      "operation_id": "mail_rules_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/mail_rules",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "MailRuleRequest",
+        "MailRuleRequest",
+        "MailRuleRequest"
+      ],
+      "resource_type": "api/mail_rules",
+      "response_schemas": [
+        "MailRule"
+      ]
+    },
+    {
+      "operation": "GET /api/oauth/callback/",
+      "operation_id": "oauth_callback_retrieve",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/processed_mail/",
+      "operation_id": "processed_mail_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/processed_mail",
+      "response_schemas": [
+        "ProcessedMail"
+      ]
+    },
+    {
+      "operation": "POST /api/processed_mail/bulk_delete/",
+      "operation_id": "processed_mail_bulk_delete",
+      "path_slots": [],
+      "request_schemas": [
+        "BulkDeleteMailRequestRequest",
+        "BulkDeleteMailRequestRequest",
+        "BulkDeleteMailRequestRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "BulkDeleteMailResponse"
+      ]
+    },
+    {
+      "operation": "GET /api/processed_mail/{id}/",
+      "operation_id": "processed_mail_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/processed_mail",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/processed_mail",
+      "response_schemas": [
+        "ProcessedMail"
+      ]
+    },
+    {
+      "operation": "GET /api/profile/",
+      "operation_id": "profile_retrieve",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": [
+        "Profile"
+      ]
+    },
+    {
+      "operation": "PATCH /api/profile/",
+      "operation_id": "profile_partial_update",
+      "path_slots": [],
+      "request_schemas": [
+        "PatchedProfileRequest",
+        "PatchedProfileRequest",
+        "PatchedProfileRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "Profile"
+      ]
+    },
+    {
+      "operation": "POST /api/profile/disconnect_social_account/",
+      "operation_id": "profile_disconnect_social_account_create",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "POST /api/profile/generate_auth_token/",
+      "operation_id": "profile_generate_auth_token_create",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/profile/social_account_providers/",
+      "operation_id": "profile_social_account_providers_retrieve",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "DELETE /api/profile/totp/",
+      "operation_id": "profile_totp_destroy",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/profile/totp/",
+      "operation_id": "profile_totp_retrieve",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "POST /api/profile/totp/",
+      "operation_id": "profile_totp_create",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/remote_version/",
+      "operation_id": "remote_version_retrieve",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/saved_views/",
+      "operation_id": "saved_views_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/saved_views",
+      "response_schemas": [
+        "SavedView"
+      ]
+    },
+    {
+      "operation": "POST /api/saved_views/",
+      "operation_id": "saved_views_create",
+      "path_slots": [],
+      "request_schemas": [
+        "SavedViewFilterRuleRequest",
+        "SavedViewFilterRuleRequest",
+        "SavedViewFilterRuleRequest"
+      ],
+      "resource_type": "api/saved_views",
+      "response_schemas": [
+        "SavedView"
+      ]
+    },
+    {
+      "operation": "DELETE /api/saved_views/{id}/",
+      "operation_id": "saved_views_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/saved_views",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/saved_views",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/saved_views/{id}/",
+      "operation_id": "saved_views_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/saved_views",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/saved_views",
+      "response_schemas": [
+        "SavedView"
+      ]
+    },
+    {
+      "operation": "PATCH /api/saved_views/{id}/",
+      "operation_id": "saved_views_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/saved_views",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "SavedViewFilterRuleRequest",
+        "SavedViewFilterRuleRequest",
+        "SavedViewFilterRuleRequest"
+      ],
+      "resource_type": "api/saved_views",
+      "response_schemas": [
+        "SavedView"
+      ]
+    },
+    {
+      "operation": "PUT /api/saved_views/{id}/",
+      "operation_id": "saved_views_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/saved_views",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "SavedViewFilterRuleRequest",
+        "SavedViewFilterRuleRequest",
+        "SavedViewFilterRuleRequest"
+      ],
+      "resource_type": "api/saved_views",
+      "response_schemas": [
+        "SavedView"
+      ]
+    },
+    {
+      "operation": "GET /api/search/",
+      "operation_id": "search_retrieve",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": [
+        "SearchResult"
+      ]
+    },
+    {
+      "operation": "GET /api/search/autocomplete/",
+      "operation_id": "search_autocomplete_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/share_link_bundles/",
+      "operation_id": "share_link_bundles_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/share_link_bundles",
+      "response_schemas": [
+        "ShareLinkBundle"
+      ]
+    },
+    {
+      "operation": "POST /api/share_link_bundles/",
+      "operation_id": "share_link_bundles_create",
+      "path_slots": [],
+      "request_schemas": [
+        "ShareLinkBundleRequest",
+        "ShareLinkBundleRequest",
+        "ShareLinkBundleRequest"
+      ],
+      "resource_type": "api/share_link_bundles",
+      "response_schemas": [
+        "ShareLinkBundle"
+      ]
+    },
+    {
+      "operation": "DELETE /api/share_link_bundles/{id}/",
+      "operation_id": "share_link_bundles_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/share_link_bundles",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/share_link_bundles",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/share_link_bundles/{id}/",
+      "operation_id": "share_link_bundles_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/share_link_bundles",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/share_link_bundles",
+      "response_schemas": [
+        "ShareLinkBundle"
+      ]
+    },
+    {
+      "operation": "POST /api/share_link_bundles/{id}/rebuild/",
+      "operation_id": "share_link_bundles_rebuild",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "ShareLinkBundleRequest",
+        "ShareLinkBundleRequest",
+        "ShareLinkBundleRequest"
+      ],
+      "resource_type": "api/share_link_bundles",
+      "response_schemas": [
+        "ShareLinkBundle"
+      ]
+    },
+    {
+      "operation": "GET /api/share_links/",
+      "operation_id": "share_links_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/share_links",
+      "response_schemas": [
+        "ShareLink"
+      ]
+    },
+    {
+      "operation": "POST /api/share_links/",
+      "operation_id": "share_links_create",
+      "path_slots": [],
+      "request_schemas": [
+        "ShareLinkRequest",
+        "ShareLinkRequest",
+        "ShareLinkRequest"
+      ],
+      "resource_type": "api/share_links",
+      "response_schemas": [
+        "ShareLink"
+      ]
+    },
+    {
+      "operation": "DELETE /api/share_links/{id}/",
+      "operation_id": "share_links_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/share_links",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/share_links",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/share_links/{id}/",
+      "operation_id": "share_links_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/share_links",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/share_links",
+      "response_schemas": [
+        "ShareLink"
+      ]
+    },
+    {
+      "operation": "GET /api/statistics/",
+      "operation_id": "statistics_retrieve",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/status/",
+      "operation_id": "status_retrieve",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": [
+        "SystemStatus"
+      ]
+    },
+    {
+      "operation": "GET /api/storage_paths/",
+      "operation_id": "storage_paths_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/storage_paths",
+      "response_schemas": [
+        "StoragePath"
+      ]
+    },
+    {
+      "operation": "POST /api/storage_paths/",
+      "operation_id": "storage_paths_create",
+      "path_slots": [],
+      "request_schemas": [
+        "StoragePathRequest",
+        "StoragePathRequest",
+        "StoragePathRequest"
+      ],
+      "resource_type": "api/storage_paths",
+      "response_schemas": [
+        "StoragePath"
+      ]
+    },
+    {
+      "operation": "POST /api/storage_paths/test/",
+      "operation_id": "storage_paths_test",
+      "path_slots": [],
+      "request_schemas": [
+        "StoragePathTestRequest",
+        "StoragePathTestRequest",
+        "StoragePathTestRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "DELETE /api/storage_paths/{id}/",
+      "operation_id": "storage_paths_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/storage_paths",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/storage_paths",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/storage_paths/{id}/",
+      "operation_id": "storage_paths_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/storage_paths",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/storage_paths",
+      "response_schemas": [
+        "StoragePath"
+      ]
+    },
+    {
+      "operation": "PATCH /api/storage_paths/{id}/",
+      "operation_id": "storage_paths_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/storage_paths",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedStoragePathRequest",
+        "PatchedStoragePathRequest",
+        "PatchedStoragePathRequest"
+      ],
+      "resource_type": "api/storage_paths",
+      "response_schemas": [
+        "StoragePath"
+      ]
+    },
+    {
+      "operation": "PUT /api/storage_paths/{id}/",
+      "operation_id": "storage_paths_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/storage_paths",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "StoragePathRequest",
+        "StoragePathRequest",
+        "StoragePathRequest"
+      ],
+      "resource_type": "api/storage_paths",
+      "response_schemas": [
+        "StoragePath"
+      ]
+    },
+    {
+      "operation": "GET /api/tags/",
+      "operation_id": "tags_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/tags",
+      "response_schemas": [
+        "Tag"
+      ]
+    },
+    {
+      "operation": "POST /api/tags/",
+      "operation_id": "tags_create",
+      "path_slots": [],
+      "request_schemas": [
+        "TagRequest",
+        "TagRequest",
+        "TagRequest"
+      ],
+      "resource_type": "api/tags",
+      "response_schemas": [
+        "Tag"
+      ]
+    },
+    {
+      "operation": "DELETE /api/tags/{id}/",
+      "operation_id": "tags_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/tags",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/tags",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/tags/{id}/",
+      "operation_id": "tags_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/tags",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/tags",
+      "response_schemas": [
+        "Tag"
+      ]
+    },
+    {
+      "operation": "PATCH /api/tags/{id}/",
+      "operation_id": "tags_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/tags",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedTagRequest",
+        "PatchedTagRequest",
+        "PatchedTagRequest"
+      ],
+      "resource_type": "api/tags",
+      "response_schemas": [
+        "Tag"
+      ]
+    },
+    {
+      "operation": "PUT /api/tags/{id}/",
+      "operation_id": "tags_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/tags",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "TagRequest",
+        "TagRequest",
+        "TagRequest"
+      ],
+      "resource_type": "api/tags",
+      "response_schemas": [
+        "Tag"
+      ]
+    },
+    {
+      "operation": "GET /api/tasks/",
+      "operation_id": "tasks_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/tasks",
+      "response_schemas": [
+        "TaskSerializerV10"
+      ]
+    },
+    {
+      "operation": "POST /api/tasks/acknowledge/",
+      "operation_id": "acknowledge_tasks",
+      "path_slots": [],
+      "request_schemas": [
+        "AcknowledgeTasksViewRequest",
+        "AcknowledgeTasksViewRequest",
+        "AcknowledgeTasksViewRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "AcknowledgeTasks"
+      ]
+    },
+    {
+      "operation": "GET /api/tasks/active/",
+      "operation_id": "tasks_active_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": [
+        "TaskSerializerV10"
+      ]
+    },
+    {
+      "operation": "POST /api/tasks/run/",
+      "operation_id": "run_task",
+      "path_slots": [],
+      "request_schemas": [
+        "RunTaskRequest",
+        "RunTaskRequest",
+        "RunTaskRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "RunTask"
+      ]
+    },
+    {
+      "operation": "GET /api/tasks/status_counts/",
+      "operation_id": "tasks_status_counts_retrieve",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": [
+        "TaskStatusCounts"
+      ]
+    },
+    {
+      "operation": "GET /api/tasks/summary/",
+      "operation_id": "tasks_summary_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": [
+        "TaskSummary"
+      ]
+    },
+    {
+      "operation": "GET /api/tasks/{id}/",
+      "operation_id": "tasks_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/tasks",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/tasks",
+      "response_schemas": [
+        "TaskSerializerV10"
+      ]
+    },
+    {
+      "operation": "POST /api/token/",
+      "operation_id": "token_create",
+      "path_slots": [],
+      "request_schemas": [
+        "PaperlessAuthTokenRequest",
+        "PaperlessAuthTokenRequest",
+        "PaperlessAuthTokenRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "PaperlessAuthToken"
+      ]
+    },
+    {
+      "operation": "GET /api/trash/",
+      "operation_id": "trash_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "POST /api/trash/",
+      "operation_id": "trash_create",
+      "path_slots": [],
+      "request_schemas": [
+        "TrashRequest",
+        "TrashRequest",
+        "TrashRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/ui_settings/",
+      "operation_id": "ui_settings_retrieve",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": null,
+      "response_schemas": [
+        "UiSettingsView"
+      ]
+    },
+    {
+      "operation": "POST /api/ui_settings/",
+      "operation_id": "ui_settings_create",
+      "path_slots": [],
+      "request_schemas": [
+        "UiSettingsViewRequest",
+        "UiSettingsViewRequest",
+        "UiSettingsViewRequest"
+      ],
+      "resource_type": null,
+      "response_schemas": [
+        "UiSettingsView"
+      ]
+    },
+    {
+      "operation": "GET /api/users/",
+      "operation_id": "users_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/users",
+      "response_schemas": [
+        "User"
+      ]
+    },
+    {
+      "operation": "POST /api/users/",
+      "operation_id": "users_create",
+      "path_slots": [],
+      "request_schemas": [
+        "UserRequest",
+        "UserRequest",
+        "UserRequest"
+      ],
+      "resource_type": "api/users",
+      "response_schemas": [
+        "User"
+      ]
+    },
+    {
+      "operation": "DELETE /api/users/{id}/",
+      "operation_id": "users_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/users",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/users",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/users/{id}/",
+      "operation_id": "users_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/users",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/users",
+      "response_schemas": [
+        "User"
+      ]
+    },
+    {
+      "operation": "PATCH /api/users/{id}/",
+      "operation_id": "users_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/users",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedUserRequest",
+        "PatchedUserRequest",
+        "PatchedUserRequest"
+      ],
+      "resource_type": "api/users",
+      "response_schemas": [
+        "User"
+      ]
+    },
+    {
+      "operation": "PUT /api/users/{id}/",
+      "operation_id": "users_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/users",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "UserRequest",
+        "UserRequest",
+        "UserRequest"
+      ],
+      "resource_type": "api/users",
+      "response_schemas": [
+        "User"
+      ]
+    },
+    {
+      "operation": "POST /api/users/{id}/deactivate_totp/",
+      "operation_id": "users_deactivate_totp_create",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": null,
+          "candidate_types": [],
+          "evidence": "identifier_name_candidate",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/users",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/workflow_actions/",
+      "operation_id": "workflow_actions_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/workflow_actions",
+      "response_schemas": [
+        "WorkflowAction"
+      ]
+    },
+    {
+      "operation": "POST /api/workflow_actions/",
+      "operation_id": "workflow_actions_create",
+      "path_slots": [],
+      "request_schemas": [
+        "WorkflowActionRequest",
+        "WorkflowActionRequest",
+        "WorkflowActionRequest"
+      ],
+      "resource_type": "api/workflow_actions",
+      "response_schemas": [
+        "WorkflowAction"
+      ]
+    },
+    {
+      "operation": "DELETE /api/workflow_actions/{id}/",
+      "operation_id": "workflow_actions_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflow_actions",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/workflow_actions",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/workflow_actions/{id}/",
+      "operation_id": "workflow_actions_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflow_actions",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/workflow_actions",
+      "response_schemas": [
+        "WorkflowAction"
+      ]
+    },
+    {
+      "operation": "PATCH /api/workflow_actions/{id}/",
+      "operation_id": "workflow_actions_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflow_actions",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedWorkflowActionRequest",
+        "PatchedWorkflowActionRequest",
+        "PatchedWorkflowActionRequest"
+      ],
+      "resource_type": "api/workflow_actions",
+      "response_schemas": [
+        "WorkflowAction"
+      ]
+    },
+    {
+      "operation": "PUT /api/workflow_actions/{id}/",
+      "operation_id": "workflow_actions_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflow_actions",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "WorkflowActionRequest",
+        "WorkflowActionRequest",
+        "WorkflowActionRequest"
+      ],
+      "resource_type": "api/workflow_actions",
+      "response_schemas": [
+        "WorkflowAction"
+      ]
+    },
+    {
+      "operation": "GET /api/workflow_triggers/",
+      "operation_id": "workflow_triggers_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/workflow_triggers",
+      "response_schemas": [
+        "WorkflowTrigger"
+      ]
+    },
+    {
+      "operation": "POST /api/workflow_triggers/",
+      "operation_id": "workflow_triggers_create",
+      "path_slots": [],
+      "request_schemas": [
+        "WorkflowTriggerRequest",
+        "WorkflowTriggerRequest",
+        "WorkflowTriggerRequest"
+      ],
+      "resource_type": "api/workflow_triggers",
+      "response_schemas": [
+        "WorkflowTrigger"
+      ]
+    },
+    {
+      "operation": "DELETE /api/workflow_triggers/{id}/",
+      "operation_id": "workflow_triggers_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflow_triggers",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/workflow_triggers",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/workflow_triggers/{id}/",
+      "operation_id": "workflow_triggers_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflow_triggers",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/workflow_triggers",
+      "response_schemas": [
+        "WorkflowTrigger"
+      ]
+    },
+    {
+      "operation": "PATCH /api/workflow_triggers/{id}/",
+      "operation_id": "workflow_triggers_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflow_triggers",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedWorkflowTriggerRequest",
+        "PatchedWorkflowTriggerRequest",
+        "PatchedWorkflowTriggerRequest"
+      ],
+      "resource_type": "api/workflow_triggers",
+      "response_schemas": [
+        "WorkflowTrigger"
+      ]
+    },
+    {
+      "operation": "PUT /api/workflow_triggers/{id}/",
+      "operation_id": "workflow_triggers_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflow_triggers",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "WorkflowTriggerRequest",
+        "WorkflowTriggerRequest",
+        "WorkflowTriggerRequest"
+      ],
+      "resource_type": "api/workflow_triggers",
+      "response_schemas": [
+        "WorkflowTrigger"
+      ]
+    },
+    {
+      "operation": "GET /api/workflows/",
+      "operation_id": "workflows_list",
+      "path_slots": [],
+      "request_schemas": [],
+      "resource_type": "api/workflows",
+      "response_schemas": [
+        "Workflow"
+      ]
+    },
+    {
+      "operation": "POST /api/workflows/",
+      "operation_id": "workflows_create",
+      "path_slots": [],
+      "request_schemas": [
+        "WorkflowRequest",
+        "WorkflowRequest",
+        "WorkflowRequest"
+      ],
+      "resource_type": "api/workflows",
+      "response_schemas": [
+        "Workflow"
+      ]
+    },
+    {
+      "operation": "DELETE /api/workflows/{id}/",
+      "operation_id": "workflows_destroy",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflows",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/workflows",
+      "response_schemas": []
+    },
+    {
+      "operation": "GET /api/workflows/{id}/",
+      "operation_id": "workflows_retrieve",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflows",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [],
+      "resource_type": "api/workflows",
+      "response_schemas": [
+        "Workflow"
+      ]
+    },
+    {
+      "operation": "PATCH /api/workflows/{id}/",
+      "operation_id": "workflows_partial_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflows",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "PatchedWorkflowRequest",
+        "PatchedWorkflowRequest",
+        "PatchedWorkflowRequest"
+      ],
+      "resource_type": "api/workflows",
+      "response_schemas": [
+        "Workflow"
+      ]
+    },
+    {
+      "operation": "PUT /api/workflows/{id}/",
+      "operation_id": "workflows_update",
+      "path_slots": [
+        {
+          "binding_status": "requires_identity_evidence",
+          "business_type": "api/workflows",
+          "candidate_types": [],
+          "evidence": "owning_item_path",
+          "name": "id",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "request_schemas": [
+        "WorkflowRequest",
+        "WorkflowRequest",
+        "WorkflowRequest"
+      ],
+      "resource_type": "api/workflows",
+      "response_schemas": [
+        "Workflow"
+      ]
+    }
+  ],
+  "source_openapi_sha256": "7840d7816133c13fdeb43e1cd9a3013c7fff886538f5612bff3d0b42b2119d0c",
+  "version": 1
+}

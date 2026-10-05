@@ -1,0 +1,21 @@
+{
+  "status": "READY_FOR_OPERATOR_NATIVE_INFRASTRUCTURE_PILOT",
+  "actual_paperless_native_run": false,
+  "windows_launcher_executed": false,
+  "test_counts": {
+    "transport_separation": 5,
+    "compiled_relationships": 15,
+    "credential_auth": 6,
+    "native_fixture_cases": 3
+  },
+  "native_sample_bytes": 466910,
+  "http_requests_per_complete_schedule": 9,
+  "automatic_retry": false,
+  "ordinary_user_configuration_qualified": false,
+  "remaining_gates": [
+    "Operator replay against real Paperless",
+    "Ordinary-user positive permissions and ownership qualification",
+    "Document fixture ingestion and relationship mapping"
+  ],
+  "source_freeze_commit": "4df22f7007c097ffd31e1256c2f3242ebabb6084"
+}

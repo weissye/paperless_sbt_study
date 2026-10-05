@@ -1,0 +1,114 @@
+{
+  "scope": "Native Provengo against a local positive CRUD fixture, not the real Paperless server",
+  "cases": [
+    {
+      "fault": "none",
+      "accepted": true,
+      "requests": [
+        [
+          "POST",
+          "/api/token/"
+        ],
+        [
+          "GET",
+          "/api/statistics/"
+        ],
+        [
+          "GET",
+          "/api/statistics/"
+        ],
+        [
+          "POST",
+          "/api/tags/"
+        ],
+        [
+          "GET",
+          "/api/tags/1/"
+        ],
+        [
+          "GET",
+          "/api/statistics/"
+        ],
+        [
+          "POST",
+          "/api/tags/"
+        ],
+        [
+          "GET",
+          "/api/tags/2/"
+        ],
+        [
+          "GET",
+          "/api/statistics/"
+        ]
+      ],
+      "receipt": {
+        "negative_tests": [],
+        "owned_instances": 2,
+        "owned_records": [
+          {
+            "instance": "api/tags#2",
+            "resource": "api/tags",
+            "route": {
+              "id": 1,
+              "slug": "tag-1"
+            }
+          },
+          {
+            "instance": "api/tags#1",
+            "resource": "api/tags",
+            "route": {
+              "id": 2,
+              "slug": "tag-2"
+            }
+          }
+        ],
+        "reset_replay_accepted": false,
+        "response_count": 9,
+        "status": "LIVE_CALLBACKS_COMPLETE",
+        "task_count": 2
+      },
+      "error": null
+    },
+    {
+      "fault": "identity",
+      "accepted": false,
+      "requests": [
+        [
+          "POST",
+          "/api/token/"
+        ],
+        [
+          "GET",
+          "/api/statistics/"
+        ],
+        [
+          "GET",
+          "/api/statistics/"
+        ],
+        [
+          "POST",
+          "/api/tags/"
+        ],
+        [
+          "GET",
+          "/api/tags/1/"
+        ]
+      ],
+      "receipt": null,
+      "error": "Native live replay returned exit code 1\n16:05:39.113 INFO [RUN>TEST-1] Selected: [GET {headers:{Authorization:\"Token <REDACTED>\", Accept:\"application/json; version=10\"}, expectedResponseCodes:[0:200.0], lib:\"REST\", method:\"GET\", callback:{}, parameters:{}, url:\"http://127.0.0.1:9930/api/tags/1/\"}]\n16:05:39.128 INFO [RUN>TEST-1] RTV: setting 'sbt_rel_progress' to '{\"responses\":5,\"done\":[]}'\n16:05:39.130 WARN [RUN>TEST-1] FAIL: Route identity changed on readback.\n16:05:39.131 WARN [RUN>TEST-1] ### Switching to test fail mode. ###\n16:05:39.132 INFO [RUN>TEST-1] Selected: [SBT:RelTaskDone {owner:\"api/tags#2\", id:\"create:api/tags#2\"}]\n16:05:39.132 INFO [RUN>TEST-1] Test Fail Mode, skipping actuation"
+    },
+    {
+      "fault": "empty-token",
+      "accepted": false,
+      "requests": [
+        [
+          "POST",
+          "/api/token/"
+        ]
+      ],
+      "receipt": null,
+      "error": "Native live replay returned exit code 1\n16:05:40.761 INFO [RUN>TEST-1] RTV: setting 'sbt_rel_schema_registry' to '{\"AISuggestions\":{\"type\":\"object\",\"properties\":{\"title\":{\"type\":\"string\",\"nullable\":true},\"correspondents\":{\"type\":\"array\",\"items\":{\"type\":\"integer\"}},\"suggested_correspondents\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"tags\":{\"type\":\"array\",\"items\":{\"type\":\"integer\"}},\"suggested_tags\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"document_types\":{\"type\":\"array\",\"items\":{\"type\":\"integer\"}},\"suggested_document_types\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"storage_paths\":{\"type\":\"array\",\"items\":{\"type\":\"integer\"}},\"suggested_storage_paths\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"dates\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}},\"required\":[\"correspondents\",\"dates\",\"document_types\",\"storage_paths\",\"suggested_correspondents\",\"suggested_document_types\",\"suggested_storage_paths\",\"suggested_tags\",\"tags\",\"title\"]},\"AccountTypeEnum\":{\"enum\":[1,2,3],\"type\":\"integer\",\"description\":\"* `1` - IMAP\\n* `2` - Gmail OAuth\\n* `3` - Outlook OAuth\"},\"AcknowledgeTasks\":{\"type\":\"object\",\"properties\":{\"result\":{\"type\":\"integer\"}},\"required\":[\"result\"]},\"AcknowledgeTasksViewRequest\":{\"type\":\"object\",\"properties\":{\"tasks\":{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"writeOnly\":true},\"all\":{\"type\":\"boolean\",\"writeOnly\":true,\"default\":false}}},\"Actor\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"integer\"},\"username\":{\"type\":\"string\"}},\"required\":[\"id\",\"username\"]},\"ApplicationConfiguration\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"integer\",\"readOnly\":true},\"externally_configured_variables\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"readOnly\":true},\"user_args\":{\"nullable\":true},\"barcode_tag_mapping\":{\"nullable\":true},\"llm_api_key\":{\"type\":\"string\",\"nullable\":true,\"maxLength\":1024},\"remote_ocr_api_key\":{\"type\":\"string\",\"nullable\":true,\"maxLength\":1024},\"output_type\":{\"nullable\":true,\"title\":\"Sets the output PDF type\",\"oneOf\":[{\"$ref\":\"#/components/schemas/OutputTypeEnum\"},{\"$ref\":\"#/components/schemas/BlankEnum\"},{\"$ref\":\"#/components/schemas/NullEnum\"}]},\"pages\":{\"type\":\"integer\",\"maximum\":32767,\"minimum\":1,\"nullable\":true,\"title\":\"Do OCR from page 1 to this value\"},\"language\":{\"type\":\"string\",\"nullable\":true,\"title\":\"Do OCR using these languages\",\"maxLength\":32},\"mode\":{\"nullable\":true,\"title\":\"Sets the OCR mode\",\"oneOf\":[{\"$ref\":\"#/components/schemas/ModeEnum\"},{\"$ref\":\"#/components/schemas/BlankEnum\"},{\"$ref\":\"#/components/schemas/NullEnum\"}]},\"archive_file_generation\":{\"nullable\":true,\"title\":\"Controls archive file generation\",\"oneOf\":[{\"$ref\":\"#/components/schemas/ArchiveFileGenerationEnum\"},{\"$ref\":\"#/components/schemas/BlankEnum\"},{\"$ref\":\"#/components/schemas/NullEnum\"}]},\"image_dpi\":{\"type\":\"integer\",\"maximum\":32767,\"minimum\":1,\"nullable\":true,\"title\":\"Sets image DPI fallback value\"},\"unpaper_clean\":{\"nullable\":true,\"title\":\"Controls the unpaper cleaning\",\"oneOf\":[{\"$ref\":\"#/components/schemas/UnpaperCleanEnum\"},{\"$ref\":\"#/components/schemas/BlankEnum\"},{\"$ref\":\"#/components/schemas/NullEnum\"}]},\"deskew\":{\"type\":\"boolean\",\"nullable\":true,\"title\":\"Enables deskew\"},\"rotate_pages\":{\"type\":\"boolean\",\"nullable\":true,\"title\":\"Enables page rotation\"},\"rotate_pages_threshold\":{\"type\":\"number\",\"format\":\"double\",\"minimum\":0,\"nullable\":true,\"title\":\"Sets the threshold for rotation of pages\"},\"max_image_pixels\":{\"type\":\"number\",\"format\":\"double\",\"minimum\":0,\"nullable\":true,\"title\":\"Sets the maximum image size for decompression\"},\"color_conversion_strategy\":{\"nullable\":true,\"title\":\"Sets the Ghostscript color conversion strategy\",\"oneOf\":[{\"$ref\":\"#/components/schemas/ColorConversionStrategyEnum\"},{\"$ref\":\"#/components/schemas/BlankEnum\"},{\"$ref\":\"#/components/schemas/NullEnum\"}]},\"app_title\":{\"type\":\"string\",\"nullable\":true,\"title\":\"Application title\",\"maxLength\":48},\"app_logo\":{\"type\":\"string\",\"format\":\"uri\",\"nullable\":true,\"title\":\"Application logo\",\"pattern\":\"(?:jpg|png|gif|svg)$\"},\"barcodes_enabled\":{\"type\":\"boolean\",\"nullable\":true,\"title\":\"Enables barcode scanning\"},"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+Generic semantic campaign delta - local validation
+
+Full regression: 85 tests, 349.679 seconds, OK.
+Native runtime included: Provengo 0.7.5-SNAPSHOT ef04cca/20250714-0453/master.
+Native semantic matrix after collector changes: OK, 77.764 seconds.
+Three native samples per family, nine successful local-fixture replays total.
+Injected native faults: stale merge references, HTTP 500, doubled quantities,
+manual quantity removed, wrong association quantity, quantity lost on merge.
+Final focused policy/oracle regression: 5 tests, 13.673 seconds, OK.
+Node regression also rejects matching forged expected/observed quantity receipts.
+Missing-family campaign evidence is rejected.
+466 transport arguments/callback effects: identical in Node comparison.
+Five prior runtime profiles: interfaces, stories and maps byte-identical to
+pre-extension generator for fixed inputs: runtime, compact, shared-update,
+consistency, attached deletion. Existing callback isolation source unchanged.
+
+No live Mealie requests were sent from this environment. Native testing uses a
+local HTTP fixture. Windows campaign execution and explicit business-policy
+qualification on the user's pinned local Mealie server are pending.
+No full server reset/replay acceptance is claimed.

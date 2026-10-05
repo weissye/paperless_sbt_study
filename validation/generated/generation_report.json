@@ -1,0 +1,4112 @@
+{
+  "coverage": {
+    "covered_operations": 163,
+    "total_operations": 163,
+    "uncovered_operations": []
+  },
+  "entities": [
+    {
+      "collection_path": "/api/config/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "ApplicationConfiguration",
+      "item_path": "/api/config/{id}/",
+      "key": "api/config",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/ApplicationConfiguration/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/config/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "configList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/config/",
+          "source_pointer": "#/paths/~1api~1config~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "configDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/config/{id}/",
+          "source_pointer": "#/paths/~1api~1config~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "configRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/config/{id}/",
+          "source_pointer": "#/paths/~1api~1config~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "configPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/config/{id}/",
+          "source_pointer": "#/paths/~1api~1config~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "configUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/config/{id}/",
+          "source_pointer": "#/paths/~1api~1config~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "ApplicationConfigurations",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/config/ response 200 references ApplicationConfiguration",
+          "pointer": "#/paths/~1api~1config~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "ApplicationConfiguration"
+    },
+    {
+      "collection_path": "/api/correspondents/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "Correspondent",
+      "item_path": "/api/correspondents/{id}/",
+      "key": "api/correspondents",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/Correspondent/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/correspondents/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "correspondentsList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/correspondents/",
+          "source_pointer": "#/paths/~1api~1correspondents~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "correspondentsCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/correspondents/",
+          "source_pointer": "#/paths/~1api~1correspondents~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "correspondentsDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/correspondents/{id}/",
+          "source_pointer": "#/paths/~1api~1correspondents~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "correspondentsRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/correspondents/{id}/",
+          "source_pointer": "#/paths/~1api~1correspondents~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "correspondentsPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/correspondents/{id}/",
+          "source_pointer": "#/paths/~1api~1correspondents~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "correspondentsUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/correspondents/{id}/",
+          "source_pointer": "#/paths/~1api~1correspondents~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "Correspondents",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/correspondents/ response 200 references Correspondent",
+          "pointer": "#/paths/~1api~1correspondents~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "Correspondent"
+    },
+    {
+      "collection_path": "/api/custom_fields/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "CustomField",
+      "item_path": "/api/custom_fields/{id}/",
+      "key": "api/custom_fields",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/CustomField/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/custom_fields/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "customFieldsList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/custom_fields/",
+          "source_pointer": "#/paths/~1api~1custom_fields~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "customFieldsCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/custom_fields/",
+          "source_pointer": "#/paths/~1api~1custom_fields~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "customFieldsDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/custom_fields/{id}/",
+          "source_pointer": "#/paths/~1api~1custom_fields~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "customFieldsRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/custom_fields/{id}/",
+          "source_pointer": "#/paths/~1api~1custom_fields~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "customFieldsPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/custom_fields/{id}/",
+          "source_pointer": "#/paths/~1api~1custom_fields~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "customFieldsUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/custom_fields/{id}/",
+          "source_pointer": "#/paths/~1api~1custom_fields~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "CustomFields",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/custom_fields/ response 200 references CustomField",
+          "pointer": "#/paths/~1api~1custom_fields~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "CustomField"
+    },
+    {
+      "collection_path": "/api/document_types/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "DocumentType",
+      "item_path": "/api/document_types/{id}/",
+      "key": "api/document_types",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/DocumentType/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/document_types/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentTypesList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/document_types/",
+          "source_pointer": "#/paths/~1api~1document_types~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentTypesCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/document_types/",
+          "source_pointer": "#/paths/~1api~1document_types~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentTypesDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/document_types/{id}/",
+          "source_pointer": "#/paths/~1api~1document_types~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentTypesRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/document_types/{id}/",
+          "source_pointer": "#/paths/~1api~1document_types~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentTypesPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/document_types/{id}/",
+          "source_pointer": "#/paths/~1api~1document_types~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentTypesUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/document_types/{id}/",
+          "source_pointer": "#/paths/~1api~1document_types~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "DocumentTypes",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/document_types/ response 200 references DocumentType",
+          "pointer": "#/paths/~1api~1document_types~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "DocumentType"
+    },
+    {
+      "collection_path": "/api/documents/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "Document",
+      "item_path": "/api/documents/{id}/",
+      "key": "api/documents",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/Document/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/documents/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentsList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/documents/",
+          "source_pointer": "#/paths/~1api~1documents~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentsDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/documents/{id}/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [
+            400
+          ],
+          "has_default_response": false,
+          "js_function": "documentsRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentsPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentsUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/documents/{id}/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            400,
+            403,
+            404
+          ],
+          "has_default_response": false,
+          "js_function": "documentsAiSuggestionsRetrieve",
+          "kind": "action",
+          "method": "GET",
+          "path": "/api/documents/{id}/ai_suggestions/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1ai_suggestions~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentsDownloadRetrieve",
+          "kind": "action",
+          "method": "GET",
+          "path": "/api/documents/{id}/download/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1download~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            400,
+            403,
+            404,
+            500
+          ],
+          "has_default_response": false,
+          "js_function": "documentsEmailDocument",
+          "kind": "action",
+          "method": "POST",
+          "path": "/api/documents/{id}/email/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1email~1/post",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            400,
+            403,
+            404
+          ],
+          "has_default_response": false,
+          "js_function": "documentsHistoryList",
+          "kind": "action",
+          "method": "GET",
+          "path": "/api/documents/{id}/history/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1history~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            400,
+            403,
+            404
+          ],
+          "has_default_response": false,
+          "js_function": "documentsMetadataRetrieve",
+          "kind": "action",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1metadata~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            400,
+            403,
+            404
+          ],
+          "has_default_response": false,
+          "js_function": "documentsNotesDestroy",
+          "kind": "action",
+          "method": "DELETE",
+          "path": "/api/documents/{id}/notes/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1notes~1/delete",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            400,
+            403,
+            404
+          ],
+          "has_default_response": false,
+          "js_function": "documentsNotesList",
+          "kind": "action",
+          "method": "GET",
+          "path": "/api/documents/{id}/notes/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1notes~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            400,
+            403,
+            404
+          ],
+          "has_default_response": false,
+          "js_function": "documentsNotesCreate",
+          "kind": "action",
+          "method": "POST",
+          "path": "/api/documents/{id}/notes/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1notes~1/post",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentsPreviewRetrieve",
+          "kind": "action",
+          "method": "GET",
+          "path": "/api/documents/{id}/preview/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1preview~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentsRoot",
+          "kind": "action",
+          "method": "GET",
+          "path": "/api/documents/{id}/root/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1root~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            400,
+            403,
+            404
+          ],
+          "has_default_response": false,
+          "js_function": "documentShareLinks",
+          "kind": "action",
+          "method": "GET",
+          "path": "/api/documents/{id}/share_links/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1share_links~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            400,
+            403,
+            404
+          ],
+          "has_default_response": false,
+          "js_function": "documentsSuggestionsRetrieve",
+          "kind": "action",
+          "method": "GET",
+          "path": "/api/documents/{id}/suggestions/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1suggestions~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentsThumbRetrieve",
+          "kind": "action",
+          "method": "GET",
+          "path": "/api/documents/{id}/thumb/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1thumb~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentsUpdateVersion",
+          "kind": "action",
+          "method": "POST",
+          "path": "/api/documents/{id}/update_version/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1update_version~1/post",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentsDeleteVersion",
+          "kind": "action",
+          "method": "DELETE",
+          "path": "/api/documents/{id}/versions/{version_id}/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1versions~1{version_id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "documentsUpdateVersionLabel",
+          "kind": "action",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/versions/{version_id}/",
+          "source_pointer": "#/paths/~1api~1documents~1{id}~1versions~1{version_id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "Documents",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/documents/ response 200 references Document",
+          "pointer": "#/paths/~1api~1documents~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "Document"
+    },
+    {
+      "collection_path": "/api/groups/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "Group",
+      "item_path": "/api/groups/{id}/",
+      "key": "api/groups",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/Group/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/groups/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "groupsList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/groups/",
+          "source_pointer": "#/paths/~1api~1groups~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "groupsCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/groups/",
+          "source_pointer": "#/paths/~1api~1groups~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "groupsDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/groups/{id}/",
+          "source_pointer": "#/paths/~1api~1groups~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "groupsRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/groups/{id}/",
+          "source_pointer": "#/paths/~1api~1groups~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "groupsPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/groups/{id}/",
+          "source_pointer": "#/paths/~1api~1groups~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "groupsUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/groups/{id}/",
+          "source_pointer": "#/paths/~1api~1groups~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "Groups",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/groups/ response 200 references Group",
+          "pointer": "#/paths/~1api~1groups~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "Group"
+    },
+    {
+      "collection_path": "/api/logs/",
+      "composite_key": false,
+      "confidence": 0.5,
+      "dependencies": [],
+      "display_name": "Log",
+      "item_path": "/api/logs/{id}/",
+      "key": "api/logs",
+      "key_confidence": 0.6,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/logs/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "logsList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/logs/",
+          "source_pointer": "#/paths/~1api~1logs~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            404
+          ],
+          "has_default_response": false,
+          "js_function": "retrieveLog",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/logs/{id}/",
+          "source_pointer": "#/paths/~1api~1logs~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "Logs",
+      "provenance": [
+        {
+          "detail": "No component schema reference found; entity name derived from path segment 'logs'",
+          "pointer": "/api/logs/{id}/",
+          "rule": "E4:derived_from_path_segment"
+        }
+      ],
+      "schema_name": null
+    },
+    {
+      "collection_path": "/api/mail_accounts/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "MailAccount",
+      "item_path": "/api/mail_accounts/{id}/",
+      "key": "api/mail_accounts",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/MailAccount/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/mail_accounts/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailAccountsList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/mail_accounts/",
+          "source_pointer": "#/paths/~1api~1mail_accounts~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailAccountsCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/mail_accounts/",
+          "source_pointer": "#/paths/~1api~1mail_accounts~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailAccountsDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/mail_accounts/{id}/",
+          "source_pointer": "#/paths/~1api~1mail_accounts~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailAccountsRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/mail_accounts/{id}/",
+          "source_pointer": "#/paths/~1api~1mail_accounts~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailAccountsPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/mail_accounts/{id}/",
+          "source_pointer": "#/paths/~1api~1mail_accounts~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailAccountsUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/mail_accounts/{id}/",
+          "source_pointer": "#/paths/~1api~1mail_accounts~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            404
+          ],
+          "has_default_response": false,
+          "js_function": "mailAccountProcess",
+          "kind": "action",
+          "method": "POST",
+          "path": "/api/mail_accounts/{id}/process/",
+          "source_pointer": "#/paths/~1api~1mail_accounts~1{id}~1process~1/post",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "MailAccounts",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/mail_accounts/ response 200 references MailAccount",
+          "pointer": "#/paths/~1api~1mail_accounts~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "MailAccount"
+    },
+    {
+      "collection_path": "/api/mail_rules/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "MailRule",
+      "item_path": "/api/mail_rules/{id}/",
+      "key": "api/mail_rules",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/MailRule/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/mail_rules/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailRulesList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/mail_rules/",
+          "source_pointer": "#/paths/~1api~1mail_rules~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailRulesCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/mail_rules/",
+          "source_pointer": "#/paths/~1api~1mail_rules~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailRulesDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/mail_rules/{id}/",
+          "source_pointer": "#/paths/~1api~1mail_rules~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailRulesRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/mail_rules/{id}/",
+          "source_pointer": "#/paths/~1api~1mail_rules~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailRulesPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/mail_rules/{id}/",
+          "source_pointer": "#/paths/~1api~1mail_rules~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "mailRulesUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/mail_rules/{id}/",
+          "source_pointer": "#/paths/~1api~1mail_rules~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "MailRules",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/mail_rules/ response 200 references MailRule",
+          "pointer": "#/paths/~1api~1mail_rules~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "MailRule"
+    },
+    {
+      "collection_path": "/api/processed_mail/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "ProcessedMail",
+      "item_path": "/api/processed_mail/{id}/",
+      "key": "api/processed_mail",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/ProcessedMail/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/processed_mail/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "processedMailList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/processed_mail/",
+          "source_pointer": "#/paths/~1api~1processed_mail~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "processedMailRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/processed_mail/{id}/",
+          "source_pointer": "#/paths/~1api~1processed_mail~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "ProcessedMails",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/processed_mail/ response 200 references ProcessedMail",
+          "pointer": "#/paths/~1api~1processed_mail~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "ProcessedMail"
+    },
+    {
+      "collection_path": "/api/saved_views/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "SavedView",
+      "item_path": "/api/saved_views/{id}/",
+      "key": "api/saved_views",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/SavedView/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/saved_views/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "savedViewsList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/saved_views/",
+          "source_pointer": "#/paths/~1api~1saved_views~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "savedViewsCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/saved_views/",
+          "source_pointer": "#/paths/~1api~1saved_views~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "savedViewsDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/saved_views/{id}/",
+          "source_pointer": "#/paths/~1api~1saved_views~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "savedViewsRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/saved_views/{id}/",
+          "source_pointer": "#/paths/~1api~1saved_views~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "savedViewsPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/saved_views/{id}/",
+          "source_pointer": "#/paths/~1api~1saved_views~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "savedViewsUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/saved_views/{id}/",
+          "source_pointer": "#/paths/~1api~1saved_views~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "SavedViews",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/saved_views/ response 200 references SavedView",
+          "pointer": "#/paths/~1api~1saved_views~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "SavedView"
+    },
+    {
+      "collection_path": "/api/share_link_bundles/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "ShareLinkBundle",
+      "item_path": "/api/share_link_bundles/{id}/",
+      "key": "api/share_link_bundles",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/ShareLinkBundle/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/share_link_bundles/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "shareLinkBundlesList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/share_link_bundles/",
+          "source_pointer": "#/paths/~1api~1share_link_bundles~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "shareLinkBundlesCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/share_link_bundles/",
+          "source_pointer": "#/paths/~1api~1share_link_bundles~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "shareLinkBundlesDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/share_link_bundles/{id}/",
+          "source_pointer": "#/paths/~1api~1share_link_bundles~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "shareLinkBundlesRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/share_link_bundles/{id}/",
+          "source_pointer": "#/paths/~1api~1share_link_bundles~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            400
+          ],
+          "has_default_response": false,
+          "js_function": "shareLinkBundlesRebuild",
+          "kind": "action",
+          "method": "POST",
+          "path": "/api/share_link_bundles/{id}/rebuild/",
+          "source_pointer": "#/paths/~1api~1share_link_bundles~1{id}~1rebuild~1/post",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "ShareLinkBundles",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/share_link_bundles/ response 200 references ShareLinkBundle",
+          "pointer": "#/paths/~1api~1share_link_bundles~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "ShareLinkBundle"
+    },
+    {
+      "collection_path": "/api/share_links/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "ShareLink",
+      "item_path": "/api/share_links/{id}/",
+      "key": "api/share_links",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/ShareLink/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/share_links/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "shareLinksList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/share_links/",
+          "source_pointer": "#/paths/~1api~1share_links~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "shareLinksCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/share_links/",
+          "source_pointer": "#/paths/~1api~1share_links~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "shareLinksDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/share_links/{id}/",
+          "source_pointer": "#/paths/~1api~1share_links~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "shareLinksRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/share_links/{id}/",
+          "source_pointer": "#/paths/~1api~1share_links~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "ShareLinks",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/share_links/ response 200 references ShareLink",
+          "pointer": "#/paths/~1api~1share_links~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "ShareLink"
+    },
+    {
+      "collection_path": "/api/storage_paths/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "StoragePath",
+      "item_path": "/api/storage_paths/{id}/",
+      "key": "api/storage_paths",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/StoragePath/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/storage_paths/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "storagePathsList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/storage_paths/",
+          "source_pointer": "#/paths/~1api~1storage_paths~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "storagePathsCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/storage_paths/",
+          "source_pointer": "#/paths/~1api~1storage_paths~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "storagePathsDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/storage_paths/{id}/",
+          "source_pointer": "#/paths/~1api~1storage_paths~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "storagePathsRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/storage_paths/{id}/",
+          "source_pointer": "#/paths/~1api~1storage_paths~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "storagePathsPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/storage_paths/{id}/",
+          "source_pointer": "#/paths/~1api~1storage_paths~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "storagePathsUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/storage_paths/{id}/",
+          "source_pointer": "#/paths/~1api~1storage_paths~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "StoragePaths",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/storage_paths/ response 200 references StoragePath",
+          "pointer": "#/paths/~1api~1storage_paths~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "StoragePath"
+    },
+    {
+      "collection_path": "/api/tags/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "Tag",
+      "item_path": "/api/tags/{id}/",
+      "key": "api/tags",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/Tag/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/tags/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "tagsList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/tags/",
+          "source_pointer": "#/paths/~1api~1tags~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "tagsCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/tags/",
+          "source_pointer": "#/paths/~1api~1tags~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "tagsDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/tags/{id}/",
+          "source_pointer": "#/paths/~1api~1tags~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "tagsRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/tags/{id}/",
+          "source_pointer": "#/paths/~1api~1tags~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "tagsPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/tags/{id}/",
+          "source_pointer": "#/paths/~1api~1tags~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "tagsUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/tags/{id}/",
+          "source_pointer": "#/paths/~1api~1tags~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "Tags",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/tags/ response 200 references Tag",
+          "pointer": "#/paths/~1api~1tags~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "Tag"
+    },
+    {
+      "collection_path": "/api/tasks/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "TaskSerializerV10",
+      "item_path": "/api/tasks/{id}/",
+      "key": "api/tasks",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/TaskSerializerV10/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/tasks/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "tasksList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/tasks/",
+          "source_pointer": "#/paths/~1api~1tasks~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "tasksRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/tasks/{id}/",
+          "source_pointer": "#/paths/~1api~1tasks~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "TaskSerializerV10s",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/tasks/ response 200 references TaskSerializerV10",
+          "pointer": "#/paths/~1api~1tasks~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "TaskSerializerV10"
+    },
+    {
+      "collection_path": "/api/users/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "User",
+      "item_path": "/api/users/{id}/",
+      "key": "api/users",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/User/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/users/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "usersList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/users/",
+          "source_pointer": "#/paths/~1api~1users~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "usersCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/users/",
+          "source_pointer": "#/paths/~1api~1users~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "usersDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/users/{id}/",
+          "source_pointer": "#/paths/~1api~1users~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "usersRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/users/{id}/",
+          "source_pointer": "#/paths/~1api~1users~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "usersPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/users/{id}/",
+          "source_pointer": "#/paths/~1api~1users~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "usersUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/users/{id}/",
+          "source_pointer": "#/paths/~1api~1users~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [
+            404
+          ],
+          "has_default_response": false,
+          "js_function": "usersDeactivateTotpCreate",
+          "kind": "action",
+          "method": "POST",
+          "path": "/api/users/{id}/deactivate_totp/",
+          "source_pointer": "#/paths/~1api~1users~1{id}~1deactivate_totp~1/post",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "Users",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/users/ response 200 references User",
+          "pointer": "#/paths/~1api~1users~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "User"
+    },
+    {
+      "collection_path": "/api/workflow_actions/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "WorkflowAction",
+      "item_path": "/api/workflow_actions/{id}/",
+      "key": "api/workflow_actions",
+      "key_confidence": 0.85,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/workflow_actions/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowActionsList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/workflow_actions/",
+          "source_pointer": "#/paths/~1api~1workflow_actions~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowActionsCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/workflow_actions/",
+          "source_pointer": "#/paths/~1api~1workflow_actions~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowActionsDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/workflow_actions/{id}/",
+          "source_pointer": "#/paths/~1api~1workflow_actions~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowActionsRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/workflow_actions/{id}/",
+          "source_pointer": "#/paths/~1api~1workflow_actions~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowActionsPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/workflow_actions/{id}/",
+          "source_pointer": "#/paths/~1api~1workflow_actions~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowActionsUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/workflow_actions/{id}/",
+          "source_pointer": "#/paths/~1api~1workflow_actions~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "WorkflowActions",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/workflow_actions/ response 200 references WorkflowAction",
+          "pointer": "#/paths/~1api~1workflow_actions~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "WorkflowAction"
+    },
+    {
+      "collection_path": "/api/workflow_triggers/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "WorkflowTrigger",
+      "item_path": "/api/workflow_triggers/{id}/",
+      "key": "api/workflow_triggers",
+      "key_confidence": 0.85,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/workflow_triggers/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowTriggersList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/workflow_triggers/",
+          "source_pointer": "#/paths/~1api~1workflow_triggers~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowTriggersCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/workflow_triggers/",
+          "source_pointer": "#/paths/~1api~1workflow_triggers~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowTriggersDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/workflow_triggers/{id}/",
+          "source_pointer": "#/paths/~1api~1workflow_triggers~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowTriggersRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/workflow_triggers/{id}/",
+          "source_pointer": "#/paths/~1api~1workflow_triggers~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowTriggersPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/workflow_triggers/{id}/",
+          "source_pointer": "#/paths/~1api~1workflow_triggers~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowTriggersUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/workflow_triggers/{id}/",
+          "source_pointer": "#/paths/~1api~1workflow_triggers~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "WorkflowTriggers",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/workflow_triggers/ response 200 references WorkflowTrigger",
+          "pointer": "#/paths/~1api~1workflow_triggers~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "WorkflowTrigger"
+    },
+    {
+      "collection_path": "/api/workflows/",
+      "composite_key": false,
+      "confidence": 1.0,
+      "dependencies": [],
+      "display_name": "Workflow",
+      "item_path": "/api/workflows/{id}/",
+      "key": "api/workflows",
+      "key_confidence": 1.0,
+      "key_fields": [
+        "id"
+      ],
+      "key_provenance": [
+        {
+          "detail": "Path parameter 'id' matches required schema property",
+          "pointer": "#/components/schemas/Workflow/properties/id",
+          "rule": "K3:schema_required_property_match"
+        },
+        {
+          "detail": "Key field(s) derived from item path parameters: ['id']",
+          "pointer": "/api/workflows/{id}/",
+          "rule": "K1/K2:item_path_parameters"
+        }
+      ],
+      "operations": [
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowsList",
+          "kind": "list",
+          "method": "GET",
+          "path": "/api/workflows/",
+          "source_pointer": "#/paths/~1api~1workflows~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowsCreate",
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/workflows/",
+          "source_pointer": "#/paths/~1api~1workflows~1/post",
+          "success_codes": [
+            201
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowsDestroy",
+          "kind": "delete",
+          "method": "DELETE",
+          "path": "/api/workflows/{id}/",
+          "source_pointer": "#/paths/~1api~1workflows~1{id}~1/delete",
+          "success_codes": [
+            204
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowsRetrieve",
+          "kind": "get",
+          "method": "GET",
+          "path": "/api/workflows/{id}/",
+          "source_pointer": "#/paths/~1api~1workflows~1{id}~1/get",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowsPartialUpdate",
+          "kind": "update",
+          "method": "PATCH",
+          "path": "/api/workflows/{id}/",
+          "source_pointer": "#/paths/~1api~1workflows~1{id}~1/patch",
+          "success_codes": [
+            200
+          ]
+        },
+        {
+          "error_codes": [],
+          "has_default_response": false,
+          "js_function": "workflowsUpdate",
+          "kind": "update",
+          "method": "PUT",
+          "path": "/api/workflows/{id}/",
+          "source_pointer": "#/paths/~1api~1workflows~1{id}~1/put",
+          "success_codes": [
+            200
+          ]
+        }
+      ],
+      "plural_display_name": "Workflows",
+      "provenance": [
+        {
+          "detail": "List operation GET /api/workflows/ response 200 references Workflow",
+          "pointer": "#/paths/~1api~1workflows~1/get/responses/200",
+          "rule": "E3b:list_response_schema"
+        }
+      ],
+      "schema_name": "Workflow"
+    }
+  ],
+  "isolation_audit": {
+    "denied_file_count": 0,
+    "policy": "allow-listed OpenAPI/config inputs only; environment-specific paths excluded from deterministic report"
+  },
+  "meta": {
+    "cli_args": {
+      "base_url": "http://127.0.0.1:9930",
+      "command": "generate",
+      "compile_relationships": true,
+      "generator_version": "0.26.19-parallel-crud.3",
+      "instances_per_action": 1,
+      "instances_per_entity": 1,
+      "logical_processes": 1,
+      "name": "paperless",
+      "relationship_profile_sha256": "421b07ee007e4467846dff2f2bf0d9f762de80712c8d62f0b5d5821601fd66c2",
+      "relationship_runtime_sha256": "1d534a51d7d57267911e9fa557e56e55d96abc5ab08e4d517ab5a34315e4ff27",
+      "seed": 1101,
+      "source_openapi_sha256": "7840d7816133c13fdeb43e1cd9a3013c7fff886538f5612bff3d0b42b2119d0c",
+      "story_profile": "parallel-crud"
+    },
+    "openapi_version": "3.0.3",
+    "title": "Paperless-ngx REST API"
+  },
+  "reproducibility": {
+    "artifact_sha256": {
+      "dependency_graph_json": "03faf249d73445713ed9a2453fddd8007e6b73af3351295000eaa840184ffa07",
+      "interfaces_js": "4f6f87a21f89c87ebf7ee2e61f79d91ef5ecff56bbbef60ad02006d245afc70e",
+      "stories_js": "ab60b2508da95f03c9bf184c8ea23733f99c6257ccf008be2c05c94df586de82"
+    },
+    "base_url": "http://127.0.0.1:9930",
+    "content_fingerprint_sha256": "bd79ae115282143934dcecbc483bdf5f3f7e828168b759e09cb561e3cf12ccc6",
+    "generator_version": "0.26.19-parallel-crud.3",
+    "instances_per_action": 1,
+    "instances_per_entity": 1,
+    "scope": "semantic inputs and generated artifacts; filesystem paths and run-time ports are excluded",
+    "seed": 1101,
+    "source_openapi_sha256": "7840d7816133c13fdeb43e1cd9a3013c7fff886538f5612bff3d0b42b2119d0c"
+  },
+  "response_code_coverage": [
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/bulk_edit_objects/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/config/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/config/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/config/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/config/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/config/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/correspondents/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/correspondents/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/correspondents/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/correspondents/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/correspondents/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/correspondents/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/custom_fields/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/custom_fields/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/custom_fields/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/custom_fields/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/custom_fields/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/custom_fields/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/document_types/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/document_types/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/document_types/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/document_types/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/document_types/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/document_types/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/documents/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/documents/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/documents/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400",
+        "403",
+        "404"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/{id}/ai_suggestions/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/{id}/download/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400",
+        "403",
+        "404",
+        "500"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/{id}/email/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400",
+        "403",
+        "404"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/{id}/history/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400",
+        "403",
+        "404"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/{id}/metadata/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400",
+        "403",
+        "404"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/{id}/notes/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400",
+        "403",
+        "404"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/{id}/notes/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400",
+        "403",
+        "404"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/documents/{id}/notes/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/{id}/preview/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/{id}/root/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400",
+        "403",
+        "404"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/{id}/share_links/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400",
+        "403",
+        "404"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/{id}/suggestions/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/{id}/thumb/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/{id}/update_version/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/documents/{id}/versions/{version_id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/documents/{id}/versions/{version_id}/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "403"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/bulk_download/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/bulk_edit/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/chat/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/delete/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/edit_pdf/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400",
+        "403",
+        "404",
+        "500"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/email/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/merge/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/merge_as_versions/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/documents/next_asn/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/post_document/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/remove_password/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/reprocess/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/rotate/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/documents/selection_data/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/groups/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/groups/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/groups/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/groups/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/groups/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/groups/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/logs/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "404"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/logs/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/mail_accounts/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/mail_accounts/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/mail_accounts/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/mail_accounts/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/mail_accounts/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/mail_accounts/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "404"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/mail_accounts/{id}/process/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/mail_accounts/test/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/mail_rules/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/mail_rules/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/mail_rules/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/mail_rules/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/mail_rules/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/mail_rules/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/oauth/callback/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/processed_mail/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/processed_mail/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400",
+        "403"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/processed_mail/bulk_delete/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/profile/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/profile/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/profile/disconnect_social_account/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/profile/generate_auth_token/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/profile/social_account_providers/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/profile/totp/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/profile/totp/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "404"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/profile/totp/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/remote_version/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/saved_views/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/saved_views/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/saved_views/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/saved_views/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/saved_views/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/saved_views/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/search/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/search/autocomplete/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/share_link_bundles/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/share_link_bundles/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/share_link_bundles/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/share_link_bundles/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/share_link_bundles/{id}/rebuild/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/share_links/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/share_links/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/share_links/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/share_links/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/statistics/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/status/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/storage_paths/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/storage_paths/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/storage_paths/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/storage_paths/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/storage_paths/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/storage_paths/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/storage_paths/test/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/tags/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/tags/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/tags/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/tags/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/tags/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/tags/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/tasks/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/tasks/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/tasks/acknowledge/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/tasks/active/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "400"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/tasks/run/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/tasks/status_counts/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/tasks/summary/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/token/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/trash/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/trash/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/ui_settings/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/ui_settings/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/users/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/users/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/users/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/users/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/users/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/users/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200",
+        "404"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/users/{id}/deactivate_totp/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/workflow_actions/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/workflow_actions/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/workflow_actions/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/workflow_actions/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/workflow_actions/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/workflow_actions/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/workflow_triggers/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/workflow_triggers/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/workflow_triggers/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/workflow_triggers/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/workflow_triggers/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/workflow_triggers/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/workflows/"
+    },
+    {
+      "declared_codes": [
+        "201"
+      ],
+      "has_default": false,
+      "method": "POST",
+      "path": "/api/workflows/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "GET",
+      "path": "/api/workflows/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PUT",
+      "path": "/api/workflows/{id}/"
+    },
+    {
+      "declared_codes": [
+        "204"
+      ],
+      "has_default": false,
+      "method": "DELETE",
+      "path": "/api/workflows/{id}/"
+    },
+    {
+      "declared_codes": [
+        "200"
+      ],
+      "has_default": false,
+      "method": "PATCH",
+      "path": "/api/workflows/{id}/"
+    }
+  ],
+  "security_schemes": {
+    "PaperelessBasicAuthentication": {
+      "location": "",
+      "param_name": "",
+      "scheme": "basic",
+      "type": "http"
+    },
+    "cookieAuth": {
+      "location": "cookie",
+      "param_name": "sessionid",
+      "scheme": "",
+      "type": "apiKey"
+    },
+    "tokenAuth": {
+      "location": "header",
+      "param_name": "Authorization",
+      "scheme": "",
+      "type": "apiKey"
+    }
+  },
+  "standalone_operations": [
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "bulkEditObjects",
+      "method": "POST",
+      "path": "/api/bulk_edit_objects/",
+      "source_pointer": "#/paths/~1api~1bulk_edit_objects~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [
+        403
+      ],
+      "has_default_response": false,
+      "js_function": "bulkDownload",
+      "method": "POST",
+      "path": "/api/documents/bulk_download/",
+      "source_pointer": "#/paths/~1api~1documents~1bulk_download~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "bulkEdit",
+      "method": "POST",
+      "path": "/api/documents/bulk_edit/",
+      "source_pointer": "#/paths/~1api~1documents~1bulk_edit~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "documentsChatCreate",
+      "method": "POST",
+      "path": "/api/documents/chat/",
+      "source_pointer": "#/paths/~1api~1documents~1chat~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "documentsDelete",
+      "method": "POST",
+      "path": "/api/documents/delete/",
+      "source_pointer": "#/paths/~1api~1documents~1delete~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "documentsEditPdf",
+      "method": "POST",
+      "path": "/api/documents/edit_pdf/",
+      "source_pointer": "#/paths/~1api~1documents~1edit_pdf~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [
+        400,
+        403,
+        404,
+        500
+      ],
+      "has_default_response": false,
+      "js_function": "emailDocuments",
+      "method": "POST",
+      "path": "/api/documents/email/",
+      "source_pointer": "#/paths/~1api~1documents~1email~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "documentsMerge",
+      "method": "POST",
+      "path": "/api/documents/merge/",
+      "source_pointer": "#/paths/~1api~1documents~1merge~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "documentsMergeAsVersions",
+      "method": "POST",
+      "path": "/api/documents/merge_as_versions/",
+      "source_pointer": "#/paths/~1api~1documents~1merge_as_versions~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "documentsNextAsnRetrieve",
+      "method": "GET",
+      "path": "/api/documents/next_asn/",
+      "source_pointer": "#/paths/~1api~1documents~1next_asn~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "documentsPostDocumentCreate",
+      "method": "POST",
+      "path": "/api/documents/post_document/",
+      "source_pointer": "#/paths/~1api~1documents~1post_document~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "documentsRemovePassword",
+      "method": "POST",
+      "path": "/api/documents/remove_password/",
+      "source_pointer": "#/paths/~1api~1documents~1remove_password~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "documentsReprocess",
+      "method": "POST",
+      "path": "/api/documents/reprocess/",
+      "source_pointer": "#/paths/~1api~1documents~1reprocess~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "documentsRotate",
+      "method": "POST",
+      "path": "/api/documents/rotate/",
+      "source_pointer": "#/paths/~1api~1documents~1rotate~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "documentsSelectionDataCreate",
+      "method": "POST",
+      "path": "/api/documents/selection_data/",
+      "source_pointer": "#/paths/~1api~1documents~1selection_data~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [
+        400
+      ],
+      "has_default_response": false,
+      "js_function": "mailAccountTest",
+      "method": "POST",
+      "path": "/api/mail_accounts/test/",
+      "source_pointer": "#/paths/~1api~1mail_accounts~1test~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "oauthCallbackRetrieve",
+      "method": "GET",
+      "path": "/api/oauth/callback/",
+      "source_pointer": "#/paths/~1api~1oauth~1callback~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [
+        400,
+        403
+      ],
+      "has_default_response": false,
+      "js_function": "processedMailBulkDelete",
+      "method": "POST",
+      "path": "/api/processed_mail/bulk_delete/",
+      "source_pointer": "#/paths/~1api~1processed_mail~1bulk_delete~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "profileRetrieve",
+      "method": "GET",
+      "path": "/api/profile/",
+      "source_pointer": "#/paths/~1api~1profile~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "profilePartialUpdate",
+      "method": "PATCH",
+      "path": "/api/profile/",
+      "source_pointer": "#/paths/~1api~1profile~1/patch",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [
+        400
+      ],
+      "has_default_response": false,
+      "js_function": "profileDisconnectSocialAccountCreate",
+      "method": "POST",
+      "path": "/api/profile/disconnect_social_account/",
+      "source_pointer": "#/paths/~1api~1profile~1disconnect_social_account~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "profileGenerateAuthTokenCreate",
+      "method": "POST",
+      "path": "/api/profile/generate_auth_token/",
+      "source_pointer": "#/paths/~1api~1profile~1generate_auth_token~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "profileSocialAccountProvidersRetrieve",
+      "method": "GET",
+      "path": "/api/profile/social_account_providers/",
+      "source_pointer": "#/paths/~1api~1profile~1social_account_providers~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "profileTotpRetrieve",
+      "method": "GET",
+      "path": "/api/profile/totp/",
+      "source_pointer": "#/paths/~1api~1profile~1totp~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "profileTotpCreate",
+      "method": "POST",
+      "path": "/api/profile/totp/",
+      "source_pointer": "#/paths/~1api~1profile~1totp~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [
+        404
+      ],
+      "has_default_response": false,
+      "js_function": "profileTotpDestroy",
+      "method": "DELETE",
+      "path": "/api/profile/totp/",
+      "source_pointer": "#/paths/~1api~1profile~1totp~1/delete",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "remoteVersionRetrieve",
+      "method": "GET",
+      "path": "/api/remote_version/",
+      "source_pointer": "#/paths/~1api~1remote_version~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "searchRetrieve",
+      "method": "GET",
+      "path": "/api/search/",
+      "source_pointer": "#/paths/~1api~1search~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "searchAutocompleteList",
+      "method": "GET",
+      "path": "/api/search/autocomplete/",
+      "source_pointer": "#/paths/~1api~1search~1autocomplete~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "statisticsRetrieve",
+      "method": "GET",
+      "path": "/api/statistics/",
+      "source_pointer": "#/paths/~1api~1statistics~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "statusRetrieve",
+      "method": "GET",
+      "path": "/api/status/",
+      "source_pointer": "#/paths/~1api~1status~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "storagePathsTest",
+      "method": "POST",
+      "path": "/api/storage_paths/test/",
+      "source_pointer": "#/paths/~1api~1storage_paths~1test~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "acknowledgeTasks",
+      "method": "POST",
+      "path": "/api/tasks/acknowledge/",
+      "source_pointer": "#/paths/~1api~1tasks~1acknowledge~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "tasksActiveList",
+      "method": "GET",
+      "path": "/api/tasks/active/",
+      "source_pointer": "#/paths/~1api~1tasks~1active~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [
+        400
+      ],
+      "has_default_response": false,
+      "js_function": "runTask",
+      "method": "POST",
+      "path": "/api/tasks/run/",
+      "source_pointer": "#/paths/~1api~1tasks~1run~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "tasksStatusCountsRetrieve",
+      "method": "GET",
+      "path": "/api/tasks/status_counts/",
+      "source_pointer": "#/paths/~1api~1tasks~1status_counts~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "tasksSummaryList",
+      "method": "GET",
+      "path": "/api/tasks/summary/",
+      "source_pointer": "#/paths/~1api~1tasks~1summary~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "tokenCreate",
+      "method": "POST",
+      "path": "/api/token/",
+      "source_pointer": "#/paths/~1api~1token~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "trashList",
+      "method": "GET",
+      "path": "/api/trash/",
+      "source_pointer": "#/paths/~1api~1trash~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "trashCreate",
+      "method": "POST",
+      "path": "/api/trash/",
+      "source_pointer": "#/paths/~1api~1trash~1/post",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "uiSettingsRetrieve",
+      "method": "GET",
+      "path": "/api/ui_settings/",
+      "source_pointer": "#/paths/~1api~1ui_settings~1/get",
+      "success_codes": [
+        200
+      ]
+    },
+    {
+      "error_codes": [],
+      "has_default_response": false,
+      "js_function": "uiSettingsCreate",
+      "method": "POST",
+      "path": "/api/ui_settings/",
+      "source_pointer": "#/paths/~1api~1ui_settings~1/post",
+      "success_codes": [
+        200
+      ]
+    }
+  ],
+  "unsupported_constructs": {
+    "ambiguities": [
+      "Entity 'api/logs' has no component-schema evidence; name derived from path segment (confidence=0.5).",
+      "Key inference for entity 'api/logs' has reduced confidence (0.6); path parameter(s) ['id'] could not be fully cross-validated against the schema."
+    ],
+    "document_level": [],
+    "remote_refs": []
+  },
+  "warnings": []
+}

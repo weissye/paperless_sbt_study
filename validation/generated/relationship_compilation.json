@@ -1,0 +1,24 @@
+{
+  "active_operations": [
+    "GET /api/statistics/",
+    "GET /api/tags/{id}/",
+    "POST /api/tags/",
+    "POST /api/token/"
+  ],
+  "bootstrap_selected_fields_only": true,
+  "configured_identity_views": [],
+  "configured_write_views": [],
+  "full_json_schema_validator": false,
+  "http_requests_per_complete_schedule": 9,
+  "identity_view_semantics": "EXPLICIT_CONFIGURATION_PENDING_LIVE_VERIFICATION",
+  "live_accepted": false,
+  "negative_task_count": 0,
+  "negative_task_policy": "qualified status rejection plus full source snapshot equality after GET",
+  "qualified_actions": 0,
+  "runtime_profile_sha256": "1d534a51d7d57267911e9fa557e56e55d96abc5ab08e4d517ab5a34315e4ff27",
+  "source_openapi_sha256": "7840d7816133c13fdeb43e1cd9a3013c7fff886538f5612bff3d0b42b2119d0c",
+  "status": "COMPILED_NOT_LIVE_ACCEPTED",
+  "symbolic_actor_count": 2,
+  "task_count": 2,
+  "write_view_semantics": "EXPLICIT_ASSOCIATION_CONFIGURATION_PENDING_NATIVE_WRITE_VERIFICATION"
+}

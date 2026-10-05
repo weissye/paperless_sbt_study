@@ -1,0 +1,26 @@
+{
+  "resource_types": [
+    "api/foods",
+    "api/units",
+    "api/recipes",
+    "api/organizers/categories",
+    "api/organizers/tags",
+    "api/households/shopping/lists",
+    "api/households/shopping/items"
+  ],
+  "instances_per_type": 3,
+  "recursive_relationships": [
+    {
+      "source_type": "api/recipes",
+      "field_path": "recipeIngredient[].referencedRecipe",
+      "rejection_codes": [
+        400
+      ],
+      "evidence_sha256": "16d78139919e4970b050d5e1302a54f1ea0ecab5ed4ea0d058d9a8d75db1cec8",
+      "cycle_lengths": [
+        2,
+        3
+      ]
+    }
+  ]
+}

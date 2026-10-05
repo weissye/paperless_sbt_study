@@ -1,0 +1,33 @@
+{
+  "increment": "generic-cycle-campaign.1",
+  "generic_changes": [
+    "Qualified recursive policies optionally verify every cycle member",
+    "Fresh complete JSON snapshots before and after rejected updates",
+    "Campaign collection checks native receipts and actual task-order diversity"
+  ],
+  "expanded_example": {
+    "owned_instances_per_run": 35,
+    "tasks_per_run": 93,
+    "http_callbacks_per_run": 304,
+    "cycle_lengths": [2, 3, 4, 5],
+    "additional_member_gets": 20,
+    "default_campaign_runs": 3,
+    "maximum_active_http": 1
+  },
+  "local_validation": {
+    "python_tests": 47,
+    "python_result": "PASS",
+    "legacy_transport_cases": 466,
+    "legacy_transport_result": "PASS",
+    "expanded_node_orders_tested": 3,
+    "expanded_node_orders_distinct": 3,
+    "injected_target_partial_write_detected": true,
+    "injected_source_partial_write_detected": true,
+    "unexpected_cycle_acceptance_detected": true,
+    "cycle_server_error_detected": true
+  },
+  "native_provengo_executed_for_this_increment": false,
+  "powershell_executed_for_this_increment": false,
+  "live_acceptance": "PENDING_USER_MACHINE_EXECUTION",
+  "reset_replay_accepted": false
+}

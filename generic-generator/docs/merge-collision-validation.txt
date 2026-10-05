@@ -1,0 +1,13 @@
+Merge collision extension validation
+
+Full local regression: 90 tests in 366.176 seconds, OK.
+Native Provengo 0.7.5-SNAPSHOT tests included, using local HTTP fixtures.
+New native matrix: three complete samples plus injected loss of a colliding
+ingredient and removal of manual quantity, both rejected.
+Independent coverage: first merge collapses four per-view groups; second five.
+Empty collision coverage and forged collision counts are rejected.
+Eight previous runtime profiles produce byte-identical interfaces, stories
+and maps for identical inputs (including merge, quantity and combined).
+466 legacy transport arguments and callback effects remain identical.
+No live Mealie requests were sent from this environment. The user's live
+collision campaign is pending. Full server reset/replay is not claimed.

@@ -1,0 +1,24 @@
+{
+  "revision": "http-interface-separation.1",
+  "generator_package": "generator_v56",
+  "contracts": [
+    "keycloak",
+    "mealie"
+  ],
+  "cli_profiles": 14,
+  "contract_profile_comparisons": 28,
+  "regression_methods_passed": 5,
+  "lifted_request_sites_compared": 466,
+  "direct_http_in_generated_stories": 0,
+  "live_server_requests_sent": 0,
+  "provengo_live_accepted": false,
+  "powershell_wrappers_executed": false,
+  "four_system_archive_tested": false,
+  "four_system_archive_limitation": "Download failed; those contracts were not available for this run.",
+  "preserved_baseline_sha256": {
+    "pipeline.py": "542e5bf93b23a9c1eba87153cd9d4f876b1a8902cce3bfb0af51c8426b5b99fc",
+    "cli.py": "c14db707af6b64f0c72d3cc6f8c72724e650b188861919559cff35331f9e8d4f",
+    "parallel_crud_v3.py": "4da3a90949ca169d78d5f3a7a435bbcd6acf05d95910679601848ba3e2a511d8",
+    "stories_js.py": "ff4c704c6bef5bdf4e43b744b80b0c8efb4df7cc362970514b3a0a516afc6e1f"
+  }
+}

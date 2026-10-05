@@ -1,0 +1,17 @@
+{
+  "status": "VERIFIED_NATIVE_INFRASTRUCTURE_PILOT",
+  "archive_sha256": "c6734e57d52eed3db8d933905e81ddd10a8efd6ef5695043b6524df447de9124",
+  "model_hashes_verified": 4,
+  "response_count": 9,
+  "tasks": 2,
+  "observed_tag_ids": [
+    2,
+    3
+  ],
+  "username": "research_admin",
+  "scope": "Administrator infrastructure acceptance only",
+  "application_bug_confirmed": false,
+  "ordinary_users_qualified": false,
+  "reset_replay_accepted": false,
+  "source_contract_sha256": "7840d7816133c13fdeb43e1cd9a3013c7fff886538f5612bff3d0b42b2119d0c"
+}

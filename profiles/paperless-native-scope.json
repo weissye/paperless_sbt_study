@@ -1,0 +1,7 @@
+{
+  "resource_types": [
+    "api/tags"
+  ],
+  "instances_per_type": 2,
+  "recursive_relationships": []
+}

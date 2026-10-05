@@ -1,0 +1,11 @@
+{
+  "full_suite": "93 tests passed in 424.596 seconds, including original native regressions",
+  "additional_native_controls": "5 families, 15 successful native schedules and 5 injected quantity faults correctly rejected; 120.507 seconds",
+  "additional_tests": "2 evidence-classifier tests and 6 execution-review tests passed; explicit null phase rejection retested",
+  "node_controls": "5 families x 3 orders with independent receipt validation",
+  "legacy_outputs": "9 existing runtime profiles: interfaces, stories and resource maps byte-identical",
+  "transport": "466 lifted request sites preserve HTTP arguments and callback effects",
+  "original_discrepancy": "Both archived live runs verified offline, different resource identities and different semantic orders",
+  "live_mealie": "Not executed in this environment",
+  "powershell": "Reviewed statically; PowerShell runtime not available in this environment"
+}

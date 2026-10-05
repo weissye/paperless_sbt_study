@@ -1,0 +1,15 @@
+{
+  "status": "STATIC_CHECKS_PASS_NATIVE_UPDATE_PENDING",
+  "python_tests": 34,
+  "transport_cases": 466,
+  "original_native_review_sha256": "5ee355790c86c1bfddfc8c2a5bbe2479927237bb01b848b73b11a155e4d86c6c",
+  "original_native_completed_tasks": 19,
+  "original_native_callback_responses": 64,
+  "original_native_first_failure": "Relationship readback mismatch: food",
+  "configured_views": [
+    "food/foodId",
+    "unit/unitId"
+  ],
+  "native_update_accepted": false,
+  "automatic_cleanup": false
+}

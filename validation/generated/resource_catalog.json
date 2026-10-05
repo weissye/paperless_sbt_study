@@ -1,0 +1,5895 @@
+{
+  "ambiguities": [],
+  "entity_aliases": [],
+  "identity_slots": [
+    {
+      "business_type": "schema:Actor",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/Actor/properties/id",
+      "source": "schema:Actor",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/config",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/ApplicationConfiguration/properties/id",
+      "source": "api/config",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:BasicUser",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/BasicUser/properties/id",
+      "source": "schema:BasicUser",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "mail_ids",
+      "operation": null,
+      "pointer": "#/components/schemas/BulkDeleteMailRequestRequest/properties/mail_ids",
+      "source": "schema:BulkDeleteMailRequestRequest",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "deleted_mail_ids",
+      "operation": null,
+      "pointer": "#/components/schemas/BulkDeleteMailResponse/properties/deleted_mail_ids",
+      "source": "schema:BulkDeleteMailResponse",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_id",
+      "operation": null,
+      "pointer": "#/components/schemas/ChatStreaming/properties/document_id",
+      "source": "schema:ChatStreaming",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_id",
+      "operation": null,
+      "pointer": "#/components/schemas/ChatStreamingRequest/properties/document_id",
+      "source": "schema:ChatStreamingRequest",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/correspondents",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/Correspondent/properties/id",
+      "source": "api/correspondents",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/correspondents",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "slug",
+      "operation": null,
+      "pointer": "#/components/schemas/Correspondent/properties/slug",
+      "source": "api/correspondents",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:CorrespondentCounts",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/CorrespondentCounts/properties/id",
+      "source": "schema:CorrespondentCounts",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/custom_fields",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/CustomField/properties/id",
+      "source": "api/custom_fields",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:CustomFieldCounts",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/CustomFieldCounts/properties/id",
+      "source": "schema:CustomFieldCounts",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/Document/properties/id",
+      "source": "api/documents",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "duplicate_documents[].id",
+      "operation": null,
+      "pointer": "#/components/schemas/DuplicateDocumentSummary/properties/id",
+      "source": "api/documents",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "notes[].id",
+      "operation": null,
+      "pointer": "#/components/schemas/Notes/properties/id",
+      "source": "api/documents",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "notes[].user.id",
+      "operation": null,
+      "pointer": "#/components/schemas/BasicUser/properties/id",
+      "source": "api/documents",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "versions[].id",
+      "operation": null,
+      "pointer": "#/components/schemas/DocumentVersionInfo/properties/id",
+      "source": "api/documents",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "root_id",
+      "operation": null,
+      "pointer": "#/components/schemas/DocumentRootResponse/properties/root_id",
+      "source": "schema:DocumentRootResponse",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/document_types",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/DocumentType/properties/id",
+      "source": "api/document_types",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/document_types",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "slug",
+      "operation": null,
+      "pointer": "#/components/schemas/DocumentType/properties/slug",
+      "source": "api/document_types",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:DocumentTypeCounts",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/DocumentTypeCounts/properties/id",
+      "source": "schema:DocumentTypeCounts",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:DocumentVersionInfo",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/DocumentVersionInfo/properties/id",
+      "source": "schema:DocumentVersionInfo",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:DuplicateDocumentSummary",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/DuplicateDocumentSummary/properties/id",
+      "source": "schema:DuplicateDocumentSummary",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/groups",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/Group/properties/id",
+      "source": "api/groups",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:LogEntry",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/LogEntry/properties/id",
+      "source": "schema:LogEntry",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "actor.id",
+      "operation": null,
+      "pointer": "#/components/schemas/Actor/properties/id",
+      "source": "schema:LogEntry",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/mail_accounts",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/MailAccount/properties/id",
+      "source": "api/mail_accounts",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/mail_rules",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/MailRule/properties/id",
+      "source": "api/mail_rules",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "root_document_id",
+      "operation": null,
+      "pointer": "#/components/schemas/MergeDocumentsAsVersionsRequest/properties/root_document_id",
+      "source": "schema:MergeDocumentsAsVersionsRequest",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "metadata_document_id",
+      "operation": null,
+      "pointer": "#/components/schemas/MergeDocumentsRequest/properties/metadata_document_id",
+      "source": "schema:MergeDocumentsRequest",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:Notes",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/Notes/properties/id",
+      "source": "schema:Notes",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "user.id",
+      "operation": null,
+      "pointer": "#/components/schemas/BasicUser/properties/id",
+      "source": "schema:Notes",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "results[].id",
+      "operation": null,
+      "pointer": "#/components/schemas/LogEntry/properties/id",
+      "source": "schema:PaginatedLogEntryList",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "results[].actor.id",
+      "operation": null,
+      "pointer": "#/components/schemas/Actor/properties/id",
+      "source": "schema:PaginatedLogEntryList",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/PatchedWorkflowActionRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/PatchedWorkflowTriggerRequest/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/processed_mail",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/ProcessedMail/properties/id",
+      "source": "api/processed_mail",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "social_accounts[].id",
+      "operation": null,
+      "pointer": "#/components/schemas/SocialAccount/properties/id",
+      "source": "schema:Profile",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/tasks",
+      "candidate_types": [
+        "api/tasks"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "task_id",
+      "operation": null,
+      "pointer": "#/components/schemas/RunTask/properties/task_id",
+      "source": "schema:RunTask",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "business_type": "api/saved_views",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/SavedView/properties/id",
+      "source": "api/saved_views",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "selected_correspondents[].id",
+      "operation": null,
+      "pointer": "#/components/schemas/CorrespondentCounts/properties/id",
+      "source": "schema:SelectionData",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "selected_tags[].id",
+      "operation": null,
+      "pointer": "#/components/schemas/TagCounts/properties/id",
+      "source": "schema:SelectionData",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "selected_document_types[].id",
+      "operation": null,
+      "pointer": "#/components/schemas/DocumentTypeCounts/properties/id",
+      "source": "schema:SelectionData",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "selected_storage_paths[].id",
+      "operation": null,
+      "pointer": "#/components/schemas/StoragePathCounts/properties/id",
+      "source": "schema:SelectionData",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "selected_custom_fields[].id",
+      "operation": null,
+      "pointer": "#/components/schemas/CustomFieldCounts/properties/id",
+      "source": "schema:SelectionData",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/share_links",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/ShareLink/properties/id",
+      "source": "api/share_links",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/share_links",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "slug",
+      "operation": null,
+      "pointer": "#/components/schemas/ShareLink/properties/slug",
+      "source": "api/share_links",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "business_type": "api/share_link_bundles",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/ShareLinkBundle/properties/id",
+      "source": "api/share_link_bundles",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/share_link_bundles",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "slug",
+      "operation": null,
+      "pointer": "#/components/schemas/ShareLinkBundle/properties/slug",
+      "source": "api/share_link_bundles",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_ids",
+      "operation": null,
+      "pointer": "#/components/schemas/ShareLinkBundleRequest/properties/document_ids",
+      "source": "api/share_link_bundles",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:SocialAccount",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/SocialAccount/properties/id",
+      "source": "schema:SocialAccount",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/storage_paths",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/StoragePath/properties/id",
+      "source": "api/storage_paths",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/storage_paths",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "slug",
+      "operation": null,
+      "pointer": "#/components/schemas/StoragePath/properties/slug",
+      "source": "api/storage_paths",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:StoragePathCounts",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/StoragePathCounts/properties/id",
+      "source": "schema:StoragePathCounts",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/tags",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/Tag/properties/id",
+      "source": "api/tags",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/tags",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "slug",
+      "operation": null,
+      "pointer": "#/components/schemas/Tag/properties/slug",
+      "source": "api/tags",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:TagCounts",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/TagCounts/properties/id",
+      "source": "schema:TagCounts",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/tasks",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/TaskSerializerV10/properties/id",
+      "source": "api/tasks",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/tasks",
+      "candidate_types": [
+        "api/tasks"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "task_id",
+      "operation": null,
+      "pointer": "#/components/schemas/TaskSerializerV10/properties/task_id",
+      "source": "api/tasks",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "related_document_ids",
+      "operation": null,
+      "pointer": "#/components/schemas/TaskSerializerV10/properties/related_document_ids",
+      "source": "api/tasks",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:UiSettingsView",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/UiSettingsView/properties/id",
+      "source": "schema:UiSettingsView",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:UpdateDocumentVersionLabelResult",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/UpdateDocumentVersionLabelResult/properties/id",
+      "source": "schema:UpdateDocumentVersionLabelResult",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/users",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/User/properties/id",
+      "source": "api/users",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflows",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/Workflow/properties/id",
+      "source": "api/workflows",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowAction/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowActionEmail/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowActionWebhook/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:WorkflowActionEmail",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowActionEmail/properties/id",
+      "source": "schema:WorkflowActionEmail",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:WorkflowActionEmailRequest",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "schema:WorkflowActionEmailRequest",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowActionRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:WorkflowActionWebhook",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowActionWebhook/properties/id",
+      "source": "schema:WorkflowActionWebhook",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "schema:WorkflowActionWebhookRequest",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "schema:WorkflowActionWebhookRequest",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowTrigger/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": null,
+      "pointer": "#/components/schemas/WorkflowTriggerRequest/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_id",
+      "operation": "POST /api/documents/chat/",
+      "pointer": "#/components/schemas/ChatStreamingRequest/properties/document_id",
+      "source": "operation:POST /api/documents/chat/",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_id",
+      "operation": "POST /api/documents/chat/",
+      "pointer": "#/components/schemas/ChatStreamingRequest/properties/document_id",
+      "source": "operation:POST /api/documents/chat/",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_id",
+      "operation": "POST /api/documents/chat/",
+      "pointer": "#/components/schemas/ChatStreamingRequest/properties/document_id",
+      "source": "operation:POST /api/documents/chat/",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "metadata_document_id",
+      "operation": "POST /api/documents/merge/",
+      "pointer": "#/components/schemas/MergeDocumentsRequest/properties/metadata_document_id",
+      "source": "operation:POST /api/documents/merge/",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "root_document_id",
+      "operation": "POST /api/documents/merge_as_versions/",
+      "pointer": "#/components/schemas/MergeDocumentsAsVersionsRequest/properties/root_document_id",
+      "source": "operation:POST /api/documents/merge_as_versions/",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "mail_ids",
+      "operation": "POST /api/processed_mail/bulk_delete/",
+      "pointer": "#/components/schemas/BulkDeleteMailRequestRequest/properties/mail_ids",
+      "source": "operation:POST /api/processed_mail/bulk_delete/",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "mail_ids",
+      "operation": "POST /api/processed_mail/bulk_delete/",
+      "pointer": "#/components/schemas/BulkDeleteMailRequestRequest/properties/mail_ids",
+      "source": "operation:POST /api/processed_mail/bulk_delete/",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "mail_ids",
+      "operation": "POST /api/processed_mail/bulk_delete/",
+      "pointer": "#/components/schemas/BulkDeleteMailRequestRequest/properties/mail_ids",
+      "source": "operation:POST /api/processed_mail/bulk_delete/",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": "operation:POST /api/profile/disconnect_social_account/",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "POST /api/profile/disconnect_social_account/",
+      "pointer": "#/paths/~1api~1profile~1disconnect_social_account~1/post/requestBody/content/application~1json/schema/properties/id",
+      "source": "operation:POST /api/profile/disconnect_social_account/",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_ids",
+      "operation": "POST /api/share_link_bundles/",
+      "pointer": "#/components/schemas/ShareLinkBundleRequest/properties/document_ids",
+      "source": "api/share_link_bundles",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_ids",
+      "operation": "POST /api/share_link_bundles/",
+      "pointer": "#/components/schemas/ShareLinkBundleRequest/properties/document_ids",
+      "source": "api/share_link_bundles",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_ids",
+      "operation": "POST /api/share_link_bundles/",
+      "pointer": "#/components/schemas/ShareLinkBundleRequest/properties/document_ids",
+      "source": "api/share_link_bundles",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_ids",
+      "operation": "POST /api/share_link_bundles/{id}/rebuild/",
+      "pointer": "#/components/schemas/ShareLinkBundleRequest/properties/document_ids",
+      "source": "api/share_link_bundles",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_ids",
+      "operation": "POST /api/share_link_bundles/{id}/rebuild/",
+      "pointer": "#/components/schemas/ShareLinkBundleRequest/properties/document_ids",
+      "source": "api/share_link_bundles",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": "api/documents",
+      "candidate_types": [
+        "api/documents"
+      ],
+      "evidence": "unique_resource_name_candidate",
+      "field_path": "document_ids",
+      "operation": "POST /api/share_link_bundles/{id}/rebuild/",
+      "pointer": "#/components/schemas/ShareLinkBundleRequest/properties/document_ids",
+      "source": "api/share_link_bundles",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "array"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "POST /api/workflow_actions/",
+      "pointer": "#/components/schemas/WorkflowActionRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": "POST /api/workflow_actions/",
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": "POST /api/workflow_actions/",
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "POST /api/workflow_actions/",
+      "pointer": "#/components/schemas/WorkflowActionRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": "POST /api/workflow_actions/",
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": "POST /api/workflow_actions/",
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "POST /api/workflow_actions/",
+      "pointer": "#/components/schemas/WorkflowActionRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": "POST /api/workflow_actions/",
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": "POST /api/workflow_actions/",
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PATCH /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/PatchedWorkflowActionRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": "PATCH /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": "PATCH /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PATCH /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/PatchedWorkflowActionRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": "PATCH /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": "PATCH /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PATCH /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/PatchedWorkflowActionRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": "PATCH /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": "PATCH /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PUT /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": "PUT /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": "PUT /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PUT /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": "PUT /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": "PUT /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_actions",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PUT /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "email.id",
+      "operation": "PUT /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": null,
+      "candidate_types": [],
+      "evidence": "nested_identity_unresolved",
+      "field_path": "webhook.id",
+      "operation": "PUT /api/workflow_actions/{id}/",
+      "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+      "source": "api/workflow_actions",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "POST /api/workflow_triggers/",
+      "pointer": "#/components/schemas/WorkflowTriggerRequest/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "POST /api/workflow_triggers/",
+      "pointer": "#/components/schemas/WorkflowTriggerRequest/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "POST /api/workflow_triggers/",
+      "pointer": "#/components/schemas/WorkflowTriggerRequest/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PATCH /api/workflow_triggers/{id}/",
+      "pointer": "#/components/schemas/PatchedWorkflowTriggerRequest/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PATCH /api/workflow_triggers/{id}/",
+      "pointer": "#/components/schemas/PatchedWorkflowTriggerRequest/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PATCH /api/workflow_triggers/{id}/",
+      "pointer": "#/components/schemas/PatchedWorkflowTriggerRequest/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PUT /api/workflow_triggers/{id}/",
+      "pointer": "#/components/schemas/WorkflowTriggerRequest/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PUT /api/workflow_triggers/{id}/",
+      "pointer": "#/components/schemas/WorkflowTriggerRequest/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    },
+    {
+      "business_type": "api/workflow_triggers",
+      "candidate_types": [],
+      "evidence": "owner_identity",
+      "field_path": "id",
+      "operation": "PUT /api/workflow_triggers/{id}/",
+      "pointer": "#/components/schemas/WorkflowTriggerRequest/properties/id",
+      "source": "api/workflow_triggers",
+      "wire_types": [
+        {
+          "format": null,
+          "type": "integer"
+        }
+      ]
+    }
+  ],
+  "instance_bindings": [],
+  "policy": "Wire UUID equality never merges business types or instances.",
+  "resources": [
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/ApplicationConfiguration/properties/id",
+          "role": "identifier_view",
+          "schema": "ApplicationConfiguration",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/config/",
+          "entity": "api/config",
+          "item": "/api/config/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ApplicationConfiguration",
+          "rule": "endpoint_schema",
+          "schema": "ApplicationConfiguration"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ApplicationConfigurationRequest",
+          "rule": "endpoint_schema",
+          "schema": "ApplicationConfigurationRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedApplicationConfigurationRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedApplicationConfigurationRequest"
+        }
+      ],
+      "schema_views": [
+        "ApplicationConfiguration",
+        "ApplicationConfigurationRequest",
+        "PatchedApplicationConfigurationRequest"
+      ],
+      "type": "api/config"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/Correspondent/properties/id",
+          "role": "identifier_view",
+          "schema": "Correspondent",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "field": "slug",
+          "pointer": "#/components/schemas/Correspondent/properties/slug",
+          "role": "identifier_view",
+          "schema": "Correspondent",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/correspondents/",
+          "entity": "api/correspondents",
+          "item": "/api/correspondents/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Correspondent",
+          "rule": "endpoint_schema",
+          "schema": "Correspondent"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/CorrespondentRequest",
+          "rule": "endpoint_schema",
+          "schema": "CorrespondentRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedCorrespondentRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedCorrespondentRequest"
+        }
+      ],
+      "schema_views": [
+        "Correspondent",
+        "CorrespondentRequest",
+        "PatchedCorrespondentRequest"
+      ],
+      "type": "api/correspondents"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/CustomField/properties/id",
+          "role": "identifier_view",
+          "schema": "CustomField",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/custom_fields/",
+          "entity": "api/custom_fields",
+          "item": "/api/custom_fields/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/CustomField",
+          "rule": "endpoint_schema",
+          "schema": "CustomField"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/CustomFieldRequest",
+          "rule": "endpoint_schema",
+          "schema": "CustomFieldRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedCustomFieldRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedCustomFieldRequest"
+        }
+      ],
+      "schema_views": [
+        "CustomField",
+        "CustomFieldRequest",
+        "PatchedCustomFieldRequest"
+      ],
+      "type": "api/custom_fields"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/DocumentType/properties/id",
+          "role": "identifier_view",
+          "schema": "DocumentType",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "field": "slug",
+          "pointer": "#/components/schemas/DocumentType/properties/slug",
+          "role": "identifier_view",
+          "schema": "DocumentType",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/document_types/",
+          "entity": "api/document_types",
+          "item": "/api/document_types/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DocumentType",
+          "rule": "endpoint_schema",
+          "schema": "DocumentType"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DocumentTypeRequest",
+          "rule": "endpoint_schema",
+          "schema": "DocumentTypeRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedDocumentTypeRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedDocumentTypeRequest"
+        }
+      ],
+      "schema_views": [
+        "DocumentType",
+        "DocumentTypeRequest",
+        "PatchedDocumentTypeRequest"
+      ],
+      "type": "api/document_types"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/Document/properties/id",
+          "role": "identifier_view",
+          "schema": "Document",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/documents/",
+          "entity": "api/documents",
+          "item": "/api/documents/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Document",
+          "rule": "endpoint_schema",
+          "schema": "Document"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DocumentRequest",
+          "rule": "endpoint_schema",
+          "schema": "DocumentRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedDocumentRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedDocumentRequest"
+        }
+      ],
+      "schema_views": [
+        "Document",
+        "DocumentRequest",
+        "PatchedDocumentRequest"
+      ],
+      "type": "api/documents"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/Group/properties/id",
+          "role": "identifier_view",
+          "schema": "Group",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/groups/",
+          "entity": "api/groups",
+          "item": "/api/groups/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Group",
+          "rule": "endpoint_schema",
+          "schema": "Group"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/GroupRequest",
+          "rule": "endpoint_schema",
+          "schema": "GroupRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedGroupRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedGroupRequest"
+        }
+      ],
+      "schema_views": [
+        "Group",
+        "GroupRequest",
+        "PatchedGroupRequest"
+      ],
+      "type": "api/groups"
+    },
+    {
+      "identity_slots": [],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/logs/",
+          "entity": "api/logs",
+          "item": "/api/logs/{id}/"
+        }
+      ],
+      "schema_views": [],
+      "type": "api/logs"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/MailAccount/properties/id",
+          "role": "identifier_view",
+          "schema": "MailAccount",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/mail_accounts/",
+          "entity": "api/mail_accounts",
+          "item": "/api/mail_accounts/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MailAccount",
+          "rule": "endpoint_schema",
+          "schema": "MailAccount"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MailAccountRequest",
+          "rule": "endpoint_schema",
+          "schema": "MailAccountRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedMailAccountRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedMailAccountRequest"
+        }
+      ],
+      "schema_views": [
+        "MailAccount",
+        "MailAccountRequest",
+        "PatchedMailAccountRequest"
+      ],
+      "type": "api/mail_accounts"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/MailRule/properties/id",
+          "role": "identifier_view",
+          "schema": "MailRule",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/mail_rules/",
+          "entity": "api/mail_rules",
+          "item": "/api/mail_rules/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MailRule",
+          "rule": "endpoint_schema",
+          "schema": "MailRule"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MailRuleRequest",
+          "rule": "endpoint_schema",
+          "schema": "MailRuleRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedMailRuleRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedMailRuleRequest"
+        }
+      ],
+      "schema_views": [
+        "MailRule",
+        "MailRuleRequest",
+        "PatchedMailRuleRequest"
+      ],
+      "type": "api/mail_rules"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/ProcessedMail/properties/id",
+          "role": "identifier_view",
+          "schema": "ProcessedMail",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/processed_mail/",
+          "entity": "api/processed_mail",
+          "item": "/api/processed_mail/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ProcessedMail",
+          "rule": "endpoint_schema",
+          "schema": "ProcessedMail"
+        }
+      ],
+      "schema_views": [
+        "ProcessedMail"
+      ],
+      "type": "api/processed_mail"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/SavedView/properties/id",
+          "role": "identifier_view",
+          "schema": "SavedView",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/saved_views/",
+          "entity": "api/saved_views",
+          "item": "/api/saved_views/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SavedView",
+          "rule": "endpoint_schema",
+          "schema": "SavedView"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SavedViewFilterRuleRequest",
+          "rule": "endpoint_schema",
+          "schema": "SavedViewFilterRuleRequest"
+        }
+      ],
+      "schema_views": [
+        "SavedView",
+        "SavedViewFilterRuleRequest"
+      ],
+      "type": "api/saved_views"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/ShareLinkBundle/properties/id",
+          "role": "identifier_view",
+          "schema": "ShareLinkBundle",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "field": "slug",
+          "pointer": "#/components/schemas/ShareLinkBundle/properties/slug",
+          "role": "identifier_view",
+          "schema": "ShareLinkBundle",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/share_link_bundles/",
+          "entity": "api/share_link_bundles",
+          "item": "/api/share_link_bundles/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ShareLinkBundle",
+          "rule": "endpoint_schema",
+          "schema": "ShareLinkBundle"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ShareLinkBundleRequest",
+          "rule": "endpoint_schema",
+          "schema": "ShareLinkBundleRequest"
+        }
+      ],
+      "schema_views": [
+        "ShareLinkBundle",
+        "ShareLinkBundleRequest"
+      ],
+      "type": "api/share_link_bundles"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/ShareLink/properties/id",
+          "role": "identifier_view",
+          "schema": "ShareLink",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "field": "slug",
+          "pointer": "#/components/schemas/ShareLink/properties/slug",
+          "role": "identifier_view",
+          "schema": "ShareLink",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/share_links/",
+          "entity": "api/share_links",
+          "item": "/api/share_links/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ShareLink",
+          "rule": "endpoint_schema",
+          "schema": "ShareLink"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ShareLinkRequest",
+          "rule": "endpoint_schema",
+          "schema": "ShareLinkRequest"
+        }
+      ],
+      "schema_views": [
+        "ShareLink",
+        "ShareLinkRequest"
+      ],
+      "type": "api/share_links"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/StoragePath/properties/id",
+          "role": "identifier_view",
+          "schema": "StoragePath",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "field": "slug",
+          "pointer": "#/components/schemas/StoragePath/properties/slug",
+          "role": "identifier_view",
+          "schema": "StoragePath",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/storage_paths/",
+          "entity": "api/storage_paths",
+          "item": "/api/storage_paths/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedStoragePathRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedStoragePathRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/StoragePath",
+          "rule": "endpoint_schema",
+          "schema": "StoragePath"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/StoragePathRequest",
+          "rule": "endpoint_schema",
+          "schema": "StoragePathRequest"
+        }
+      ],
+      "schema_views": [
+        "PatchedStoragePathRequest",
+        "StoragePath",
+        "StoragePathRequest"
+      ],
+      "type": "api/storage_paths"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/Tag/properties/id",
+          "role": "identifier_view",
+          "schema": "Tag",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "field": "slug",
+          "pointer": "#/components/schemas/Tag/properties/slug",
+          "role": "identifier_view",
+          "schema": "Tag",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/tags/",
+          "entity": "api/tags",
+          "item": "/api/tags/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedTagRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedTagRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Tag",
+          "rule": "endpoint_schema",
+          "schema": "Tag"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/TagRequest",
+          "rule": "endpoint_schema",
+          "schema": "TagRequest"
+        }
+      ],
+      "schema_views": [
+        "PatchedTagRequest",
+        "Tag",
+        "TagRequest"
+      ],
+      "type": "api/tags"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/TaskSerializerV10/properties/id",
+          "role": "identifier_view",
+          "schema": "TaskSerializerV10",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/tasks/",
+          "entity": "api/tasks",
+          "item": "/api/tasks/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/TaskSerializerV10",
+          "rule": "endpoint_schema",
+          "schema": "TaskSerializerV10"
+        }
+      ],
+      "schema_views": [
+        "TaskSerializerV10"
+      ],
+      "type": "api/tasks"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/User/properties/id",
+          "role": "identifier_view",
+          "schema": "User",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/users/",
+          "entity": "api/users",
+          "item": "/api/users/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedUserRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedUserRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/User",
+          "rule": "endpoint_schema",
+          "schema": "User"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/UserRequest",
+          "rule": "endpoint_schema",
+          "schema": "UserRequest"
+        }
+      ],
+      "schema_views": [
+        "PatchedUserRequest",
+        "User",
+        "UserRequest"
+      ],
+      "type": "api/users"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/PatchedWorkflowActionRequest/properties/id",
+          "role": "identifier_view",
+          "schema": "PatchedWorkflowActionRequest",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/WorkflowAction/properties/id",
+          "role": "identifier_view",
+          "schema": "WorkflowAction",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/WorkflowActionRequest/properties/id",
+          "role": "identifier_view",
+          "schema": "WorkflowActionRequest",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/workflow_actions/",
+          "entity": "api/workflow_actions",
+          "item": "/api/workflow_actions/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedWorkflowActionRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedWorkflowActionRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowAction",
+          "rule": "endpoint_schema",
+          "schema": "WorkflowAction"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowActionRequest",
+          "rule": "endpoint_schema",
+          "schema": "WorkflowActionRequest"
+        }
+      ],
+      "schema_views": [
+        "PatchedWorkflowActionRequest",
+        "WorkflowAction",
+        "WorkflowActionRequest"
+      ],
+      "type": "api/workflow_actions"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/PatchedWorkflowTriggerRequest/properties/id",
+          "role": "identifier_view",
+          "schema": "PatchedWorkflowTriggerRequest",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/WorkflowTrigger/properties/id",
+          "role": "identifier_view",
+          "schema": "WorkflowTrigger",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        },
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/WorkflowTriggerRequest/properties/id",
+          "role": "identifier_view",
+          "schema": "WorkflowTriggerRequest",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/workflow_triggers/",
+          "entity": "api/workflow_triggers",
+          "item": "/api/workflow_triggers/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedWorkflowTriggerRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedWorkflowTriggerRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowTrigger",
+          "rule": "endpoint_schema",
+          "schema": "WorkflowTrigger"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowTriggerRequest",
+          "rule": "endpoint_schema",
+          "schema": "WorkflowTriggerRequest"
+        }
+      ],
+      "schema_views": [
+        "PatchedWorkflowTriggerRequest",
+        "WorkflowTrigger",
+        "WorkflowTriggerRequest"
+      ],
+      "type": "api/workflow_triggers"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/Workflow/properties/id",
+          "role": "identifier_view",
+          "schema": "Workflow",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "endpoint_resource",
+      "path_views": [
+        {
+          "collection": "/api/workflows/",
+          "entity": "api/workflows",
+          "item": "/api/workflows/{id}/"
+        }
+      ],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedWorkflowRequest",
+          "rule": "endpoint_schema",
+          "schema": "PatchedWorkflowRequest"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Workflow",
+          "rule": "endpoint_schema",
+          "schema": "Workflow"
+        },
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowRequest",
+          "rule": "endpoint_schema",
+          "schema": "WorkflowRequest"
+        }
+      ],
+      "schema_views": [
+        "PatchedWorkflowRequest",
+        "Workflow",
+        "WorkflowRequest"
+      ],
+      "type": "api/workflows"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/AISuggestions",
+          "rule": "unassigned_schema_component",
+          "schema": "AISuggestions"
+        }
+      ],
+      "schema_views": [
+        "AISuggestions"
+      ],
+      "type": "schema:AISuggestions"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/AccountTypeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "AccountTypeEnum"
+        }
+      ],
+      "schema_views": [
+        "AccountTypeEnum"
+      ],
+      "type": "schema:AccountTypeEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/AcknowledgeTasks",
+          "rule": "unassigned_schema_component",
+          "schema": "AcknowledgeTasks"
+        }
+      ],
+      "schema_views": [
+        "AcknowledgeTasks"
+      ],
+      "type": "schema:AcknowledgeTasks"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/AcknowledgeTasksViewRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "AcknowledgeTasksViewRequest"
+        }
+      ],
+      "schema_views": [
+        "AcknowledgeTasksViewRequest"
+      ],
+      "type": "schema:AcknowledgeTasksViewRequest"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/Actor/properties/id",
+          "role": "identifier_view",
+          "schema": "Actor",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Actor",
+          "rule": "unassigned_schema_component",
+          "schema": "Actor"
+        }
+      ],
+      "schema_views": [
+        "Actor"
+      ],
+      "type": "schema:Actor"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ArchiveFileGenerationEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "ArchiveFileGenerationEnum"
+        }
+      ],
+      "schema_views": [
+        "ArchiveFileGenerationEnum"
+      ],
+      "type": "schema:ArchiveFileGenerationEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ArchiveMetadataEntry",
+          "rule": "unassigned_schema_component",
+          "schema": "ArchiveMetadataEntry"
+        }
+      ],
+      "schema_views": [
+        "ArchiveMetadataEntry"
+      ],
+      "type": "schema:ArchiveMetadataEntry"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/AssignCorrespondentFromEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "AssignCorrespondentFromEnum"
+        }
+      ],
+      "schema_views": [
+        "AssignCorrespondentFromEnum"
+      ],
+      "type": "schema:AssignCorrespondentFromEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/AssignTitleFromEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "AssignTitleFromEnum"
+        }
+      ],
+      "schema_views": [
+        "AssignTitleFromEnum"
+      ],
+      "type": "schema:AssignTitleFromEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/AttachmentTypeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "AttachmentTypeEnum"
+        }
+      ],
+      "schema_views": [
+        "AttachmentTypeEnum"
+      ],
+      "type": "schema:AttachmentTypeEnum"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/BasicUser/properties/id",
+          "role": "identifier_view",
+          "schema": "BasicUser",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/BasicUser",
+          "rule": "unassigned_schema_component",
+          "schema": "BasicUser"
+        }
+      ],
+      "schema_views": [
+        "BasicUser"
+      ],
+      "type": "schema:BasicUser"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/BasicUserRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "BasicUserRequest"
+        }
+      ],
+      "schema_views": [
+        "BasicUserRequest"
+      ],
+      "type": "schema:BasicUserRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/BlankEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "BlankEnum"
+        }
+      ],
+      "schema_views": [
+        "BlankEnum"
+      ],
+      "type": "schema:BlankEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/BulkDeleteMailRequestRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "BulkDeleteMailRequestRequest"
+        }
+      ],
+      "schema_views": [
+        "BulkDeleteMailRequestRequest"
+      ],
+      "type": "schema:BulkDeleteMailRequestRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/BulkDeleteMailResponse",
+          "rule": "unassigned_schema_component",
+          "schema": "BulkDeleteMailResponse"
+        }
+      ],
+      "schema_views": [
+        "BulkDeleteMailResponse"
+      ],
+      "type": "schema:BulkDeleteMailResponse"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/BulkDownloadRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "BulkDownloadRequest"
+        }
+      ],
+      "schema_views": [
+        "BulkDownloadRequest"
+      ],
+      "type": "schema:BulkDownloadRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/BulkEditDocumentsResult",
+          "rule": "unassigned_schema_component",
+          "schema": "BulkEditDocumentsResult"
+        }
+      ],
+      "schema_views": [
+        "BulkEditDocumentsResult"
+      ],
+      "type": "schema:BulkEditDocumentsResult"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/BulkEditObjectsRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "BulkEditObjectsRequest"
+        }
+      ],
+      "schema_views": [
+        "BulkEditObjectsRequest"
+      ],
+      "type": "schema:BulkEditObjectsRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/BulkEditRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "BulkEditRequest"
+        }
+      ],
+      "schema_views": [
+        "BulkEditRequest"
+      ],
+      "type": "schema:BulkEditRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/BulkEditResult",
+          "rule": "unassigned_schema_component",
+          "schema": "BulkEditResult"
+        }
+      ],
+      "schema_views": [
+        "BulkEditResult"
+      ],
+      "type": "schema:BulkEditResult"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ChatStreaming",
+          "rule": "unassigned_schema_component",
+          "schema": "ChatStreaming"
+        }
+      ],
+      "schema_views": [
+        "ChatStreaming"
+      ],
+      "type": "schema:ChatStreaming"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ChatStreamingRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "ChatStreamingRequest"
+        }
+      ],
+      "schema_views": [
+        "ChatStreamingRequest"
+      ],
+      "type": "schema:ChatStreamingRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Classifier",
+          "rule": "unassigned_schema_component",
+          "schema": "Classifier"
+        }
+      ],
+      "schema_views": [
+        "Classifier"
+      ],
+      "type": "schema:Classifier"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ColorConversionStrategyEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "ColorConversionStrategyEnum"
+        }
+      ],
+      "schema_views": [
+        "ColorConversionStrategyEnum"
+      ],
+      "type": "schema:ColorConversionStrategyEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/CompressionEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "CompressionEnum"
+        }
+      ],
+      "schema_views": [
+        "CompressionEnum"
+      ],
+      "type": "schema:CompressionEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ConsumptionScopeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "ConsumptionScopeEnum"
+        }
+      ],
+      "schema_views": [
+        "ConsumptionScopeEnum"
+      ],
+      "type": "schema:ConsumptionScopeEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ContentEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "ContentEnum"
+        }
+      ],
+      "schema_views": [
+        "ContentEnum"
+      ],
+      "type": "schema:ContentEnum"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/CorrespondentCounts/properties/id",
+          "role": "identifier_view",
+          "schema": "CorrespondentCounts",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/CorrespondentCounts",
+          "rule": "unassigned_schema_component",
+          "schema": "CorrespondentCounts"
+        }
+      ],
+      "schema_views": [
+        "CorrespondentCounts"
+      ],
+      "type": "schema:CorrespondentCounts"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/CustomFieldCounts/properties/id",
+          "role": "identifier_view",
+          "schema": "CustomFieldCounts",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/CustomFieldCounts",
+          "rule": "unassigned_schema_component",
+          "schema": "CustomFieldCounts"
+        }
+      ],
+      "schema_views": [
+        "CustomFieldCounts"
+      ],
+      "type": "schema:CustomFieldCounts"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/CustomFieldInstance",
+          "rule": "unassigned_schema_component",
+          "schema": "CustomFieldInstance"
+        }
+      ],
+      "schema_views": [
+        "CustomFieldInstance"
+      ],
+      "type": "schema:CustomFieldInstance"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/CustomFieldInstanceRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "CustomFieldInstanceRequest"
+        }
+      ],
+      "schema_views": [
+        "CustomFieldInstanceRequest"
+      ],
+      "type": "schema:CustomFieldInstanceRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DataTypeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "DataTypeEnum"
+        }
+      ],
+      "schema_views": [
+        "DataTypeEnum"
+      ],
+      "type": "schema:DataTypeEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Database",
+          "rule": "unassigned_schema_component",
+          "schema": "Database"
+        }
+      ],
+      "schema_views": [
+        "Database"
+      ],
+      "type": "schema:Database"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DeleteDocumentsRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "DeleteDocumentsRequest"
+        }
+      ],
+      "schema_views": [
+        "DeleteDocumentsRequest"
+      ],
+      "type": "schema:DeleteDocumentsRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DeleteDocumentsResult",
+          "rule": "unassigned_schema_component",
+          "schema": "DeleteDocumentsResult"
+        }
+      ],
+      "schema_views": [
+        "DeleteDocumentsResult"
+      ],
+      "type": "schema:DeleteDocumentsResult"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DisplayModeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "DisplayModeEnum"
+        }
+      ],
+      "schema_views": [
+        "DisplayModeEnum"
+      ],
+      "type": "schema:DisplayModeEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DocumentRootResponse",
+          "rule": "unassigned_schema_component",
+          "schema": "DocumentRootResponse"
+        }
+      ],
+      "schema_views": [
+        "DocumentRootResponse"
+      ],
+      "type": "schema:DocumentRootResponse"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DocumentSelectionRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "DocumentSelectionRequest"
+        }
+      ],
+      "schema_views": [
+        "DocumentSelectionRequest"
+      ],
+      "type": "schema:DocumentSelectionRequest"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/DocumentTypeCounts/properties/id",
+          "role": "identifier_view",
+          "schema": "DocumentTypeCounts",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DocumentTypeCounts",
+          "rule": "unassigned_schema_component",
+          "schema": "DocumentTypeCounts"
+        }
+      ],
+      "schema_views": [
+        "DocumentTypeCounts"
+      ],
+      "type": "schema:DocumentTypeCounts"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/DocumentVersionInfo/properties/id",
+          "role": "identifier_view",
+          "schema": "DocumentVersionInfo",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DocumentVersionInfo",
+          "rule": "unassigned_schema_component",
+          "schema": "DocumentVersionInfo"
+        }
+      ],
+      "schema_views": [
+        "DocumentVersionInfo"
+      ],
+      "type": "schema:DocumentVersionInfo"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DocumentVersionRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "DocumentVersionRequest"
+        }
+      ],
+      "schema_views": [
+        "DocumentVersionRequest"
+      ],
+      "type": "schema:DocumentVersionRequest"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/DuplicateDocumentSummary/properties/id",
+          "role": "identifier_view",
+          "schema": "DuplicateDocumentSummary",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/DuplicateDocumentSummary",
+          "rule": "unassigned_schema_component",
+          "schema": "DuplicateDocumentSummary"
+        }
+      ],
+      "schema_views": [
+        "DuplicateDocumentSummary"
+      ],
+      "type": "schema:DuplicateDocumentSummary"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/EditPdfDocumentsRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "EditPdfDocumentsRequest"
+        }
+      ],
+      "schema_views": [
+        "EditPdfDocumentsRequest"
+      ],
+      "type": "schema:EditPdfDocumentsRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/EditPdfDocumentsResult",
+          "rule": "unassigned_schema_component",
+          "schema": "EditPdfDocumentsResult"
+        }
+      ],
+      "schema_views": [
+        "EditPdfDocumentsResult"
+      ],
+      "type": "schema:EditPdfDocumentsResult"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/EmailDocumentRequestRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "EmailDocumentRequestRequest"
+        }
+      ],
+      "schema_views": [
+        "EmailDocumentRequestRequest"
+      ],
+      "type": "schema:EmailDocumentRequestRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/EmailDocumentResponse",
+          "rule": "unassigned_schema_component",
+          "schema": "EmailDocumentResponse"
+        }
+      ],
+      "schema_views": [
+        "EmailDocumentResponse"
+      ],
+      "type": "schema:EmailDocumentResponse"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/EmailDocumentsResponse",
+          "rule": "unassigned_schema_component",
+          "schema": "EmailDocumentsResponse"
+        }
+      ],
+      "schema_views": [
+        "EmailDocumentsResponse"
+      ],
+      "type": "schema:EmailDocumentsResponse"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/EmailRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "EmailRequest"
+        }
+      ],
+      "schema_views": [
+        "EmailRequest"
+      ],
+      "type": "schema:EmailRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/FileVersionEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "FileVersionEnum"
+        }
+      ],
+      "schema_views": [
+        "FileVersionEnum"
+      ],
+      "type": "schema:FileVersionEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/IconEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "IconEnum"
+        }
+      ],
+      "schema_views": [
+        "IconEnum"
+      ],
+      "type": "schema:IconEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ImapSecurityEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "ImapSecurityEnum"
+        }
+      ],
+      "schema_views": [
+        "ImapSecurityEnum"
+      ],
+      "type": "schema:ImapSecurityEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Index",
+          "rule": "unassigned_schema_component",
+          "schema": "Index"
+        }
+      ],
+      "schema_views": [
+        "Index"
+      ],
+      "type": "schema:Index"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/LlmBackendEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "LlmBackendEnum"
+        }
+      ],
+      "schema_views": [
+        "LlmBackendEnum"
+      ],
+      "type": "schema:LlmBackendEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/LlmEmbeddingBackendEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "LlmEmbeddingBackendEnum"
+        }
+      ],
+      "schema_views": [
+        "LlmEmbeddingBackendEnum"
+      ],
+      "type": "schema:LlmEmbeddingBackendEnum"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/LogEntry/properties/id",
+          "role": "identifier_view",
+          "schema": "LogEntry",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/LogEntry",
+          "rule": "unassigned_schema_component",
+          "schema": "LogEntry"
+        }
+      ],
+      "schema_views": [
+        "LogEntry"
+      ],
+      "type": "schema:LogEntry"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MailAccountProcessResponse",
+          "rule": "unassigned_schema_component",
+          "schema": "MailAccountProcessResponse"
+        }
+      ],
+      "schema_views": [
+        "MailAccountProcessResponse"
+      ],
+      "type": "schema:MailAccountProcessResponse"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MailAccountTestResponse",
+          "rule": "unassigned_schema_component",
+          "schema": "MailAccountTestResponse"
+        }
+      ],
+      "schema_views": [
+        "MailAccountTestResponse"
+      ],
+      "type": "schema:MailAccountTestResponse"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MailRuleActionEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "MailRuleActionEnum"
+        }
+      ],
+      "schema_views": [
+        "MailRuleActionEnum"
+      ],
+      "type": "schema:MailRuleActionEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MatchingAlgorithm",
+          "rule": "unassigned_schema_component",
+          "schema": "MatchingAlgorithm"
+        }
+      ],
+      "schema_views": [
+        "MatchingAlgorithm"
+      ],
+      "type": "schema:MatchingAlgorithm"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MergeDocumentsAsVersionsRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "MergeDocumentsAsVersionsRequest"
+        }
+      ],
+      "schema_views": [
+        "MergeDocumentsAsVersionsRequest"
+      ],
+      "type": "schema:MergeDocumentsAsVersionsRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MergeDocumentsAsVersionsResult",
+          "rule": "unassigned_schema_component",
+          "schema": "MergeDocumentsAsVersionsResult"
+        }
+      ],
+      "schema_views": [
+        "MergeDocumentsAsVersionsResult"
+      ],
+      "type": "schema:MergeDocumentsAsVersionsResult"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MergeDocumentsRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "MergeDocumentsRequest"
+        }
+      ],
+      "schema_views": [
+        "MergeDocumentsRequest"
+      ],
+      "type": "schema:MergeDocumentsRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MergeDocumentsResult",
+          "rule": "unassigned_schema_component",
+          "schema": "MergeDocumentsResult"
+        }
+      ],
+      "schema_views": [
+        "MergeDocumentsResult"
+      ],
+      "type": "schema:MergeDocumentsResult"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Metadata",
+          "rule": "unassigned_schema_component",
+          "schema": "Metadata"
+        }
+      ],
+      "schema_views": [
+        "Metadata"
+      ],
+      "type": "schema:Metadata"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MethodEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "MethodEnum"
+        }
+      ],
+      "schema_views": [
+        "MethodEnum"
+      ],
+      "type": "schema:MethodEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/MigrationStatus",
+          "rule": "unassigned_schema_component",
+          "schema": "MigrationStatus"
+        }
+      ],
+      "schema_views": [
+        "MigrationStatus"
+      ],
+      "type": "schema:MigrationStatus"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ModeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "ModeEnum"
+        }
+      ],
+      "schema_views": [
+        "ModeEnum"
+      ],
+      "type": "schema:ModeEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/NoteCreateRequestRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "NoteCreateRequestRequest"
+        }
+      ],
+      "schema_views": [
+        "NoteCreateRequestRequest"
+      ],
+      "type": "schema:NoteCreateRequestRequest"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/Notes/properties/id",
+          "role": "identifier_view",
+          "schema": "Notes",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Notes",
+          "rule": "unassigned_schema_component",
+          "schema": "Notes"
+        }
+      ],
+      "schema_views": [
+        "Notes"
+      ],
+      "type": "schema:Notes"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/NotesRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "NotesRequest"
+        }
+      ],
+      "schema_views": [
+        "NotesRequest"
+      ],
+      "type": "schema:NotesRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/NullEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "NullEnum"
+        }
+      ],
+      "schema_views": [
+        "NullEnum"
+      ],
+      "type": "schema:NullEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ObjectTypeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "ObjectTypeEnum"
+        }
+      ],
+      "schema_views": [
+        "ObjectTypeEnum"
+      ],
+      "type": "schema:ObjectTypeEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/OperationEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "OperationEnum"
+        }
+      ],
+      "schema_views": [
+        "OperationEnum"
+      ],
+      "type": "schema:OperationEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/OriginalMetadataEntry",
+          "rule": "unassigned_schema_component",
+          "schema": "OriginalMetadataEntry"
+        }
+      ],
+      "schema_views": [
+        "OriginalMetadataEntry"
+      ],
+      "type": "schema:OriginalMetadataEntry"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/OutputTypeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "OutputTypeEnum"
+        }
+      ],
+      "schema_views": [
+        "OutputTypeEnum"
+      ],
+      "type": "schema:OutputTypeEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedCorrespondentList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedCorrespondentList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedCorrespondentList"
+      ],
+      "type": "schema:PaginatedCorrespondentList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedCustomFieldList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedCustomFieldList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedCustomFieldList"
+      ],
+      "type": "schema:PaginatedCustomFieldList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedDocumentList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedDocumentList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedDocumentList"
+      ],
+      "type": "schema:PaginatedDocumentList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedDocumentTypeList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedDocumentTypeList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedDocumentTypeList"
+      ],
+      "type": "schema:PaginatedDocumentTypeList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedGroupList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedGroupList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedGroupList"
+      ],
+      "type": "schema:PaginatedGroupList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedLogEntryList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedLogEntryList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedLogEntryList"
+      ],
+      "type": "schema:PaginatedLogEntryList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedMailAccountList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedMailAccountList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedMailAccountList"
+      ],
+      "type": "schema:PaginatedMailAccountList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedMailRuleList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedMailRuleList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedMailRuleList"
+      ],
+      "type": "schema:PaginatedMailRuleList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedProcessedMailList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedProcessedMailList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedProcessedMailList"
+      ],
+      "type": "schema:PaginatedProcessedMailList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedSavedViewList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedSavedViewList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedSavedViewList"
+      ],
+      "type": "schema:PaginatedSavedViewList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedShareLinkBundleList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedShareLinkBundleList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedShareLinkBundleList"
+      ],
+      "type": "schema:PaginatedShareLinkBundleList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedShareLinkList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedShareLinkList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedShareLinkList"
+      ],
+      "type": "schema:PaginatedShareLinkList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedStoragePathList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedStoragePathList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedStoragePathList"
+      ],
+      "type": "schema:PaginatedStoragePathList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedTagList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedTagList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedTagList"
+      ],
+      "type": "schema:PaginatedTagList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedTaskSerializerV10List",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedTaskSerializerV10List"
+        }
+      ],
+      "schema_views": [
+        "PaginatedTaskSerializerV10List"
+      ],
+      "type": "schema:PaginatedTaskSerializerV10List"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedUserList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedUserList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedUserList"
+      ],
+      "type": "schema:PaginatedUserList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedWorkflowActionList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedWorkflowActionList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedWorkflowActionList"
+      ],
+      "type": "schema:PaginatedWorkflowActionList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedWorkflowList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedWorkflowList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedWorkflowList"
+      ],
+      "type": "schema:PaginatedWorkflowList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaginatedWorkflowTriggerList",
+          "rule": "unassigned_schema_component",
+          "schema": "PaginatedWorkflowTriggerList"
+        }
+      ],
+      "schema_views": [
+        "PaginatedWorkflowTriggerList"
+      ],
+      "type": "schema:PaginatedWorkflowTriggerList"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaperlessAuthToken",
+          "rule": "unassigned_schema_component",
+          "schema": "PaperlessAuthToken"
+        }
+      ],
+      "schema_views": [
+        "PaperlessAuthToken"
+      ],
+      "type": "schema:PaperlessAuthToken"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PaperlessAuthTokenRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "PaperlessAuthTokenRequest"
+        }
+      ],
+      "schema_views": [
+        "PaperlessAuthTokenRequest"
+      ],
+      "type": "schema:PaperlessAuthTokenRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedDocumentVersionLabelRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "PatchedDocumentVersionLabelRequest"
+        }
+      ],
+      "schema_views": [
+        "PatchedDocumentVersionLabelRequest"
+      ],
+      "type": "schema:PatchedDocumentVersionLabelRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedProfileRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "PatchedProfileRequest"
+        }
+      ],
+      "schema_views": [
+        "PatchedProfileRequest"
+      ],
+      "type": "schema:PatchedProfileRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PatchedSavedViewRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "PatchedSavedViewRequest"
+        }
+      ],
+      "schema_views": [
+        "PatchedSavedViewRequest"
+      ],
+      "type": "schema:PatchedSavedViewRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PdfEditOperationRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "PdfEditOperationRequest"
+        }
+      ],
+      "schema_views": [
+        "PdfEditOperationRequest"
+      ],
+      "type": "schema:PdfEditOperationRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PdfLayoutEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "PdfLayoutEnum"
+        }
+      ],
+      "schema_views": [
+        "PdfLayoutEnum"
+      ],
+      "type": "schema:PdfLayoutEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PermissionSet",
+          "rule": "unassigned_schema_component",
+          "schema": "PermissionSet"
+        }
+      ],
+      "schema_views": [
+        "PermissionSet"
+      ],
+      "type": "schema:PermissionSet"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PermissionSetRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "PermissionSetRequest"
+        }
+      ],
+      "schema_views": [
+        "PermissionSetRequest"
+      ],
+      "type": "schema:PermissionSetRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/PostDocumentRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "PostDocumentRequest"
+        }
+      ],
+      "schema_views": [
+        "PostDocumentRequest"
+      ],
+      "type": "schema:PostDocumentRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Profile",
+          "rule": "unassigned_schema_component",
+          "schema": "Profile"
+        }
+      ],
+      "schema_views": [
+        "Profile"
+      ],
+      "type": "schema:Profile"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/RebuildBundleError",
+          "rule": "unassigned_schema_component",
+          "schema": "RebuildBundleError"
+        }
+      ],
+      "schema_views": [
+        "RebuildBundleError"
+      ],
+      "type": "schema:RebuildBundleError"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/RemoteOcrEngineEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "RemoteOcrEngineEnum"
+        }
+      ],
+      "schema_views": [
+        "RemoteOcrEngineEnum"
+      ],
+      "type": "schema:RemoteOcrEngineEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/RemoteOcrModeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "RemoteOcrModeEnum"
+        }
+      ],
+      "schema_views": [
+        "RemoteOcrModeEnum"
+      ],
+      "type": "schema:RemoteOcrModeEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/RemovePasswordDocumentsRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "RemovePasswordDocumentsRequest"
+        }
+      ],
+      "schema_views": [
+        "RemovePasswordDocumentsRequest"
+      ],
+      "type": "schema:RemovePasswordDocumentsRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/RemovePasswordDocumentsResult",
+          "rule": "unassigned_schema_component",
+          "schema": "RemovePasswordDocumentsResult"
+        }
+      ],
+      "schema_views": [
+        "RemovePasswordDocumentsResult"
+      ],
+      "type": "schema:RemovePasswordDocumentsResult"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ReprocessDocumentsRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "ReprocessDocumentsRequest"
+        }
+      ],
+      "schema_views": [
+        "ReprocessDocumentsRequest"
+      ],
+      "type": "schema:ReprocessDocumentsRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ReprocessDocumentsResult",
+          "rule": "unassigned_schema_component",
+          "schema": "ReprocessDocumentsResult"
+        }
+      ],
+      "schema_views": [
+        "ReprocessDocumentsResult"
+      ],
+      "type": "schema:ReprocessDocumentsResult"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/RotateDocumentsRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "RotateDocumentsRequest"
+        }
+      ],
+      "schema_views": [
+        "RotateDocumentsRequest"
+      ],
+      "type": "schema:RotateDocumentsRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/RotateDocumentsResult",
+          "rule": "unassigned_schema_component",
+          "schema": "RotateDocumentsResult"
+        }
+      ],
+      "schema_views": [
+        "RotateDocumentsResult"
+      ],
+      "type": "schema:RotateDocumentsResult"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/RuleTypeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "RuleTypeEnum"
+        }
+      ],
+      "schema_views": [
+        "RuleTypeEnum"
+      ],
+      "type": "schema:RuleTypeEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/RunTask",
+          "rule": "unassigned_schema_component",
+          "schema": "RunTask"
+        }
+      ],
+      "schema_views": [
+        "RunTask"
+      ],
+      "type": "schema:RunTask"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/RunTaskError",
+          "rule": "unassigned_schema_component",
+          "schema": "RunTaskError"
+        }
+      ],
+      "schema_views": [
+        "RunTaskError"
+      ],
+      "type": "schema:RunTaskError"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/RunTaskRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "RunTaskRequest"
+        }
+      ],
+      "schema_views": [
+        "RunTaskRequest"
+      ],
+      "type": "schema:RunTaskRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SanityCheck",
+          "rule": "unassigned_schema_component",
+          "schema": "SanityCheck"
+        }
+      ],
+      "schema_views": [
+        "SanityCheck"
+      ],
+      "type": "schema:SanityCheck"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SavedViewFilterRule",
+          "rule": "unassigned_schema_component",
+          "schema": "SavedViewFilterRule"
+        }
+      ],
+      "schema_views": [
+        "SavedViewFilterRule"
+      ],
+      "type": "schema:SavedViewFilterRule"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SavedViewRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "SavedViewRequest"
+        }
+      ],
+      "schema_views": [
+        "SavedViewRequest"
+      ],
+      "type": "schema:SavedViewRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ScheduleDateFieldEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "ScheduleDateFieldEnum"
+        }
+      ],
+      "schema_views": [
+        "ScheduleDateFieldEnum"
+      ],
+      "type": "schema:ScheduleDateFieldEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SearchResult",
+          "rule": "unassigned_schema_component",
+          "schema": "SearchResult"
+        }
+      ],
+      "schema_views": [
+        "SearchResult"
+      ],
+      "type": "schema:SearchResult"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SelectionData",
+          "rule": "unassigned_schema_component",
+          "schema": "SelectionData"
+        }
+      ],
+      "schema_views": [
+        "SelectionData"
+      ],
+      "type": "schema:SelectionData"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SetPermissions",
+          "rule": "unassigned_schema_component",
+          "schema": "SetPermissions"
+        }
+      ],
+      "schema_views": [
+        "SetPermissions"
+      ],
+      "type": "schema:SetPermissions"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SetPermissionsRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "SetPermissionsRequest"
+        }
+      ],
+      "schema_views": [
+        "SetPermissionsRequest"
+      ],
+      "type": "schema:SetPermissionsRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/ShareLinkBundleStatusEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "ShareLinkBundleStatusEnum"
+        }
+      ],
+      "schema_views": [
+        "ShareLinkBundleStatusEnum"
+      ],
+      "type": "schema:ShareLinkBundleStatusEnum"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/SocialAccount/properties/id",
+          "role": "identifier_view",
+          "schema": "SocialAccount",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SocialAccount",
+          "rule": "unassigned_schema_component",
+          "schema": "SocialAccount"
+        }
+      ],
+      "schema_views": [
+        "SocialAccount"
+      ],
+      "type": "schema:SocialAccount"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SocialAccountRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "SocialAccountRequest"
+        }
+      ],
+      "schema_views": [
+        "SocialAccountRequest"
+      ],
+      "type": "schema:SocialAccountRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SourcesEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "SourcesEnum"
+        }
+      ],
+      "schema_views": [
+        "SourcesEnum"
+      ],
+      "type": "schema:SourcesEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Storage",
+          "rule": "unassigned_schema_component",
+          "schema": "Storage"
+        }
+      ],
+      "schema_views": [
+        "Storage"
+      ],
+      "type": "schema:Storage"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/StoragePathCounts/properties/id",
+          "role": "identifier_view",
+          "schema": "StoragePathCounts",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/StoragePathCounts",
+          "rule": "unassigned_schema_component",
+          "schema": "StoragePathCounts"
+        }
+      ],
+      "schema_views": [
+        "StoragePathCounts"
+      ],
+      "type": "schema:StoragePathCounts"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/StoragePathTestRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "StoragePathTestRequest"
+        }
+      ],
+      "schema_views": [
+        "StoragePathTestRequest"
+      ],
+      "type": "schema:StoragePathTestRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Suggestions",
+          "rule": "unassigned_schema_component",
+          "schema": "Suggestions"
+        }
+      ],
+      "schema_views": [
+        "Suggestions"
+      ],
+      "type": "schema:Suggestions"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/SystemStatus",
+          "rule": "unassigned_schema_component",
+          "schema": "SystemStatus"
+        }
+      ],
+      "schema_views": [
+        "SystemStatus"
+      ],
+      "type": "schema:SystemStatus"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/TagCounts/properties/id",
+          "role": "identifier_view",
+          "schema": "TagCounts",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/TagCounts",
+          "rule": "unassigned_schema_component",
+          "schema": "TagCounts"
+        }
+      ],
+      "schema_views": [
+        "TagCounts"
+      ],
+      "type": "schema:TagCounts"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/TaskSerializerV10StatusEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "TaskSerializerV10StatusEnum"
+        }
+      ],
+      "schema_views": [
+        "TaskSerializerV10StatusEnum"
+      ],
+      "type": "schema:TaskSerializerV10StatusEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/TaskStatusCounts",
+          "rule": "unassigned_schema_component",
+          "schema": "TaskStatusCounts"
+        }
+      ],
+      "schema_views": [
+        "TaskStatusCounts"
+      ],
+      "type": "schema:TaskStatusCounts"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/TaskSummary",
+          "rule": "unassigned_schema_component",
+          "schema": "TaskSummary"
+        }
+      ],
+      "schema_views": [
+        "TaskSummary"
+      ],
+      "type": "schema:TaskSummary"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/TaskTypeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "TaskTypeEnum"
+        }
+      ],
+      "schema_views": [
+        "TaskTypeEnum"
+      ],
+      "type": "schema:TaskTypeEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/Tasks",
+          "rule": "unassigned_schema_component",
+          "schema": "Tasks"
+        }
+      ],
+      "schema_views": [
+        "Tasks"
+      ],
+      "type": "schema:Tasks"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/TasksSummaryOverview",
+          "rule": "unassigned_schema_component",
+          "schema": "TasksSummaryOverview"
+        }
+      ],
+      "schema_views": [
+        "TasksSummaryOverview"
+      ],
+      "type": "schema:TasksSummaryOverview"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/TrashActionEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "TrashActionEnum"
+        }
+      ],
+      "schema_views": [
+        "TrashActionEnum"
+      ],
+      "type": "schema:TrashActionEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/TrashRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "TrashRequest"
+        }
+      ],
+      "schema_views": [
+        "TrashRequest"
+      ],
+      "type": "schema:TrashRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/TriggerSourceEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "TriggerSourceEnum"
+        }
+      ],
+      "schema_views": [
+        "TriggerSourceEnum"
+      ],
+      "type": "schema:TriggerSourceEnum"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/UiSettingsView/properties/id",
+          "role": "identifier_view",
+          "schema": "UiSettingsView",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/UiSettingsView",
+          "rule": "unassigned_schema_component",
+          "schema": "UiSettingsView"
+        }
+      ],
+      "schema_views": [
+        "UiSettingsView"
+      ],
+      "type": "schema:UiSettingsView"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/UiSettingsViewRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "UiSettingsViewRequest"
+        }
+      ],
+      "schema_views": [
+        "UiSettingsViewRequest"
+      ],
+      "type": "schema:UiSettingsViewRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/UnpaperCleanEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "UnpaperCleanEnum"
+        }
+      ],
+      "schema_views": [
+        "UnpaperCleanEnum"
+      ],
+      "type": "schema:UnpaperCleanEnum"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/UpdateDocumentVersionLabelResult/properties/id",
+          "role": "identifier_view",
+          "schema": "UpdateDocumentVersionLabelResult",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/UpdateDocumentVersionLabelResult",
+          "rule": "unassigned_schema_component",
+          "schema": "UpdateDocumentVersionLabelResult"
+        }
+      ],
+      "schema_views": [
+        "UpdateDocumentVersionLabelResult"
+      ],
+      "type": "schema:UpdateDocumentVersionLabelResult"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/WorkflowActionEmail/properties/id",
+          "role": "identifier_view",
+          "schema": "WorkflowActionEmail",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowActionEmail",
+          "rule": "unassigned_schema_component",
+          "schema": "WorkflowActionEmail"
+        }
+      ],
+      "schema_views": [
+        "WorkflowActionEmail"
+      ],
+      "type": "schema:WorkflowActionEmail"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/WorkflowActionEmailRequest/properties/id",
+          "role": "identifier_view",
+          "schema": "WorkflowActionEmailRequest",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowActionEmailRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "WorkflowActionEmailRequest"
+        }
+      ],
+      "schema_views": [
+        "WorkflowActionEmailRequest"
+      ],
+      "type": "schema:WorkflowActionEmailRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowActionTypeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "WorkflowActionTypeEnum"
+        }
+      ],
+      "schema_views": [
+        "WorkflowActionTypeEnum"
+      ],
+      "type": "schema:WorkflowActionTypeEnum"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/WorkflowActionWebhook/properties/id",
+          "role": "identifier_view",
+          "schema": "WorkflowActionWebhook",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowActionWebhook",
+          "rule": "unassigned_schema_component",
+          "schema": "WorkflowActionWebhook"
+        }
+      ],
+      "schema_views": [
+        "WorkflowActionWebhook"
+      ],
+      "type": "schema:WorkflowActionWebhook"
+    },
+    {
+      "identity_slots": [
+        {
+          "field": "id",
+          "pointer": "#/components/schemas/WorkflowActionWebhookRequest/properties/id",
+          "role": "identifier_view",
+          "schema": "WorkflowActionWebhookRequest",
+          "wire_types": [
+            {
+              "format": null,
+              "type": "integer"
+            }
+          ]
+        }
+      ],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowActionWebhookRequest",
+          "rule": "unassigned_schema_component",
+          "schema": "WorkflowActionWebhookRequest"
+        }
+      ],
+      "schema_views": [
+        "WorkflowActionWebhookRequest"
+      ],
+      "type": "schema:WorkflowActionWebhookRequest"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowTriggerMatchingAlgorithmEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "WorkflowTriggerMatchingAlgorithmEnum"
+        }
+      ],
+      "schema_views": [
+        "WorkflowTriggerMatchingAlgorithmEnum"
+      ],
+      "type": "schema:WorkflowTriggerMatchingAlgorithmEnum"
+    },
+    {
+      "identity_slots": [],
+      "kind": "schema_component",
+      "path_views": [],
+      "schema_view_evidence": [
+        {
+          "declared_title": null,
+          "pointer": "#/components/schemas/WorkflowTriggerTypeEnum",
+          "rule": "unassigned_schema_component",
+          "schema": "WorkflowTriggerTypeEnum"
+        }
+      ],
+      "schema_views": [
+        "WorkflowTriggerTypeEnum"
+      ],
+      "type": "schema:WorkflowTriggerTypeEnum"
+    }
+  ],
+  "source_openapi_sha256": "7840d7816133c13fdeb43e1cd9a3013c7fff886538f5612bff3d0b42b2119d0c",
+  "version": 1
+}

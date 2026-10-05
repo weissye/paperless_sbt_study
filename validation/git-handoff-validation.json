@@ -1,0 +1,12 @@
+{
+  "status": "OFFLINE_GIT_HANDOFF_TESTS_PASS",
+  "checks": [
+    "scoped_commit_push_and_secret_runtime_exclusion",
+    "repeat_save_no_empty_commit",
+    "home_clone_preserves_source_and_original_evidence_bytes",
+    "mismatched_origin_preserved",
+    "compose_version_loopback_postgresql_mount_and_password_reference"
+  ],
+  "powershell_executed": false,
+  "docker_installer_executed": false
+}

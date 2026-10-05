@@ -1,0 +1,227 @@
+--- a/generator_v56/pipeline.py
++++ b/generator_v56/pipeline.py
+@@ -5,7 +5,7 @@
+ from __future__ import annotations
+ import re
+ 
+-from dataclasses import dataclass
++from dataclasses import dataclass, field
+ from typing import Any, Dict, List, Optional
+ 
+ from .parsing.loader import load_and_resolve
+@@ -18,6 +18,7 @@
+ from .render.plan import build_plan
+ from .render.interfaces_js import render_interfaces
+ from .render.stories_js import render_stories
++from .render.http_interfaces import HttpInterfaceRegistry
+ from .report.generation_report import build_generation_report, build_dependency_graph_report
+ 
+ 
+@@ -30,6 +31,7 @@
+     generation_report: Dict[str, Any]
+     dependency_graph_report: Dict[str, Any]
+     unsupported_refs: List[str]
++    transport_manifest: list = field(default_factory=list)
+ 
+ 
+ def run_pipeline(openapi_path: str, name: str, base_url: str, seed: int,
+@@ -144,6 +146,7 @@
+             op = by_id.get(operation_id)
+             if not op or op.kind != "update" or op.op.method not in ("PUT", "PATCH"):
+                 raise ValueError("Verified read carry requires a documented update operationId")
++    transport_registry = HttpInterfaceRegistry()
+     stories_js = render_stories(plan, name, story_profile=story_profile,
+                                 request_rules=(overrides or {}).get('request_rules'),
+                                 auth_token_env=auth_token_env,
+@@ -152,7 +155,11 @@
+                                 optional_enum_dependency_branch=optional_enum_dependency_branch,
+                                 verified_values=verified_values,
+                                 verified_update_carry=verified_update_carry,
+-                                logical_processes=logical_processes)
++                                logical_processes=logical_processes,
++                                transport_registry=transport_registry)
++    interfaces_js += transport_registry.render()
++    if re.search(r'\bsvc\s*\.\s*(get|post|put|patch|delete|head|options)\s*\(', stories_js):
++        raise ValueError('Generated stories contain a direct HTTP request outside interfaces.')
+ 
+     gen_report = build_generation_report(
+         doc, plan, unsupported_refs, ambiguities,
+@@ -165,6 +172,7 @@
+         doc=doc, plan=plan, interfaces_js=interfaces_js, stories_js=stories_js,
+         generation_report=gen_report, dependency_graph_report=dep_report,
+         unsupported_refs=unsupported_refs,
++        transport_manifest=transport_registry.entries,
+     )
+ 
+ 
+--- a/generator_v56/render/parallel_crud_v3.py
++++ b/generator_v56/render/parallel_crud_v3.py
+@@ -322,7 +322,7 @@
+ 
+ 
+ def render_parallel_crud_v3(plan, slug, processes, request_rules=None,
+-                            auth_token_env=None):
++                            auth_token_env=None, transport_registry=None):
+     if not 1 <= processes <= 8 or not 1 <= plan.instances_per_entity <= 8:
+         raise ValueError('logical process / entity instances out of range')
+     by_key = {ep.entity.key: ep for ep in plan.entities}
+@@ -331,9 +331,17 @@
+     def request(op, **kwargs):
+         nonlocal event_index
+         event_index += 1
+-        return _request(op, request_rules=request_rules,
+-                        auth_token_env=auth_token_env,
+-                        event_tag='event_' + str(event_index), **kwargs)
++        options = dict(kwargs, request_rules=request_rules,
++                       auth_token_env=auth_token_env,
++                       event_tag='event_' + str(event_index))
++        legacy = _request(op, **options)
++        if transport_registry is None:
++            return legacy
++        context = options.get('context', '__args')
++        options['context'] = '__args'
++        source = _request(op, **options)
++        return transport_registry.add(source, ['__args'], [context], legacy,
++                                      operation=op.op.method + ' ' + op.op.path)
+     children = {key: set() for key in by_key}
+     for ep in plan.entities:
+         for edge in ep.dependencies:
+@@ -696,10 +704,7 @@
+                         ' { pvg.fail("race update returned unexpected status"); return; }'
+                         'pvg.success("two HTTP updates overlapped");'
+                     )
+-                    lines += [
+-                        request(ep.get_op, race_prepare=(race_rv, update_field,
+-                                                          race_first_value, race_field, race_value),
+-                                config_map_keys=config_keys),
++                    race_request = (
+                         'svc.post("/__sbt_race?path="+(' + _url(update[5]) + ')+' +
+                         js_string('&__sbt_event=' + safe_identifier(owner)) + ',{' +
+                         'headers:{Authorization:' +
+@@ -707,7 +712,16 @@
+                         ',"Content-Type":"application/json"},'
+                         'body:' + js_string('@{' + race_rv + '}') +
+                         ',expectedResponseCodes:[200],callback:new Function("response",' +
+-                        js_string(race_callback) + ')});',
++                        js_string(race_callback) + ')});'
++                    )
++                    if transport_registry is not None:
++                        race_request = transport_registry.add(race_request, ['__args'], ['__args'], race_request,
++                                                              operation='legacy configured coordinator')
++                    lines += [
++                        request(ep.get_op, race_prepare=(race_rv, update_field,
++                                                          race_first_value, race_field, race_value),
++                                config_map_keys=config_keys),
++                        race_request,
+                         'verified("race");',
+                     ]
+                 if child_keys:
+--- a/generator_v56/render/stories_js.py
++++ b/generator_v56/render/stories_js.py
+@@ -2027,7 +2027,8 @@
+                                           long_rounds: tuple[int, int] = (3, 6),
+                                           emit_prefix_witnesses: bool = False,
+                                           verified_values: Optional[Dict[str, Dict[str, object]]] = None,
+-                                          verified_update_carry: tuple[str, ...] = ()) -> List[str]:
++                                          verified_update_carry: tuple[str, ...] = (),
++                                          transport_registry=None) -> List[str]:
+     """A non-CRUD operation (an entity sub-action like `approveRepairOrder`,
+     or a fully standalone operation like `dispense`) still gets a generic
+     operation story here, per DEVELOPMENT_PROMPT.md #10 ("it must still
+@@ -2287,14 +2288,24 @@
+                     observation_args = [p if p in op_plan.params else "undefined"
+                                         for p in owner.get_op.params]
+                     if prefix_eligible:
+-                        lines.append('  let __sbtPrefixReadOk = false;')
+-                        lines.append(
++                        prefix_request = (
+                             '  svc.get(__sbtPrefixPath,{headers:{"X-Provengo-Prefix-Phase":"verified-round",'
+                             f'"X-Provengo-Prefix-Story":{js_string(label)},"X-Provengo-Prefix-Round":String(__round),'
+                             f'"X-Provengo-Prefix-Total":String({rounds})}},'
+                             f'expectedResponseCodes:{_value_js(sorted(set(owner.get_op.success_codes)))},'
+                             f'callback:function(r){{__sbtPrefixReadOk={_value_js(sorted(set(owner.get_op.success_codes)))}.indexOf(r.code)>=0;}}}});'
+                         )
++                        if transport_registry is None:
++                            lines.append('  let __sbtPrefixReadOk = false;')
++                            lines.append(prefix_request)
++                        else:
++                            legacy = '  let __sbtPrefixReadOk = false;\n' + prefix_request
++                            lines.append(transport_registry.add(prefix_request,
++                                ['__sbtPrefixPath', '__round'], ['__sbtPrefixPath', '__round'], legacy,
++                                operation='GET documented prefix observation',
++                                local_prelude='let __sbtPrefixReadOk = false;\n',
++                                return_expression='__sbtPrefixReadOk',
++                                story_prefix='  let __sbtPrefixReadOk = '))
+                     else:
+                         lines.append(f"  {owner.get_op.js_name}({', '.join(observation_args)});")
+             if rounds > 1:
+@@ -2420,12 +2431,14 @@
+                    optional_enum_dependency_branch: bool = False,
+                    verified_values: Optional[Dict[str, Dict[str, object]]] = None,
+                    verified_update_carry: tuple[str, ...] = (),
+-                   logical_processes: int = 1) -> str:
++                   logical_processes: int = 1,
++                   transport_registry=None) -> str:
+     if story_profile == "parallel-crud":
+         from .parallel_crud_v3 import render_parallel_crud_v3
+         return render_parallel_crud_v3(plan, slug, logical_processes,
+                                        request_rules=request_rules,
+-                                       auth_token_env=auth_token_env)
++                                       auth_token_env=auth_token_env,
++                                       transport_registry=transport_registry)
+     if story_profile == "validated-lifecycle":
+         return "\n\n".join([
+             HEADER.format(slug=slug),
+@@ -2476,7 +2489,8 @@
+     action_and_standalone = [] if breadth else render_action_and_standalone_bthreads(
+         plan, by_key, minimal=minimal, long_interleaving=long_interleaving,
+         long_rounds=long_rounds, emit_prefix_witnesses=emit_prefix_witnesses,
+-        verified_values=verified_values, verified_update_carry=verified_update_carry
++        verified_values=verified_values, verified_update_carry=verified_update_carry,
++        transport_registry=transport_registry
+     )
+     if action_and_standalone:
+         parts.append(
+--- a/generator_v56/render/http_interfaces.py
++++ b/generator_v56/render/http_interfaces.py
+@@ -0,0 +1,40 @@
++"""Lift generated transport code into interfaces without changing model events.
++
++The registry is per generation. It contains no application names or paths.
++"""
++from __future__ import annotations
++import re
++
++class HttpInterfaceRegistry:
++    def __init__(self):
++        self.entries = []
++
++    def add(self, source, parameters, arguments, legacy_story, *, operation=None,
++            local_prelude='', return_expression=None, story_prefix='', story_suffix=';'):
++        name = 'sbtHttp_' + str(len(self.entries) + 1)
++        invocation = name + '(' + ','.join(arguments) + ')'
++        story = story_prefix + invocation + story_suffix
++        body = local_prelude + source
++        if return_expression is not None:
++            body += '\nreturn ' + return_expression + ';'
++        definition = 'function ' + name + '(' + ','.join(parameters) + ') {\n' + body + '\n}\n'
++        self.entries.append({'name': name, 'definition': definition,
++                             'story_call': story, 'legacy_story': legacy_story,
++                             'operation': operation})
++        return story
++
++    def render(self):
++        if not self.entries:
++            return ''
++        return '\n// Generated transport interfaces. Stories own scheduling; interfaces own HTTP.\n' + ''.join(entry['definition'] for entry in self.entries)
++
++    def restore_legacy_story(self, stories):
++        """Exact source comparison aid; never used for execution."""
++        for entry in self.entries:
++            current = stories
++            def restore(match):
++                prefix = current[current.rfind('\n', 0, match.start()) + 1:match.start()]
++                indentation = prefix if not prefix.strip() else ''
++                return entry['legacy_story'].replace('\n', '\n' + indentation)
++            stories = re.sub(re.escape(entry['story_call']), restore, current)
++        return stories

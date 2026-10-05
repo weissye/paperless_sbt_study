@@ -1,0 +1,14 @@
+{
+  "README-GIT-HANDOFF.md": "09cab5b07eac681b77e865a26ab6ba38a06e4cbaea35377b05f26d218db640f9",
+  "deployment/compose.home.yml": "607990b7c6d4467885846e108cc9c5286d1c91e67666e740742f7784883c4b26",
+  "docs/research/Next_System_Experimental_Protocol.docx": "a5921afa1e7fe71aafd782e1e336d1aa76e8e36e2bd2cffbe614d09681c1034b",
+  "docs/research/Next_System_Experimental_Protocol.md": "ba1f7a58d49e36eec655fbce1cc03a4bc2f9ec428017adc419335bbda510a7e2",
+  "docs/research/registration-template.json": "2ad4c547a8fdc1c82f3ba827a8d7a9388114ffb9d4b6b88e2b43517d8080a224",
+  "evidence/native-smoke-20261005-160959/HANDOFF.md": "948db2a965ab54d511f605bd0044db7d81196e3d12dd918550e3864fc5a52be9",
+  "evidence/native-smoke-20261005-160959/live-review-original.zip": "c6734e57d52eed3db8d933905e81ddd10a8efd6ef5695043b6524df447de9124",
+  "evidence/native-smoke-20261005-160959/qualification.json": "fd9ba306b1492f5c0e69ad9e4d2f8171d674baa1e5ba7e21b845655898955e73",
+  "scripts/Save-Paperless-Git.ps1": "45367cf7dca1515b3c5b09d29cf384923af51a2217a555fb139afd8d4530312e",
+  "scripts/Start-Paperless-Local.ps1": "bbc88a78a28ab9f4b523249754e0f55d8c174c042c6627c59a6ec19af9fcc450",
+  "tools/save_git_study.py": "57f6a0d1a04e5fb3b6277f1046f2a694ff48a4d6bd51936e13823124524d62e1",
+  "validation/git-handoff-validation.json": "3f77b4494feefb8475b5074ba2d14fddd7a46e92ec4f9f9ab1ccfc259082558c"
+}

@@ -1,0 +1,80 @@
+{
+  "action_candidates": [],
+  "blockers": [],
+  "compiled_task_count": 2,
+  "coverage_limit": "Only explicit nested references writable in an inferred update operation become link tasks. Other relationships remain in the map for review.",
+  "cycle_policy": "Optional relationship links follow instance creation. Required create cycles remain blocked.",
+  "http_policy": "one HTTP request at a time; scheduling belongs to stories, transport to interfaces",
+  "instance_metadata": {
+    "api/tags#1": {
+      "identity_fields": [
+        "id",
+        "slug"
+      ],
+      "instance": "api/tags#1",
+      "record_variable": "rel_8c4a2d71dcc41edf_identity",
+      "resource": "api/tags",
+      "route_fields": [
+        {
+          "parameter": "id",
+          "response_field": "id",
+          "variable": "rel_route_ddd2678239526dff"
+        }
+      ],
+      "snapshot_variable": "rel_8c4a2d71dcc41edf_snapshot"
+    },
+    "api/tags#2": {
+      "identity_fields": [
+        "id",
+        "slug"
+      ],
+      "instance": "api/tags#2",
+      "record_variable": "rel_997dbf08f8f45e7a_identity",
+      "resource": "api/tags",
+      "route_fields": [
+        {
+          "parameter": "id",
+          "response_field": "id",
+          "variable": "rel_route_21e38f2bf17e05ac"
+        }
+      ],
+      "snapshot_variable": "rel_997dbf08f8f45e7a_snapshot"
+    }
+  },
+  "instances": {
+    "api/tags": [
+      "api/tags#1",
+      "api/tags#2"
+    ]
+  },
+  "profile_sha256": "421b07ee007e4467846dff2f2bf0d9f762de80712c8d62f0b5d5821601fd66c2",
+  "recursive_relationship_policies": [],
+  "reset_replay_accepted": false,
+  "rollback_implemented": false,
+  "server_requests_sent": 0,
+  "source_openapi_sha256": "7840d7816133c13fdeb43e1cd9a3013c7fff886538f5612bff3d0b42b2119d0c",
+  "status": "COMPILED_NOT_LIVE_ACCEPTED",
+  "tasks": [
+    {
+      "after": [],
+      "binding": "capture_documented_response_identity",
+      "executable": true,
+      "id": "create:api/tags#1",
+      "instance": "api/tags#1",
+      "kind": "create",
+      "operation": "POST /api/tags/",
+      "resource": "api/tags"
+    },
+    {
+      "after": [],
+      "binding": "capture_documented_response_identity",
+      "executable": true,
+      "id": "create:api/tags#2",
+      "instance": "api/tags#2",
+      "kind": "create",
+      "operation": "POST /api/tags/",
+      "resource": "api/tags"
+    }
+  ],
+  "version": 1
+}

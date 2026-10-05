@@ -1,0 +1,22 @@
+{
+  "status": "STATIC_ASSOCIATION_VIEW_PASS_NATIVE_UPDATE_PENDING",
+  "python_tests": 41,
+  "transport_cases": 466,
+  "latest_live_review_sha256": "460f2f49f4625f1176402dc532ca25b02627687bf1024927bc0b04cd511745b3",
+  "sampled_model_hashes_match_live_review": true,
+  "latest_completed_tasks": 20,
+  "latest_callback_responses": 67,
+  "latest_failure_task": "link:2:2",
+  "latest_failure_field": "referencedRecipe",
+  "cycle_probes_executed_in_latest_live_run": 0,
+  "configured_association_write_path": "recipeReferences[]",
+  "configured_association_readback_path": "recipeReferences[].recipeId",
+  "manual_fixture_readback_shape_evidence_sha256": "0a8e4d643def5a3fb9ef42bff23e9ae6b14bb11e304b438e6cf05d5ab479f858",
+  "native_updated_write_accepted": false,
+  "complete_model_tasks": 55,
+  "complete_model_http_callbacks": 170,
+  "cycle_lengths": [
+    2,
+    3
+  ]
+}

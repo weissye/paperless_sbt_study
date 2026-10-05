@@ -1,0 +1,27 @@
+{
+  "status": "STATIC_CYCLE_PROBES_PASS_NATIVE_PENDING",
+  "python_tests": 40,
+  "original_transport_cases": 466,
+  "cycle_lengths_in_live_pilot": [
+    2,
+    3
+  ],
+  "cycle_lengths_in_planning_tests": [
+    2,
+    3,
+    5
+  ],
+  "runtime_tasks": 55,
+  "runtime_http_callbacks": 170,
+  "runtime_owned_instances": 21,
+  "observed_rejection_evidence_sha256": "16d78139919e4970b050d5e1302a54f1ea0ecab5ed4ea0d058d9a8d75db1cec8",
+  "observed_server_message": "Recursive Recipe Link Error on recipe controller action",
+  "observed_status": 400,
+  "injected_faults_rejected": [
+    "cycle accepted with 200",
+    "rejection with partial source mutation",
+    "cycle request returned 500"
+  ],
+  "native_update_accepted": false,
+  "reset_replay_accepted": false
+}

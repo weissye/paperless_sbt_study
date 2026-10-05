@@ -1,0 +1,257 @@
+{
+  "source_openapi_sha256": "ba68e1c3842c11701ec64c5f3ba23387cf53963f8d16dd7c3d45da103b9421db",
+  "request_rules": {
+    "POST /admin/realms": {
+      "defaults": {
+        "organizationsEnabled": true
+      },
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/authentication/flows": {
+      "defaults": {
+        "providerId": "basic-flow",
+        "topLevel": true,
+        "builtIn": false,
+        "description": ""
+      },
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/workflows": {
+      "defaults": {
+        "on": "user-authenticated",
+        "steps": [
+          {
+            "uses": "disable-user",
+            "after": "365d"
+          }
+        ]
+      },
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/client-scopes": {
+      "defaults": {
+        "protocol": "openid-connect"
+      },
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/client-templates": {
+      "defaults": {
+        "protocol": "openid-connect"
+      },
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/components": {
+      "defaults": {
+        "providerType": "org.keycloak.keys.KeyProvider",
+        "providerId": "rsa-generated",
+        "parentId": "${realm}",
+        "config": {
+          "priority": [
+            "101"
+          ],
+          "enabled": [
+            "true"
+          ],
+          "active": [
+            "true"
+          ],
+          "keySize": [
+            "2048"
+          ]
+        }
+      },
+      "accept_statuses": [
+        201
+      ],
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/clients": {
+      "defaults": {
+        "protocol": "openid-connect",
+        "publicClient": false,
+        "serviceAccountsEnabled": true,
+        "authorizationServicesEnabled": true
+      },
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/identity-provider/instances": {
+      "defaults": {
+        "providerId": "keycloak-oidc",
+        "enabled": false,
+        "config": {}
+      },
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/identity-provider/instances/{alias}/mappers": {
+      "defaults": {
+        "identityProviderMapper": "oidc-user-attribute-idp-mapper",
+        "identityProviderAlias": "${alias}",
+        "config": {
+          "claim": "${name}",
+          "user.attribute": "${name}",
+          "syncMode": "INHERIT"
+        }
+      },
+      "accept_statuses": [
+        201
+      ],
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "GET /admin/realms/{realm}/workflows/{id}": {
+      "headers": {
+        "Accept": "application/json"
+      },
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/clients/{client-uuid}/protocol-mappers/models": {
+      "defaults": {
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usermodel-attribute-mapper",
+        "config": {
+          "user.attribute": "sbtAttribute",
+          "claim.name": "sbtAttribute",
+          "jsonType.label": "String"
+        }
+      },
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/client-scopes/{client-scope-id}/protocol-mappers/models": {
+      "defaults": {
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usermodel-attribute-mapper",
+        "config": {
+          "user.attribute": "sbtAttribute",
+          "claim.name": "sbtAttribute",
+          "jsonType.label": "String"
+        }
+      },
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/client-templates/{client-scope-id}/protocol-mappers/models": {
+      "defaults": {
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usermodel-attribute-mapper",
+        "config": {
+          "user.attribute": "sbtAttribute",
+          "claim.name": "sbtAttribute",
+          "jsonType.label": "String"
+        }
+      },
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/clients/{client-uuid}/authz/resource-server/scope": {
+      "accept_statuses": [
+        201
+      ],
+      "evidence": "Observed in Keycloak 26.7.4 Stage 2 preflight and direct probes, 2026-09-28/29"
+    },
+    "POST /admin/realms/{realm}/authentication/executions": {
+      "defaults": {
+        "parentFlow": "${parentFlow}",
+        "requirement": "REQUIRED",
+        "authenticatorFlow": true
+      },
+      "setup_create": {
+        "operation": "POST /admin/realms/{realm}/authentication/flows",
+        "capture_field": "id",
+        "body": {
+          "providerId": "basic-flow",
+          "topLevel": true,
+          "builtIn": false,
+          "description": ""
+        }
+      },
+      "evidence": "Direct Keycloak execution probes v16-v21: custom distinct parent flow and REQUIRED execution, 2026-09-29"
+    },
+    "PUT /admin/realms/{realm}/clients/{client-uuid}": {
+      "refresh_update": true,
+      "evidence": "Disjoint PUT race selected from two writable fields of this OpenAPI operation; prior Stage 2 224-race campaign, 2026-09-28",
+      "race_enabled": true
+    },
+    "PUT /admin/realms/{realm}": {
+      "evidence": "Disjoint PUT race design against this OpenAPI operation; selected by two writable string fields, Stage 2 224-race campaign, 2026-09-28"
+    },
+    "PUT /admin/realms/{realm}/authentication/config/{id}": {
+      "evidence": "Disjoint PUT race design against this OpenAPI operation; selected by two writable string fields, Stage 2 224-race campaign, 2026-09-28"
+    },
+    "PUT /admin/realms/{realm}/authentication/flows/{id}": {
+      "evidence": "Disjoint PUT race selected from two writable fields of this OpenAPI operation; prior Stage 2 224-race campaign, 2026-09-28",
+      "race_enabled": true
+    },
+    "PUT /admin/realms/{realm}/client-scopes/{client-scope-id}": {
+      "evidence": "Disjoint PUT race selected from two writable fields of this OpenAPI operation; prior Stage 2 224-race campaign, 2026-09-28",
+      "race_enabled": true
+    },
+    "PUT /admin/realms/{realm}/client-scopes/{client-scope-id}/protocol-mappers/models/{id}": {
+      "evidence": "v44 direct Keycloak probe: consentText, consentRequired, name PUT 204 but not retained; config.claim.name retained. Two distinct string entries of writable OpenAPI config map selected for disjoint race; user.attribute is already used by create fixture.",
+      "race_enabled": true,
+      "config_map_race": [
+        "claim.name",
+        "user.attribute"
+      ]
+    },
+    "PUT /admin/realms/{realm}/client-templates/{client-scope-id}": {
+      "evidence": "Disjoint PUT race selected from two writable fields of this OpenAPI operation; prior Stage 2 224-race campaign, 2026-09-28",
+      "race_enabled": true
+    },
+    "PUT /admin/realms/{realm}/clients/{client-uuid}/authz/resource-server/resource/{resource-id}": {
+      "evidence": "Disjoint PUT race selected from two writable fields of this OpenAPI operation; prior Stage 2 224-race campaign, 2026-09-28",
+      "race_enabled": true
+    },
+    "PUT /admin/realms/{realm}/clients/{client-uuid}/authz/resource-server/scope/{scope-id}": {
+      "evidence": "Disjoint PUT race selected from two writable fields of this OpenAPI operation; prior Stage 2 224-race campaign, 2026-09-28",
+      "race_enabled": true
+    },
+    "PUT /admin/realms/{realm}/clients/{client-uuid}/protocol-mappers/models/{id}": {
+      "evidence": "v45 first live failure: client mapper consentText update returned success but readback mismatched. Same OpenAPI ProtocolMapperRepresentation config map as v44 direct probe; claim.name and user.attribute retained in v45 direct scope-mapper precheck. Operation-specific runtime precheck required.",
+      "race_enabled": true,
+      "config_map_race": [
+        "claim.name",
+        "user.attribute"
+      ]
+    },
+    "PUT /admin/realms/{realm}/clients/{client-uuid}/roles/{role-name}": {
+      "evidence": "OpenAPI RoleRepresentation has writable description and attributes. Keycloak Stage 2 direct probe v41: serial full PUT of each returned 204, GET retained both fields and stable name for realm and client roles; the name is the item path identity and excluded from race.",
+      "race_enabled": true,
+      "race_field": "attributes"
+    },
+    "PUT /admin/realms/{realm}/components/{id}": {
+      "evidence": "Disjoint PUT race design against this OpenAPI operation; selected by two writable string fields, Stage 2 224-race campaign, 2026-09-28"
+    },
+    "PUT /admin/realms/{realm}/groups/{group-id}": {
+      "evidence": "Disjoint PUT race selected from two writable fields of this OpenAPI operation; prior Stage 2 224-race campaign, 2026-09-28",
+      "race_enabled": true
+    },
+    "PUT /admin/realms/{realm}/identity-provider/instances/{alias}/mappers/{id}": {
+      "evidence": "Disjoint PUT race design against this OpenAPI operation; selected by two writable string fields, Stage 2 224-race campaign, 2026-09-28"
+    },
+    "PUT /admin/realms/{realm}/organizations/{org-id}": {
+      "evidence": "Disjoint PUT race selected from two writable fields of this OpenAPI operation; prior Stage 2 224-race campaign, 2026-09-28",
+      "race_enabled": true
+    },
+    "PUT /admin/realms/{realm}/organizations/{org-id}/groups/{group-id}": {
+      "evidence": "Disjoint PUT race selected from two writable fields of this OpenAPI operation; prior Stage 2 224-race campaign, 2026-09-28",
+      "race_enabled": true
+    },
+    "PUT /admin/realms/{realm}/roles/{role-name}": {
+      "evidence": "OpenAPI RoleRepresentation has writable description and attributes. Keycloak Stage 2 direct probe v41: serial full PUT of each returned 204, GET retained both fields and stable name for realm and client roles; the name is the item path identity and excluded from race.",
+      "race_enabled": true,
+      "race_field": "attributes"
+    },
+    "PUT /admin/realms/{realm}/users/{user-id}": {
+      "evidence": "Disjoint PUT race selected from two writable fields of this OpenAPI operation; prior Stage 2 224-race campaign, 2026-09-28",
+      "race_enabled": true
+    },
+    "PUT /admin/realms/{realm}/workflows/{id}": {
+      "evidence": "Disjoint PUT race design against this OpenAPI operation; selected by two writable string fields, Stage 2 224-race campaign, 2026-09-28"
+    },
+    "POST /admin/realms/{realm}/authentication/executions/{executionId}/config": {
+      "exclusive_parent": "admin/realms/{realm}/authentication/executions",
+      "evidence": "OpenAPI operation summary: Update execution with new configuration. Keycloak AuthenticationExecutionModel stores one authenticatorConfig reference. Stage 2 v36 GET of earlier config returned 404 after multiple POSTs to one execution."
+    },
+    "PUT /admin/realms/{realm}/client-templates/{client-scope-id}/protocol-mappers/models/{id}": {
+      "evidence": "Client-template mapper shares OpenAPI ProtocolMapperRepresentation and Keycloak client-scope protocol-mapper storage path; select writable config.claim.name instead of consentText. Runtime precheck required.",
+      "config_map_update": "claim.name"
+    }
+  }
+}

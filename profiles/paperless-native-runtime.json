@@ -1,0 +1,27 @@
+{
+  "contract_sha256": "7840d7816133c13fdeb43e1cd9a3013c7fff886538f5612bff3d0b42b2119d0c",
+  "compact_callbacks": true,
+  "bootstrap": [
+    {
+      "operation": "GET /api/statistics/",
+      "fields": []
+    }
+  ],
+  "authentication": {
+    "operation": "POST /api/token/",
+    "security_scheme": "tokenAuth",
+    "token_field": "token",
+    "prefix": "Token",
+    "headers": {
+      "Accept": "application/json; version=10"
+    }
+  },
+  "create_defaults": {
+    "POST /api/tags/": {
+      "matching_algorithm": 0,
+      "is_inbox_tag": false,
+      "parent": null
+    }
+  },
+  "scalar_allof_projection": true
+}

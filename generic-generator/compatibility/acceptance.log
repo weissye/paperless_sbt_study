@@ -1,0 +1,14 @@
+test_all_existing_cli_profiles_preserve_plan_reports_and_model_source (test_transport_separation.SeparationRegressionTests.test_all_existing_cli_profiles_preserve_plan_reports_and_model_source) ... ok
+test_configured_request_rules_and_auth_environment_remain_compatible (test_transport_separation.SeparationRegressionTests.test_configured_request_rules_and_auth_environment_remain_compatible) ... ok
+test_multiple_logical_workers_and_instances_preserve_binding_and_cleanup (test_transport_separation.SeparationRegressionTests.test_multiple_logical_workers_and_instances_preserve_binding_and_cleanup) ... ok
+test_prefix_observation_is_lifted_without_changing_caller_state (test_transport_separation.SeparationRegressionTests.test_prefix_observation_is_lifted_without_changing_caller_state) ... ok
+test_repeated_generation_is_deterministic (test_transport_separation.SeparationRegressionTests.test_repeated_generation_is_deterministic) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 43.685s
+
+OK
+
+PASS: 466 lifted request sites have identical HTTP arguments and callback effects in the Node stub.
+PASS: JavaScript syntax for the generated Mealie file pair.
+PASS: Original generate CLI on the reviewed Mealie contract.

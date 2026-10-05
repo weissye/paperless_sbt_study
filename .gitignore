@@ -1,0 +1,20 @@
+.env
+docker-compose.env
+consume/
+export/
+
+# Portable Paperless research: local secrets and runtime state
+.env
+.env.*
+docker-compose.env
+*.secrets.env
+/runs/
+/provengo/
+/consume/
+/export/
+/media/
+/data/
+/db/
+.venv/
+__pycache__/
+*.pyc

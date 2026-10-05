@@ -1,0 +1,188 @@
+{
+  "creation_order": [
+    "api/admin/backups",
+    "api/admin/debug/openai",
+    "api/admin/groups",
+    "api/admin/users",
+    "api/foods",
+    "api/groups/ai-providers/providers",
+    "api/groups/households",
+    "api/groups/labels",
+    "api/groups/members",
+    "api/groups/reports",
+    "api/households/cookbooks",
+    "api/households/events/notifications",
+    "api/households/mealplans",
+    "api/households/mealplans/rules",
+    "api/households/recipe-actions",
+    "api/households/self/recipes",
+    "api/households/shopping/lists",
+    "api/households/webhooks",
+    "api/media/users",
+    "api/organizers/categories",
+    "api/organizers/categories/slug",
+    "api/organizers/tags",
+    "api/organizers/tags/slug",
+    "api/organizers/tools",
+    "api/organizers/tools/slug",
+    "api/recipes",
+    "api/recipes/shared",
+    "api/shared/recipes",
+    "api/units",
+    "api/users",
+    "api/users/api-tokens",
+    "api/users/self/ratings",
+    "api/admin/groups/{group_id}/ai-providers/providers",
+    "api/admin/households",
+    "api/comments",
+    "api/households/shopping/items",
+    "api/recipes/timeline/events"
+  ],
+  "cycle_edges_removed": [],
+  "deletion_order": [
+    "api/recipes/timeline/events",
+    "api/households/shopping/items",
+    "api/comments",
+    "api/admin/households",
+    "api/admin/groups/{group_id}/ai-providers/providers",
+    "api/users/self/ratings",
+    "api/users/api-tokens",
+    "api/users",
+    "api/units",
+    "api/shared/recipes",
+    "api/recipes/shared",
+    "api/recipes",
+    "api/organizers/tools/slug",
+    "api/organizers/tools",
+    "api/organizers/tags/slug",
+    "api/organizers/tags",
+    "api/organizers/categories/slug",
+    "api/organizers/categories",
+    "api/media/users",
+    "api/households/webhooks",
+    "api/households/shopping/lists",
+    "api/households/self/recipes",
+    "api/households/recipe-actions",
+    "api/households/mealplans/rules",
+    "api/households/mealplans",
+    "api/households/events/notifications",
+    "api/households/cookbooks",
+    "api/groups/reports",
+    "api/groups/members",
+    "api/groups/labels",
+    "api/groups/households",
+    "api/groups/ai-providers/providers",
+    "api/foods",
+    "api/admin/users",
+    "api/admin/groups",
+    "api/admin/debug/openai",
+    "api/admin/backups"
+  ],
+  "edges": [
+    {
+      "confidence": 0.9,
+      "field_name": "shoppingListId",
+      "provenance": [
+        {
+          "detail": "Create request body property 'shoppingListId' matches entity 'api/households/shopping/lists'",
+          "pointer": "#/paths/~1api~1households~1shopping~1items/post/requestBody/content/application~1json/properties/shoppingListId",
+          "rule": "D2:structural_verified_id"
+        }
+      ],
+      "source": "api/households/shopping/items",
+      "target": "api/households/shopping/lists"
+    },
+    {
+      "confidence": 0.9,
+      "field_name": "recipeId",
+      "provenance": [
+        {
+          "detail": "Create request body property 'recipeId' matches entity 'api/recipes'",
+          "pointer": "#/paths/~1api~1recipes~1timeline~1events/post/requestBody/content/application~1json/properties/recipeId",
+          "rule": "D2:structural_verified_id"
+        }
+      ],
+      "source": "api/recipes/timeline/events",
+      "target": "api/recipes"
+    },
+    {
+      "confidence": 0.9,
+      "field_name": "recipeId",
+      "provenance": [
+        {
+          "detail": "Create request body property 'recipeId' matches entity 'api/recipes'",
+          "pointer": "#/paths/~1api~1comments/post/requestBody/content/application~1json/properties/recipeId",
+          "rule": "D2:D2:id_suffix_name_match"
+        }
+      ],
+      "source": "api/comments",
+      "target": "api/recipes"
+    },
+    {
+      "confidence": 0.9,
+      "field_name": "groupId",
+      "provenance": [
+        {
+          "detail": "Create request body property 'groupId' matches entity 'api/admin/groups'",
+          "pointer": "#/paths/~1api~1admin~1households/post/requestBody/content/application~1json/properties/groupId",
+          "rule": "D2:D2:id_suffix_name_match"
+        }
+      ],
+      "source": "api/admin/households",
+      "target": "api/admin/groups"
+    },
+    {
+      "confidence": 0.95,
+      "field_name": "group_id",
+      "provenance": [
+        {
+          "detail": "Collection path '/api/admin/groups/{group_id}/ai-providers/providers' is nested under '/api/admin/groups/{item_id}'",
+          "pointer": "/api/admin/groups/{group_id}/ai-providers/providers",
+          "rule": "D3:nested_resource_path"
+        }
+      ],
+      "source": "api/admin/groups/{group_id}/ai-providers/providers",
+      "target": "api/admin/groups"
+    }
+  ],
+  "had_cycle": false,
+  "nodes": [
+    "api/users/self/ratings",
+    "api/users",
+    "api/users/api-tokens",
+    "api/households/cookbooks",
+    "api/households/events/notifications",
+    "api/households/recipe-actions",
+    "api/households/self/recipes",
+    "api/households/shopping/lists",
+    "api/households/shopping/items",
+    "api/households/webhooks",
+    "api/households/mealplans/rules",
+    "api/households/mealplans",
+    "api/groups/ai-providers/providers",
+    "api/groups/households",
+    "api/groups/members",
+    "api/groups/reports",
+    "api/groups/labels",
+    "api/recipes",
+    "api/recipes/shared",
+    "api/recipes/timeline/events",
+    "api/organizers/categories",
+    "api/organizers/categories/slug",
+    "api/organizers/tags",
+    "api/organizers/tags/slug",
+    "api/organizers/tools",
+    "api/organizers/tools/slug",
+    "api/shared/recipes",
+    "api/comments",
+    "api/foods",
+    "api/units",
+    "api/admin/users",
+    "api/admin/households",
+    "api/admin/groups",
+    "api/admin/groups/{group_id}/ai-providers/providers",
+    "api/admin/backups",
+    "api/admin/debug/openai",
+    "api/media/users"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "automatic_deletion": false,
+  "automatic_retry": false,
+  "distinct_task_orders": 1,
+  "live_accepted": false,
+  "mode": "sample",
+  "model_sha256": {
+    "relationship_compilation.json": "be93e588874f75ced2e964c0a72c8f18b7542a61e498077f6f502175f302c91e",
+    "relationship_scenario_plan.json": "bbbe388bacc45d52b65fdcc036e404037ea9d0e88b6cc4ba95ee1f7f8d15f59c",
+    "spec/js/interfaces.paperless.js": "4f6f87a21f89c87ebf7ee2e61f79d91ef5ecff56bbbef60ad02006d245afc70e",
+    "spec/js/stories.paperless.js": "ab60b2508da95f03c9bf184c8ea23733f99c6257ccf008be2c05c94df586de82"
+  },
+  "reset_replay_accepted": false,
+  "sample_count": 1,
+  "samples_sha256": "61673ab4c4aed38e310c7f6a3fa863721758c6b6ee83e97420bcd5880e56c2dd",
+  "server_requests_sent": 0,
+  "status": "NATIVE_SYMBOLIC_SAMPLES_COMPLETE",
+  "task_orders": [
+    [
+      "create:api/tags#2",
+      "create:api/tags#1"
+    ]
+  ],
+  "tasks_per_sample": 2
+}

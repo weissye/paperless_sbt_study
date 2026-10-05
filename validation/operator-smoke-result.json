@@ -1,0 +1,13 @@
+{
+    "contract_sha256":  "7840D7816133C13FDEB43E1CD9A3013C7FFF886538F5612BFF3D0B42B2119D0C",
+    "username":  "research_admin",
+    "tag_preserved":  true,
+    "openapi_version":  "3.0.3",
+    "provengo_executed":  false,
+    "scope":  "Administrator API smoke only",
+    "tag_id":  1,
+    "path_count":  93,
+    "contract_file":  "C:\\work\\temp\\paperless_sbt_study\\model\\paperless-openapi-20261005-184838-760.json",
+    "status":  "PAPERLESS_INFRASTRUCTURE_SMOKE_PASS",
+    "automatic_retry":  false
+}

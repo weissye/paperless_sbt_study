@@ -1,0 +1,122 @@
+{
+  "contract_sha256": "90e19aa713ab4ba15352627aca7dc37290f868b213eb65a3e1564f3b7a7ff292",
+  "response_bindings": {
+    "POST /api/organizers/categories": {
+      "evidence_sha256": "0a8e4d643def5a3fb9ef42bff23e9ae6b14bb11e304b438e6cf05d5ab479f858"
+    },
+    "POST /api/organizers/tags": {
+      "evidence_sha256": "0a8e4d643def5a3fb9ef42bff23e9ae6b14bb11e304b438e6cf05d5ab479f858"
+    },
+    "POST /api/households/shopping/items": {
+      "array_field": "createdItems"
+    }
+  },
+  "bootstrap": [
+    {
+      "operation": "GET /api/users/self",
+      "fields": [
+        "id",
+        "groupId",
+        "householdId"
+      ]
+    },
+    {
+      "operation": "GET /api/groups/self",
+      "fields": [
+        "id"
+      ]
+    },
+    {
+      "operation": "GET /api/households/self",
+      "fields": [
+        "id",
+        "groupId"
+      ]
+    }
+  ],
+  "write_defaults": {
+    "PUT /api/recipes/{slug}": [
+      {
+        "path": "recipeIngredient[].quantity",
+        "value": 1
+      }
+    ]
+  },
+  "actions": [
+    {
+      "operation": "POST /api/households/shopping/lists/{item_id}/recipe/{recipe_id}",
+      "source_type": "api/households/shopping/lists",
+      "target_type": "api/recipes",
+      "target_parameter": "recipe_id",
+      "target_field": "id",
+      "readback_path": "recipeReferences[].recipeId",
+      "body": {
+        "recipeIncrementQuantity": 1
+      },
+      "evidence_sha256": "0a8e4d643def5a3fb9ef42bff23e9ae6b14bb11e304b438e6cf05d5ab479f858"
+    }
+  ],
+  "scope_checks": [
+    {
+      "left": [
+        0,
+        "groupId"
+      ],
+      "right": [
+        1,
+        "id"
+      ]
+    },
+    {
+      "left": [
+        0,
+        "householdId"
+      ],
+      "right": [
+        2,
+        "id"
+      ]
+    },
+    {
+      "left": [
+        2,
+        "groupId"
+      ],
+      "right": [
+        1,
+        "id"
+      ]
+    }
+  ],
+  "relationship_identity_views": [
+    {
+      "operation": "PUT /api/households/shopping/items/{item_id}",
+      "field_path": "food",
+      "write_path": "foodId",
+      "target_field": "id",
+      "readback_path": "foodId"
+    },
+    {
+      "operation": "PUT /api/households/shopping/items/{item_id}",
+      "field_path": "unit",
+      "write_path": "unitId",
+      "target_field": "id",
+      "readback_path": "unitId"
+    }
+  ],
+  "relationship_write_views": [
+    {
+      "operation": "PUT /api/households/shopping/items/{item_id}",
+      "field_path": "referencedRecipe",
+      "write_path": "recipeReferences[]",
+      "readback_path": "recipeReferences[].recipeId",
+      "target_field": "id",
+      "item_identity_field": "recipeId",
+      "item_defaults": {
+        "recipeQuantity": 1,
+        "recipeScale": 1
+      },
+      "evidence_sha256": "0a8e4d643def5a3fb9ef42bff23e9ae6b14bb11e304b438e6cf05d5ab479f858"
+    }
+  ]
+}

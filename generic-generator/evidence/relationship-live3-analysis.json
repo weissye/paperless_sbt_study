@@ -1,0 +1,42 @@
+{
+  "status": "NATIVE_FAILURE_ANALYZED_CAUSE_NOT_CONFIRMED",
+  "source_sha256": "395ea4b5e644e4bd4be7fcaac2c923b7e672bd465b30211e019d9f523b95e3c0",
+  "successful_callback_responses": 101,
+  "completed_tasks": 32,
+  "food_identity_view_live_verified_for_task": "link:1:2",
+  "first_failed_task": {
+    "after": [
+      "create:api/recipes#1",
+      "create:api/recipes#2",
+      "create:api/recipes#3",
+      "link:7:3"
+    ],
+    "binding": "response_projection_into_request_schema",
+    "executable": true,
+    "field_path": "recipeIngredient[].referencedRecipe",
+    "id": "link:8:3",
+    "kind": "link",
+    "operation": "PUT /api/recipes/{slug}",
+    "pointer": "#/components/schemas/RecipeIngredient-Input/properties/referencedRecipe/anyOf/0",
+    "readback": "must_resolve_documented_get_and_relationship_path",
+    "source_instance": "api/recipes#3",
+    "target_instances": [
+      "api/recipes#1",
+      "api/recipes#2"
+    ]
+  },
+  "http_status": 400,
+  "cycle_closing_edge": [
+    "api/recipes#3",
+    "api/recipes#1"
+  ],
+  "previous_accepted_reverse_edge": [
+    "api/recipes#1",
+    "api/recipes#3"
+  ],
+  "server_error_body_available": false,
+  "native_accepted": false,
+  "collector_tests_passed": 3,
+  "collector_api_requests": 0,
+  "collector_mutations": 0
+}

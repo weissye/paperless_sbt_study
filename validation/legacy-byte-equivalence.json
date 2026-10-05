@@ -1,0 +1,9 @@
+{
+  "matched": true,
+  "outputs": {
+    "interfaces": "3faf6c6001b15dc0e35bf76c4e18f486dff85c64863aaa4db31dd83de90919d8",
+    "reports": "033c454209a5d91d6c1e1b1480dec494d395b42a184abeffa1edfad77d8e00b5",
+    "stories": "9e69caf0e18dd93aae99e15ff95883be34beea8a0d64ccdf43282c70e56aa49e"
+  },
+  "scope": "Original frozen versus extended Mealie compiled pilot, identical model source and reports"
+}
