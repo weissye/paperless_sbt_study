@@ -197,6 +197,40 @@ class Engine:
                         entity=spec['entity'];self.record_check(entity+'.original_checksum',self.tasks[entity]['input_sha256'],b.get('original_checksum'))
                         self.record_check(entity+'.original_mime_type','application/pdf',b.get('original_mime_type'))
                     result={'target_status':code}
+                elif kind=='delete_owned':
+                    entity=spec['entity']
+                    if not self.profile.get('deletion_policy') or entity not in ('T','Y') or entity not in self.ids:
+                        raise Incomplete('Deletion is restricted to the declared owned fixture tag/type.')
+                    code,body=self.t.request('DELETE',self.path(spec))
+                    self.pending_delete_status={'step':step_id,'expected':204,'observed':code}
+                    if code==204:
+                        self.expected[entity]['_deleted']=True
+                        for doc in ('A','B'):
+                            if entity=='T':self.expected[doc]['tags']=[x for x in self.expected[doc]['tags'] if x!=self.ids[entity]]
+                            else:self.expected[doc]['document_type']=None
+                    result={'target_status':code,'readback_required':True}
+                elif kind=='deletion_checkpoint':
+                    observations={}
+                    for entity in ('T','U','Y','A','B'):
+                        family='documents' if entity in ('A','B') else 'document_types' if entity=='Y' else 'tags'
+                        code,body=self.t.request('GET','/api/'+family+'/'+str(self.ids[entity])+'/')
+                        observations[entity]={'status':code,'body':body}
+                    for entity in ('A','B'):
+                        code,body=self.t.request('GET','/api/documents/%s/metadata/'%self.ids[entity])
+                        observations[entity+'_metadata']={'status':code,'body':body}
+                    dump(self.out/'deletion'/(step_id+'.json'),observations)
+                    # All seven responses are saved before any check can stop the schedule.
+                    for entity in ('T','U','Y','A','B'):
+                        deleted=self.expected[entity].get('_deleted',False)
+                        self.record_check(entity+'.read_status',404 if deleted else 200,observations[entity]['status'])
+                        if not deleted:self.verify(entity,observations[entity]['body'])
+                    for entity in ('A','B'):
+                        metadata=observations[entity+'_metadata']
+                        self.record_check(entity+'.metadata_status',200,metadata['status'])
+                        self.record_check(entity+'.original_checksum',self.tasks[entity]['input_sha256'],metadata['body'].get('original_checksum'))
+                    pending=getattr(self,'pending_delete_status',None)
+                    if pending:self.record_check(pending['step']+'.http_status',pending['expected'],pending['observed']);self.pending_delete_status=None
+                    result={'all_owned_resource_reads_captured':True}
                 elif kind=='hierarchy_checkpoint':
                     # Capture every read before evaluating any mismatch.
                     observations={}
@@ -273,8 +307,8 @@ return new Function('response',source);}
 def compile_model(contract,profile,case,project):
     # Every domain operation must exist in the contract. Scalar bindings and invariants are explicit policy.
     for spec in case['steps'].values():
-        if spec.get('kind')=='hierarchy_checkpoint':
-            for route in ('/api/tags/{id}/','/api/documents/{id}/','/api/documents/{id}/metadata/'):
+        if spec.get('kind') in ('hierarchy_checkpoint','deletion_checkpoint'):
+            for route in (('/api/tags/{id}/','/api/documents/{id}/','/api/documents/{id}/metadata/') if spec['kind']=='hierarchy_checkpoint' else ('/api/tags/{id}/','/api/document_types/{id}/','/api/documents/{id}/','/api/documents/{id}/metadata/')):
                 if 'get' not in contract['paths'].get(route,{}):raise ValueError('Hierarchy checkpoint read outside pinned OpenAPI: '+route)
         if spec.get('path') and spec['method'].lower() not in contract['paths'].get(spec['path'],{}):raise ValueError('Operation outside pinned OpenAPI: '+spec['path'])
     specdir=project/'spec/js';specdir.mkdir(parents=True);(project/'config').mkdir()
@@ -314,7 +348,7 @@ def audit_sample(samples,case):
     if completion!=1 or len(http_steps)!=len(case['steps']) or len(order)!=len(case['steps']):raise ValueError('Truncated native sample.')
     return order
 
-def provision(container,username,password):
+def provision(container,username,password,allow_delete=False):
     # Explicit local fixture setup through Docker. The ordinary user has no staff/superuser privileges.
     script='''import django,json,sys,os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE","paperless.settings")
@@ -323,13 +357,14 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Permission
 p=json.load(sys.stdin)
 codes=["add_document","view_document","change_document","add_tag","view_tag","change_tag","add_documenttype","view_documenttype","change_documenttype","view_paperlesstask"]
+if p.get("allow_delete"):codes += ["delete_tag","delete_documenttype"]
 perms=list(Permission.objects.filter(content_type__app_label="documents",codename__in=codes))
 if set(x.codename for x in perms)!=set(codes):raise RuntimeError("Required fixture permissions missing")
 u=get_user_model().objects.create_user(username=p["username"],password=p["password"],is_staff=False,is_superuser=False,is_active=True)
 u.user_permissions.set(perms)
 print("SBT_FIXTURE "+json.dumps({"id":u.id,"username":u.username,"is_staff":u.is_staff,"is_superuser":u.is_superuser,"permissions":sorted(u.get_all_permissions())}))
 '''
-    result=subprocess.run(['docker','exec','-i','--workdir','/usr/src/paperless/src',container,'python','-c',script],input=json.dumps({'username':username,'password':password}),text=True,capture_output=True,timeout=60)
+    result=subprocess.run(['docker','exec','-i','--workdir','/usr/src/paperless/src',container,'python','-c',script],input=json.dumps({'username':username,'password':password,'allow_delete':allow_delete}),text=True,capture_output=True,timeout=60)
     if result.returncode:raise Incomplete('Local user fixture setup failed: '+result.stderr[-1500:])
     for line in result.stdout.splitlines():
         if line.startswith('SBT_FIXTURE '):
@@ -379,14 +414,14 @@ def run(args):
         selected=[(case,repetition) for case in profile['cases'] for repetition in (1,2) if (case['id'],repetition) in [('S1-INTERLEAVED-RENAME',2),('S1-DETACH-REATTACH',1),('S1-DETACH-REATTACH',2)]]
         dump(campaign/'continuation.json',{'original_campaign_sha256':hashlib.sha256(args.remaining_from.read_bytes()).hexdigest(),'fresh_resources':True,'selected':[(case['id'],rep) for case,rep in selected]})
     registration=json.loads((campaign/'registration.json').read_text())
-    registration.update({'planned_schedules':[(case['id'],rep) for case,rep in selected], 'planned_run_count':len(selected), 'fresh_sets_per_case':None if len(selected)==3 else 2, 'case_count':len(set(case['id'] for case,rep in selected))})
+    registration.update({'scenario_owned_deletion':bool(profile.get('deletion_policy')), 'planned_schedules':[(case['id'],rep) for case,rep in selected], 'planned_run_count':len(selected), 'fresh_sets_per_case':None if len(selected)==3 else 2, 'case_count':len(set(case['id'] for case,rep in selected))})
     dump(campaign/'registration.json',registration)
     results=[];identity=None;password=None
     try:
         if not args.sample_only:
             container=args.container or discover_container()
             password=secrets.token_urlsafe(32);username='sbt_stage1_'+uuid.uuid4().hex[:16]
-            identity=provision(container,username,password);dump(campaign/'ordinary-user.json',identity)
+            identity=provision(container,username,password,allow_delete=True) if profile.get('deletion_policy') else provision(container,username,password);dump(campaign/'ordinary-user.json',identity)
             print('Created ordinary fixture user '+username+' (no staff/superuser privileges).',flush=True)
         for case,repetition in selected:
             namespace='sbt-s1-'+uuid.uuid4().hex[:16];folder=campaign/(case['id'].lower()+'-'+str(repetition));folder.mkdir()
@@ -408,7 +443,7 @@ def run(args):
             transport=Transport(args.base_url.rstrip('/'),folder,identity['username'],password,identity['id'])
             engine=Engine(profile,case,namespace,transport,folder);server,key=serve(engine)
             env['SBT_STAGE1_BRIDGE']='http://127.0.0.1:'+str(server.server_port);env['SBT_STAGE1_KEY']=key
-            print('Running '+case['id']+' / fresh set '+str(repetition)+'; resources are retained.',flush=True)
+            print('Running '+case['id']+' / fresh set '+str(repetition)+('; declared fixture tag/type deletion; surviving resources are retained.' if profile.get('deletion_policy') else '; resources are retained.'),flush=True)
             try:
                 r=native(root,['--batch-mode','run','--run-source',str(samples),'--run-id','1','--output-file',str(folder/'native-result.json')],project,env)
                 native_text=(r.stdout+r.stderr).replace(key,'<REDACTED_LOCAL_KEY>')
@@ -421,7 +456,7 @@ def run(args):
             if accepted:
                 receipt=json.JSONDecoder().raw_decode(observed[1])[0]
                 accepted=receipt==json.loads((folder/'runtime-receipt.json').read_text()) and receipt['completed_steps']==len(case['steps']) and engine.done==order
-            status=('STAGE2_FUNCTIONAL_PASS' if profile.get('hierarchy_policy') else 'STAGE1_FUNCTIONAL_PASS') if accepted else (engine.failed or {}).get('classification','INCOMPLETE')
+            status=('STAGE3_FUNCTIONAL_PASS' if profile.get('deletion_policy') else ('STAGE2_FUNCTIONAL_PASS' if profile.get('hierarchy_policy') else 'STAGE1_FUNCTIONAL_PASS')) if accepted else (engine.failed or {}).get('classification','INCOMPLETE')
             result={'case':case['id'],'repetition':repetition,'status':status,'native_exit_code':r.returncode,'runtime_receipt_observed':bool(observed),'step_count':len(engine.done),'target_responses':transport.sequence,'checks':len(engine.checks),'reset_replay_accepted':False,'automatic_retry':False,'automatic_deletion':False}
             dump(folder/'run-acceptance.json',result);results.append(result);print(status,flush=True)
             # Preserve first discrepancy and stop. Fresh confirmation is an explicit later task.
@@ -431,7 +466,7 @@ def run(args):
         raise
     finally:
         password=None
-        dump(campaign/'campaign-summary.json',{'status':('STAGE1_SAMPLES_COMPLETE' if args.sample_only else ('STAGE1_REMAINING_THREE_PASS' if len(selected)==3 else ('STAGE2_SIX_RUNS_PASS' if profile.get('hierarchy_policy') else 'STAGE1_SIX_RUNS_PASS'))) if len(results)==len(selected) and all(x['status'] in ('SAMPLE_ONLY','STAGE1_FUNCTIONAL_PASS','STAGE2_FUNCTIONAL_PASS') for x in results) else ('STAGE2_NOT_COMPLETE' if profile.get('hierarchy_policy') else 'STAGE1_NOT_COMPLETE'),'runs':results,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
+        dump(campaign/'campaign-summary.json',{'status':('STAGE1_SAMPLES_COMPLETE' if args.sample_only else ('STAGE1_REMAINING_THREE_PASS' if len(selected)==3 else ('STAGE3_SIX_RUNS_PASS' if profile.get('deletion_policy') else ('STAGE2_SIX_RUNS_PASS' if profile.get('hierarchy_policy') else 'STAGE1_SIX_RUNS_PASS')))) if len(results)==len(selected) and all(x['status'] in ('SAMPLE_ONLY','STAGE1_FUNCTIONAL_PASS','STAGE2_FUNCTIONAL_PASS','STAGE3_FUNCTIONAL_PASS') for x in results) else ('STAGE3_NOT_COMPLETE' if profile.get('deletion_policy') else ('STAGE2_NOT_COMPLETE' if profile.get('hierarchy_policy') else 'STAGE1_NOT_COMPLETE')),'runs':results,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
         print('Review ZIP: '+str(bundle(campaign)),flush=True)
 
 if __name__=='__main__':

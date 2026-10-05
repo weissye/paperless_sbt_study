@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "status": "STAGE1_COMPLETE_EVIDENCE_SEPARATELY_VERIFIED_COMMON_ADAPTER_HIERARCHY_EXTENSION",
   "files": {
     "README-PAPERLESS-STAGE1-RUN.md": "878d6078f36493a4dfdccf2a4571f40480f020ce435dfcdcf465ffa3c515d1b5",
@@ -9,7 +9,7 @@
     "scripts/Save-Paperless-Stage1.ps1": "03d5aab2eb1ca20d63e6b0faa4f76cfc2d06ee535206bc11671b8789c90fd4be",
     "scripts/Run-Paperless-Stage1.ps1": "ed728b84e1c0e6ab9ba6b0dc33b56340656000e5afb888be5994b7ebcb0b996c",
     "tools/test_paperless_stage1.py": "35b2ef39befea7019825fcf2954010d4d20e3f4ffdd2d5644097242ceab867ad",
-    "tools/paperless_stage1.py": "2bcd8b497ceca104231c42e5e0849703fec116e9d793ee4281bb3c2f3acc4fcc",
+    "tools/paperless_stage1.py": "c0dd8c53f7387a5f787c1df83aecec01fc269f31102a80679468d875ebaef054",
     "profiles/paperless-stage1-runtime.json": "c4f1ef6ebbb593857d31628fb9655162a5d5b95ff307746a276add6e108d4dec",
     "examples/paperless-stage1/S1-CONTROL/stage1-plan.json": "78e257bcc68eed522b2d17226bf462ee860fd468dd1735556af7cc05fbce3896",
     "examples/paperless-stage1/S1-CONTROL/interfaces.paperless.stage1.js": "c905c76ddd59331ba21940fa32070672c9bae4039235de8bed1e2424f2b9dff1",
