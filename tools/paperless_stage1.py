@@ -151,7 +151,7 @@ class Engine:
                     body,ct=multipart({'title':self.ns+'-'+entity},entity+'.pdf',data)
                     code,b=self.t.request('POST',spec['path'],body,ct);self.expect_status(code,spec)
                     if not isinstance(b,str) or not b:raise Incomplete('Upload returned no string task id.')
-                    self.tasks[entity]={'task_id':b,'deadline':time.monotonic()+self.profile['ingestion_timeout_seconds'],'ready':False,'input_sha256':hashlib.sha256(data).hexdigest(),'input_md5':hashlib.md5(data).hexdigest()}
+                    self.tasks[entity]={'task_id':b,'deadline':time.monotonic()+self.profile['ingestion_timeout_seconds'],'ready':False,'input_sha256':hashlib.sha256(data).hexdigest()}
                     result={'task_id':b}
                 elif kind=='wait':result=self.wait(spec['entity'])
                 elif kind=='ready':
@@ -167,7 +167,7 @@ class Engine:
                         entity=spec['entity'];self.expected[entity].update(copy.deepcopy(body));self.verify(entity,b)
                     elif kind=='read':self.verify(spec['entity'],b)
                     else:
-                        entity=spec['entity'];self.record_check(entity+'.original_checksum',self.tasks[entity]['input_md5'],b.get('original_checksum'))
+                        entity=spec['entity'];self.record_check(entity+'.original_checksum',self.tasks[entity]['input_sha256'],b.get('original_checksum'))
                         self.record_check(entity+'.original_mime_type','application/pdf',b.get('original_mime_type'))
                     result={'target_status':code}
                 elif kind=='finish':
@@ -297,6 +297,7 @@ def run(args):
     root=args.root.resolve();contract_path=root/'model/paperless-openapi.json';original=contract_path.read_bytes()
     if hashlib.sha256(original).hexdigest()!=PIN:raise Incomplete('Pinned contract byte checksum mismatch. No requests sent.')
     contract=json.loads(original);profile_path=root/'profiles/paperless-stage1-runtime.json';profile=json.loads(profile_path.read_text(encoding='utf-8-sig'))
+    if profile.get('original_checksum_algorithm')!='sha256':raise Incomplete('Explicit SHA256 document checksum policy is required.')
     parsed=urlsplit(args.base_url)
     if parsed.scheme!='http' or parsed.hostname not in ('127.0.0.1','localhost') or parsed.port!=9930 or parsed.path not in ('','/') or parsed.query or parsed.fragment or parsed.username:raise Incomplete('Stage1 targets only the local study service on loopback port 9930.')
     if not shutil.which('provengo'):raise Incomplete('Provengo is not on PATH.')

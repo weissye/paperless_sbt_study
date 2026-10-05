@@ -20,7 +20,7 @@ class Fixture:
             assert pdf.startswith(b'%PDF-1.4') and pdf.endswith(b'%%EOF')
             pdf+=b'\n' # generated stream has exactly this final newline
             id=self.next();self.objects['/api/documents/%s/'%id]={'id':id,'owner':17,'title':title,'tags':[],'document_type':None,'content':'Synthetic '+title,'correspondent':None,'storage_path':None,'custom_fields':[],'notes':[],'original_file_name':'input.pdf','mime_type':'application/pdf','page_count':1,'root_document':id}
-            self.objects['/api/documents/%s/metadata/'%id]={'original_checksum':hashlib.md5(pdf).hexdigest(),'original_mime_type':'application/pdf'}
+            self.objects['/api/documents/%s/metadata/'%id]={'original_checksum':hashlib.sha256(pdf).hexdigest(),'original_mime_type':'application/pdf'}
             task='fixture-task-'+str(id);self.tasks[task]={'task_id':task,'status':'success','related_document_ids':[id] if self.fault!='ambiguous-task' else [id,id+1]}
             return 200,task
         if path=='/api/tasks/':
@@ -77,6 +77,15 @@ class Tests(unittest.TestCase):
         with self.assertRaises(s.Discrepancy):execute_fixture('S1-DETACH-REATTACH','shared-corruption')
     def test_successful_task_with_ambiguous_identity_stops(self):
         with self.assertRaises(s.Incomplete):execute_fixture('S1-CONTROL','ambiguous-task')
+    def test_checksum_policy_and_fixture_are_sha256(self):
+        self.assertEqual(profile()['original_checksum_algorithm'],'sha256')
+        f=Fixture();pdf=s.synthetic_pdf('Checksum contract qualification')
+        body,ct=s.multipart({'title':'checksum-fixture'},'A.pdf',pdf)
+        code,task=f.request('POST','/api/documents/post_document/',body)
+        document=f.tasks[task]['related_document_ids'][0]
+        observed=f.objects['/api/documents/%s/metadata/'%document]['original_checksum']
+        self.assertEqual(observed,hashlib.sha256(pdf).hexdigest())
+        self.assertNotEqual(observed,hashlib.md5(pdf).hexdigest())
     def test_truncated_native_sample_is_rejected(self):
         with self.assertRaises(ValueError):s.audit_sample([[{'name':'S1:Complete','data':{'steps':0}}]],profile()['cases'][0])
     def test_synthetic_pdf_is_valid_and_unique(self):

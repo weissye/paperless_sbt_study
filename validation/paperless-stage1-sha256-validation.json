@@ -1,0 +1,92 @@
+{
+  "status": "STAGE1_SIX_RUNS_PASS",
+  "runs": [
+    {
+      "case": "S1-CONTROL",
+      "repetition": 1,
+      "status": "STAGE1_FUNCTIONAL_PASS",
+      "native_exit_code": 0,
+      "runtime_receipt_observed": true,
+      "step_count": 63,
+      "target_responses": 29,
+      "checks": 181,
+      "reset_replay_accepted": false,
+      "automatic_retry": false,
+      "automatic_deletion": false
+    },
+    {
+      "case": "S1-CONTROL",
+      "repetition": 2,
+      "status": "STAGE1_FUNCTIONAL_PASS",
+      "native_exit_code": 0,
+      "runtime_receipt_observed": true,
+      "step_count": 63,
+      "target_responses": 29,
+      "checks": 181,
+      "reset_replay_accepted": false,
+      "automatic_retry": false,
+      "automatic_deletion": false
+    },
+    {
+      "case": "S1-INTERLEAVED-RENAME",
+      "repetition": 1,
+      "status": "STAGE1_FUNCTIONAL_PASS",
+      "native_exit_code": 0,
+      "runtime_receipt_observed": true,
+      "step_count": 77,
+      "target_responses": 43,
+      "checks": 263,
+      "reset_replay_accepted": false,
+      "automatic_retry": false,
+      "automatic_deletion": false
+    },
+    {
+      "case": "S1-INTERLEAVED-RENAME",
+      "repetition": 2,
+      "status": "STAGE1_FUNCTIONAL_PASS",
+      "native_exit_code": 0,
+      "runtime_receipt_observed": true,
+      "step_count": 77,
+      "target_responses": 43,
+      "checks": 263,
+      "reset_replay_accepted": false,
+      "automatic_retry": false,
+      "automatic_deletion": false
+    },
+    {
+      "case": "S1-DETACH-REATTACH",
+      "repetition": 1,
+      "status": "STAGE1_FUNCTIONAL_PASS",
+      "native_exit_code": 0,
+      "runtime_receipt_observed": true,
+      "step_count": 84,
+      "target_responses": 50,
+      "checks": 337,
+      "reset_replay_accepted": false,
+      "automatic_retry": false,
+      "automatic_deletion": false
+    },
+    {
+      "case": "S1-DETACH-REATTACH",
+      "repetition": 2,
+      "status": "STAGE1_FUNCTIONAL_PASS",
+      "native_exit_code": 0,
+      "runtime_receipt_observed": true,
+      "step_count": 84,
+      "target_responses": 50,
+      "checks": 337,
+      "reset_replay_accepted": false,
+      "automatic_retry": false,
+      "automatic_deletion": false
+    }
+  ],
+  "automatic_retry": false,
+  "automatic_deletion": false,
+  "reset_replay_accepted": false,
+  "validation_environment": "LOCAL_HTTP_FIXTURE_NOT_LIVE_PAPERLESS",
+  "native_version": "0.7.5-SNAPSHOT",
+  "regression_tests_passed": 6,
+  "original_checksum_algorithm": "sha256",
+  "original_live_failure_qualification": "ORACLE_FALSE_POSITIVE_CONFIRMED",
+  "remaining_live_stage1_relationship_campaign": "PENDING"
+}

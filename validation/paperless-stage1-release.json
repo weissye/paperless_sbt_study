@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "status": "LOCAL_FIXTURE_AND_NATIVE_VALIDATED_LIVE_PAPERLESS_PENDING",
+  "version": 2,
+  "status": "SHA256_ORACLE_CORRECTED_NATIVE_FIXTURE_VALIDATED_LIVE_RELATIONSHIP_CAMPAIGN_PENDING",
   "files": {
     "README-PAPERLESS-STAGE1-RUN.md": "878d6078f36493a4dfdccf2a4571f40480f020ce435dfcdcf465ffa3c515d1b5",
     "validation/paperless-stage1-validation.json": "4f05cb0ca47462d5ccfde888cbe1eccc92fe47bc3a4ead87d7779e13c46cc136",
@@ -8,9 +8,9 @@
     "validation/native-fixture-success.zip": "107b965c8822f67e3185f8ffc71ff403013b236a61437557bc5df0198d9a3cfe",
     "scripts/Save-Paperless-Stage1.ps1": "58341879922214be9a6127f226fbeaaa50abfe6f43c44c371e81dc9cab694676",
     "scripts/Run-Paperless-Stage1.ps1": "ed728b84e1c0e6ab9ba6b0dc33b56340656000e5afb888be5994b7ebcb0b996c",
-    "tools/test_paperless_stage1.py": "5bd8efc9504109219967197d106688a1a4b8f227ce9895e03c24bad7889260d0",
-    "tools/paperless_stage1.py": "d9006e7596267b483f5a67a1443a7b6a3df41b53ca25bf9163b52bb27626d9a6",
-    "profiles/paperless-stage1-runtime.json": "9577f16c4a711aae4a0147a439f9f70f4232810045f2af5f620279399c4276f8",
+    "tools/test_paperless_stage1.py": "35b2ef39befea7019825fcf2954010d4d20e3f4ffdd2d5644097242ceab867ad",
+    "tools/paperless_stage1.py": "d685e034b3b68dad734d0206c95e8de66650f2eb1aadab06cb2583bef7ffe37d",
+    "profiles/paperless-stage1-runtime.json": "c4f1ef6ebbb593857d31628fb9655162a5d5b95ff307746a276add6e108d4dec",
     "examples/paperless-stage1/S1-CONTROL/stage1-plan.json": "78e257bcc68eed522b2d17226bf462ee860fd468dd1735556af7cc05fbce3896",
     "examples/paperless-stage1/S1-CONTROL/interfaces.paperless.stage1.js": "c905c76ddd59331ba21940fa32070672c9bae4039235de8bed1e2424f2b9dff1",
     "examples/paperless-stage1/S1-CONTROL/stories.paperless.stage1.js": "2ec4d00d5b9961bd40761bc11d46b4fa2e1e2d39610e9d7fbb5b2911c5e15895",
@@ -19,6 +19,13 @@
     "examples/paperless-stage1/S1-INTERLEAVED-RENAME/stories.paperless.stage1.js": "84d2b6584e380af0350fc860464b388bf0789cb1a674fa7f6e7dd0f78e7d6609",
     "examples/paperless-stage1/S1-DETACH-REATTACH/stage1-plan.json": "4a9ffaa8a4826a5c44c24e707618846f20c8eea90da8cae9238131454c11967d",
     "examples/paperless-stage1/S1-DETACH-REATTACH/interfaces.paperless.stage1.js": "98a0a079d5348160ab004967c4238fc2a2d65df5240ca82bf67946330416dc2a",
-    "examples/paperless-stage1/S1-DETACH-REATTACH/stories.paperless.stage1.js": "6780f3177330f5b767849b0db6e466b0ed7f6149b2bbea745a567575d5564d65"
+    "examples/paperless-stage1/S1-DETACH-REATTACH/stories.paperless.stage1.js": "6780f3177330f5b767849b0db6e466b0ed7f6149b2bbea745a567575d5564d65",
+    "validation/paperless-stage1-sha256-validation.json": "2c8c05002de5fd70865b283bec0857675c0d9269bc021ce14de4f969266f1e90",
+    "validation/native-fixture-sha256-success.zip": "a1b73577b8d7dd6a7b15053fed35b2ee88c91e5446b12c9b7e4b0bf7fa8799d4",
+    "docs/PAPERLESS-STAGE1-CHECKSUM-QUALIFICATION.md": "ca43bbe09874967e98da6166739f08bd9d4cc49be0bee8cf85f5a42947dd57c4",
+    "evidence/stage1-checksum-oracle-20261005-173820/verify_original.py": "a839c52939f8a8232c102ec138c9ac112b077f601034599b53daca63771d1542",
+    "evidence/stage1-checksum-oracle-20261005-173820/qualification.json": "54d4e7328fb2615756ffff3c9f4fe9bfb9d15aad19bf589009334ac453103799",
+    "evidence/stage1-checksum-oracle-20261005-173820/campaign-original.zip": "e02bb1c0559918635599dcc725622e5f27cf2d065a62ce8c4f2bf184893b0f42",
+    "evidence/stage1-checksum-oracle-20261005-173820/SHA256.txt": "cccb6688e344daf0df8bc9e3843c5a12d66ffae0f39ad50f7f6080326ef2af8f"
   }
 }

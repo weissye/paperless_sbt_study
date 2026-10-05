@@ -2291,5 +2291,6 @@
         }
       }
     }
-  ]
+  ],
+  "original_checksum_algorithm": "sha256"
 }
