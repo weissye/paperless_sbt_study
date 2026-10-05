@@ -1,0 +1,55 @@
+{
+  "status": "HOME_NATIVE_SMOKE_INDEPENDENTLY_VERIFIED",
+  "archive_sha256": "ca5b4201187ec462e7140b61f385dc70875975097e076e20adf3192f548c7fe9",
+  "model_hashes_verified": {
+    "relationship_compilation.json": "25d1c697629ee2ece8e8954010e7b5ec9e15b33fde368dec8153a0fe61d57307",
+    "relationship_scenario_plan.json": "19447dcce3dd176b48d54b2d341f792f8be35900dcaf3b273e4c75848b825d18",
+    "spec\\js\\interfaces.paperless.js": "ed342ccdeb281eb1cd69d0978627a7e8b4232718c6e349f5744cc87be0415b92",
+    "spec\\js\\stories.paperless.js": "ed075baecfedd073a1de4ce409a0fca335d7bfb876fcfba63f68b18529785d72"
+  },
+  "actual_selected_http_events": 9,
+  "http_methods": {
+    "POST": 3,
+    "GET": 6
+  },
+  "observed_snapshot_ids": [
+    1,
+    2
+  ],
+  "observed_owner": 2,
+  "name_slug_identity_preserved": true,
+  "native_exit_code": 0,
+  "native_result": "SUCCESS",
+  "runtime_receipt": {
+    "negative_tests": [],
+    "owned_instances": 2,
+    "owned_records": [
+      {
+        "instance": "api/tags#1",
+        "resource": "api/tags",
+        "route": {
+          "id": 1,
+          "slug": "rel-1791219644051-name_60755"
+        }
+      },
+      {
+        "instance": "api/tags#2",
+        "resource": "api/tags",
+        "route": {
+          "id": 2,
+          "slug": "rel-1791219644051-name_38415"
+        }
+      }
+    ],
+    "reset_replay_accepted": false,
+    "response_count": 9,
+    "status": "LIVE_CALLBACKS_COMPLETE",
+    "task_count": 2
+  },
+  "limitations": [
+    "HTTP statuses checked by native REST and callbacks; a separate full raw-response trace is not present.",
+    "Symbolic samples are not included; their hash cannot be independently recomputed from this archive.",
+    "Administrator infrastructure smoke only; no document relationship or ordinary-user campaign executed.",
+    "No reset/replay or concurrent HTTP execution was performed."
+  ]
+}

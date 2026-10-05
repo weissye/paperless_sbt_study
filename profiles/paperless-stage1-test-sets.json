@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "status": "DESIGN_ONLY_NOT_EXECUTABLE_OR_LIVE_ACCEPTED",
+  "contract_sha256": "7840d7816133c13fdeb43e1cd9a3013c7fff886538f5612bff3d0b42b2119d0c",
+  "stage": "S1 shared metadata and interleaved construction",
+  "identity_configuration": "one ordinary user, one client; all test resources owned by that user",
+  "fixtures": {
+    "documents": 2,
+    "shared_tags": 1,
+    "shared_document_types": 1,
+    "input": "two distinct synthetic PDFs; no personal content",
+    "identity_binding": "returned task identifier -> successful ingestion -> documented related document identifier; never infer from max id or title alone"
+  },
+  "preconditions": [
+    "ordinary user permissions explicitly granted and recorded",
+    "upload/task polling transport qualified against local contract",
+    "each ingestion completes within bounded timeout",
+    "all HTTP emitted through interfaces; stories choose the action order"
+  ],
+  "cases": [
+    {
+      "id": "S1-CONTROL",
+      "intent": "Sequential construction baseline",
+      "steps": [
+        "create tag T and document type Y",
+        "ingest documents A and B",
+        "attach T and Y to A",
+        "read A and B",
+        "attach T and Y to B",
+        "read A, B, T and Y"
+      ],
+      "oracles": [
+        "stable A/B ids and distinct file checksums",
+        "exact expected tag ids and document_type ids on each read",
+        "owner remains the ordinary user",
+        "metadata names and links agree with latest accepted writes"
+      ]
+    },
+    {
+      "id": "S1-INTERLEAVED-RENAME",
+      "intent": "Modify shared metadata between relationship construction steps",
+      "steps": [
+        "create T and Y; ingest A and B",
+        "attach T and Y to A; read both documents",
+        "rename T; read T, A and B",
+        "attach T and Y to B; read both documents",
+        "rename Y; read Y, A and B"
+      ],
+      "oracles": [
+        "renaming metadata preserves its id",
+        "both documents reference original metadata ids",
+        "unrelated document fields and file checksums remain unchanged",
+        "display fields checked only where specified by the response schema"
+      ]
+    },
+    {
+      "id": "S1-DETACH-REATTACH",
+      "intent": "Local link removal does not affect another document",
+      "steps": [
+        "create T and Y; ingest A and B; attach both to both documents",
+        "capture both documents",
+        "detach T from A; read A and B",
+        "change B title; read A and B",
+        "reattach T to A; read A and B"
+      ],
+      "oracles": [
+        "A tag set changes exactly as requested",
+        "B tag set remains unchanged",
+        "B title change leaves A unchanged",
+        "document_type and owner stay unchanged"
+      ]
+    }
+  ],
+  "budget": {
+    "fresh_fixture_sets_per_case": 2,
+    "native_schedules_per_fixture_set": 1,
+    "maximum_initial_live_schedules": 6,
+    "task_poll_timeout_seconds": 180,
+    "automatic_retry": false
+  },
+  "evidence": [
+    "immutable contract/profile/model hashes",
+    "seed and sampled schedule",
+    "request methods/paths/bodies with credentials removed",
+    "response status and full JSON bodies after each write/read",
+    "ingestion task ids and states",
+    "owner/id/relationship snapshots",
+    "native completion receipt",
+    "first failure archive; no overwrite"
+  ],
+  "next_identity_configurations": [
+    "same ordinary user with two client contexts and separate runtime bindings",
+    "two ordinary users with explicitly authorized shared resources",
+    "two ordinary users with private resources: defer authorization regression implementation to a separately scoped fixture/policy review"
+  ],
+  "next_mechanisms": [
+    "copy isolation where supported by contract",
+    "shared metadata lifecycle on owned fixtures",
+    "route/name identity stability",
+    "reset/replay on an isolated disposable environment"
+  ],
+  "classification": "same invariant and mechanism across orders = one candidate defect with multiple reproductions; do not count each HTTP 500 as a new bug"
+}
