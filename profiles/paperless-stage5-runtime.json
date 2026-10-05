@@ -1,0 +1,1860 @@
+{
+  "version": 1,
+  "contract_sha256": "7840d7816133c13fdeb43e1cd9a3013c7fff886538f5612bff3d0b42b2119d0c",
+  "identity_configuration": "one ordinary user / one client",
+  "original_checksum_algorithm": "sha256",
+  "document_entities": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "document_protected_fields": [
+    "content",
+    "correspondent",
+    "storage_path",
+    "custom_fields",
+    "notes",
+    "original_file_name",
+    "mime_type",
+    "page_count",
+    "root_document"
+  ],
+  "poll_window_seconds": 180,
+  "ingestion_timeout_seconds": 180,
+  "cases": [
+    {
+      "id": "S5-CONTROL",
+      "steps": {
+        "start": {
+          "kind": "start",
+          "after": [],
+          "actor": "identity"
+        },
+        "create_T": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "T",
+          "method": "POST",
+          "path": "/api/tags/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-T",
+            "owner": "$owner",
+            "matching_algorithm": 0,
+            "parent": null,
+            "is_inbox_tag": false
+          },
+          "actor": "T"
+        },
+        "read_T": {
+          "kind": "read",
+          "after": [
+            "create_T"
+          ],
+          "entity": "T",
+          "method": "GET",
+          "path": "/api/tags/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "T"
+        },
+        "rename_T": {
+          "kind": "version_action",
+          "after": [
+            "merge_B",
+            "read_T"
+          ],
+          "operation": "rename_tag",
+          "business": true,
+          "actor": "T"
+        },
+        "create_U": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "U",
+          "method": "POST",
+          "path": "/api/tags/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-U",
+            "owner": "$owner",
+            "matching_algorithm": 0,
+            "parent": null,
+            "is_inbox_tag": false
+          },
+          "actor": "U"
+        },
+        "read_U": {
+          "kind": "read",
+          "after": [
+            "create_U"
+          ],
+          "entity": "U",
+          "method": "GET",
+          "path": "/api/tags/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "U"
+        },
+        "create_Y": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "Y",
+          "method": "POST",
+          "path": "/api/document_types/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-Y",
+            "owner": "$owner",
+            "matching_algorithm": 0
+          },
+          "actor": "Y"
+        },
+        "read_Y": {
+          "kind": "read",
+          "after": [
+            "create_Y"
+          ],
+          "entity": "Y",
+          "method": "GET",
+          "path": "/api/document_types/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "Y"
+        },
+        "rename_Y": {
+          "kind": "version_action",
+          "after": [
+            "merge_C",
+            "read_Y"
+          ],
+          "operation": "rename_type",
+          "business": true,
+          "actor": "Y"
+        },
+        "upload_A": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "A",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "A"
+        },
+        "wait_A": {
+          "kind": "wait",
+          "after": [
+            "upload_A"
+          ],
+          "entity": "A",
+          "actor": "A"
+        },
+        "read_A": {
+          "kind": "read",
+          "after": [
+            "wait_A"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "A"
+        },
+        "checksum_A": {
+          "kind": "metadata",
+          "after": [
+            "read_A"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "A"
+        },
+        "link_A": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_A"
+          ],
+          "entity": "A",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "A"
+        },
+        "rename_A": {
+          "kind": "version_action",
+          "after": [
+            "link_B",
+            "link_D",
+            "link_A"
+          ],
+          "operation": "rename_root",
+          "business": true,
+          "actor": "A"
+        },
+        "detach_A": {
+          "kind": "version_action",
+          "after": [
+            "merge_B",
+            "rename_A"
+          ],
+          "operation": "detach_root_tag",
+          "business": true,
+          "actor": "A"
+        },
+        "reattach_A": {
+          "kind": "version_action",
+          "after": [
+            "detach_A"
+          ],
+          "operation": "reattach_root_tag",
+          "business": true,
+          "actor": "A"
+        },
+        "upload_B": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "B",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "B"
+        },
+        "wait_B": {
+          "kind": "wait",
+          "after": [
+            "upload_B"
+          ],
+          "entity": "B",
+          "actor": "B"
+        },
+        "read_B": {
+          "kind": "read",
+          "after": [
+            "wait_B"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "B"
+        },
+        "checksum_B": {
+          "kind": "metadata",
+          "after": [
+            "read_B"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "B"
+        },
+        "link_B": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_B"
+          ],
+          "entity": "B",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "B"
+        },
+        "merge_B": {
+          "kind": "version_action",
+          "after": [
+            "link_A",
+            "link_D",
+            "link_B"
+          ],
+          "operation": "merge",
+          "source": "B",
+          "business": true,
+          "actor": "B"
+        },
+        "label_B": {
+          "kind": "version_action",
+          "after": [
+            "merge_B"
+          ],
+          "operation": "label",
+          "source": "B",
+          "business": true,
+          "actor": "B"
+        },
+        "upload_C": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "C",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "C"
+        },
+        "wait_C": {
+          "kind": "wait",
+          "after": [
+            "upload_C"
+          ],
+          "entity": "C",
+          "actor": "C"
+        },
+        "read_C": {
+          "kind": "read",
+          "after": [
+            "wait_C"
+          ],
+          "entity": "C",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "C"
+        },
+        "checksum_C": {
+          "kind": "metadata",
+          "after": [
+            "read_C"
+          ],
+          "entity": "C",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "C"
+        },
+        "link_C": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_C"
+          ],
+          "entity": "C",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "C"
+        },
+        "merge_C": {
+          "kind": "version_action",
+          "after": [
+            "link_A",
+            "link_D",
+            "label_B",
+            "link_C"
+          ],
+          "operation": "merge",
+          "source": "C",
+          "business": true,
+          "actor": "C"
+        },
+        "label_C": {
+          "kind": "version_action",
+          "after": [
+            "merge_C"
+          ],
+          "operation": "label",
+          "source": "C",
+          "business": true,
+          "actor": "C"
+        },
+        "upload_D": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "D",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "D"
+        },
+        "wait_D": {
+          "kind": "wait",
+          "after": [
+            "upload_D"
+          ],
+          "entity": "D",
+          "actor": "D"
+        },
+        "read_D": {
+          "kind": "read",
+          "after": [
+            "wait_D"
+          ],
+          "entity": "D",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "D"
+        },
+        "checksum_D": {
+          "kind": "metadata",
+          "after": [
+            "read_D"
+          ],
+          "entity": "D",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "D"
+        },
+        "link_D": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_D"
+          ],
+          "entity": "D",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "D"
+        },
+        "upload_V": {
+          "kind": "version_action",
+          "after": [
+            "label_B",
+            "label_C",
+            "reattach_A",
+            "rename_T",
+            "rename_Y",
+            "link_D"
+          ],
+          "operation": "upload_version",
+          "business": true,
+          "actor": "V"
+        },
+        "wait_V": {
+          "kind": "version_action",
+          "after": [
+            "upload_V"
+          ],
+          "operation": "wait_version",
+          "actor": "V"
+        },
+        "label_V": {
+          "kind": "version_action",
+          "after": [
+            "wait_V"
+          ],
+          "operation": "label",
+          "source": "V",
+          "business": true,
+          "actor": "V"
+        },
+        "final_graph": {
+          "kind": "version_action",
+          "after": [
+            "label_V"
+          ],
+          "operation": "checkpoint",
+          "actor": "verdict"
+        },
+        "finish": {
+          "kind": "finish",
+          "after": [
+            "final_graph"
+          ],
+          "actor": "verdict"
+        }
+      },
+      "actor_steps": {
+        "identity": [
+          "start"
+        ],
+        "T": [
+          "create_T",
+          "read_T",
+          "rename_T"
+        ],
+        "U": [
+          "create_U",
+          "read_U"
+        ],
+        "Y": [
+          "create_Y",
+          "read_Y",
+          "rename_Y"
+        ],
+        "A": [
+          "upload_A",
+          "wait_A",
+          "read_A",
+          "checksum_A",
+          "link_A",
+          "rename_A",
+          "detach_A",
+          "reattach_A"
+        ],
+        "B": [
+          "upload_B",
+          "wait_B",
+          "read_B",
+          "checksum_B",
+          "link_B",
+          "merge_B",
+          "label_B"
+        ],
+        "C": [
+          "upload_C",
+          "wait_C",
+          "read_C",
+          "checksum_C",
+          "link_C",
+          "merge_C",
+          "label_C"
+        ],
+        "D": [
+          "upload_D",
+          "wait_D",
+          "read_D",
+          "checksum_D",
+          "link_D"
+        ],
+        "V": [
+          "upload_V",
+          "wait_V",
+          "label_V"
+        ],
+        "verdict": [
+          "final_graph",
+          "finish"
+        ]
+      },
+      "sampling_policy": "two fresh controls"
+    },
+    {
+      "id": "S5-INTERLEAVED",
+      "steps": {
+        "start": {
+          "kind": "start",
+          "after": [],
+          "actor": "identity"
+        },
+        "create_T": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "T",
+          "method": "POST",
+          "path": "/api/tags/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-T",
+            "owner": "$owner",
+            "matching_algorithm": 0,
+            "parent": null,
+            "is_inbox_tag": false
+          },
+          "actor": "T"
+        },
+        "read_T": {
+          "kind": "read",
+          "after": [
+            "create_T"
+          ],
+          "entity": "T",
+          "method": "GET",
+          "path": "/api/tags/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "T"
+        },
+        "rename_T": {
+          "kind": "version_action",
+          "after": [
+            "merge_B",
+            "read_T"
+          ],
+          "operation": "rename_tag",
+          "business": true,
+          "actor": "T"
+        },
+        "create_U": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "U",
+          "method": "POST",
+          "path": "/api/tags/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-U",
+            "owner": "$owner",
+            "matching_algorithm": 0,
+            "parent": null,
+            "is_inbox_tag": false
+          },
+          "actor": "U"
+        },
+        "read_U": {
+          "kind": "read",
+          "after": [
+            "create_U"
+          ],
+          "entity": "U",
+          "method": "GET",
+          "path": "/api/tags/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "U"
+        },
+        "create_Y": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "Y",
+          "method": "POST",
+          "path": "/api/document_types/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-Y",
+            "owner": "$owner",
+            "matching_algorithm": 0
+          },
+          "actor": "Y"
+        },
+        "read_Y": {
+          "kind": "read",
+          "after": [
+            "create_Y"
+          ],
+          "entity": "Y",
+          "method": "GET",
+          "path": "/api/document_types/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "Y"
+        },
+        "rename_Y": {
+          "kind": "version_action",
+          "after": [
+            "merge_C",
+            "read_Y"
+          ],
+          "operation": "rename_type",
+          "business": true,
+          "actor": "Y"
+        },
+        "upload_A": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "A",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "A"
+        },
+        "wait_A": {
+          "kind": "wait",
+          "after": [
+            "upload_A"
+          ],
+          "entity": "A",
+          "actor": "A"
+        },
+        "read_A": {
+          "kind": "read",
+          "after": [
+            "wait_A"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "A"
+        },
+        "checksum_A": {
+          "kind": "metadata",
+          "after": [
+            "read_A"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "A"
+        },
+        "link_A": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_A"
+          ],
+          "entity": "A",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "A"
+        },
+        "rename_A": {
+          "kind": "version_action",
+          "after": [
+            "link_B",
+            "link_D",
+            "link_A"
+          ],
+          "operation": "rename_root",
+          "business": true,
+          "actor": "A"
+        },
+        "detach_A": {
+          "kind": "version_action",
+          "after": [
+            "merge_B",
+            "rename_A"
+          ],
+          "operation": "detach_root_tag",
+          "business": true,
+          "actor": "A"
+        },
+        "reattach_A": {
+          "kind": "version_action",
+          "after": [
+            "detach_A"
+          ],
+          "operation": "reattach_root_tag",
+          "business": true,
+          "actor": "A"
+        },
+        "upload_B": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "B",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "B"
+        },
+        "wait_B": {
+          "kind": "wait",
+          "after": [
+            "upload_B"
+          ],
+          "entity": "B",
+          "actor": "B"
+        },
+        "read_B": {
+          "kind": "read",
+          "after": [
+            "wait_B"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "B"
+        },
+        "checksum_B": {
+          "kind": "metadata",
+          "after": [
+            "read_B"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "B"
+        },
+        "link_B": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_B"
+          ],
+          "entity": "B",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "B"
+        },
+        "merge_B": {
+          "kind": "version_action",
+          "after": [
+            "link_A",
+            "link_D",
+            "link_B"
+          ],
+          "operation": "merge",
+          "source": "B",
+          "business": true,
+          "actor": "B"
+        },
+        "label_B": {
+          "kind": "version_action",
+          "after": [
+            "merge_B"
+          ],
+          "operation": "label",
+          "source": "B",
+          "business": true,
+          "actor": "B"
+        },
+        "upload_C": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "C",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "C"
+        },
+        "wait_C": {
+          "kind": "wait",
+          "after": [
+            "upload_C"
+          ],
+          "entity": "C",
+          "actor": "C"
+        },
+        "read_C": {
+          "kind": "read",
+          "after": [
+            "wait_C"
+          ],
+          "entity": "C",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "C"
+        },
+        "checksum_C": {
+          "kind": "metadata",
+          "after": [
+            "read_C"
+          ],
+          "entity": "C",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "C"
+        },
+        "link_C": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_C"
+          ],
+          "entity": "C",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "C"
+        },
+        "merge_C": {
+          "kind": "version_action",
+          "after": [
+            "link_A",
+            "link_D",
+            "link_C"
+          ],
+          "operation": "merge",
+          "source": "C",
+          "business": true,
+          "actor": "C"
+        },
+        "label_C": {
+          "kind": "version_action",
+          "after": [
+            "merge_C"
+          ],
+          "operation": "label",
+          "source": "C",
+          "business": true,
+          "actor": "C"
+        },
+        "upload_D": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "D",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "D"
+        },
+        "wait_D": {
+          "kind": "wait",
+          "after": [
+            "upload_D"
+          ],
+          "entity": "D",
+          "actor": "D"
+        },
+        "read_D": {
+          "kind": "read",
+          "after": [
+            "wait_D"
+          ],
+          "entity": "D",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "D"
+        },
+        "checksum_D": {
+          "kind": "metadata",
+          "after": [
+            "read_D"
+          ],
+          "entity": "D",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "D"
+        },
+        "link_D": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_D"
+          ],
+          "entity": "D",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "D"
+        },
+        "upload_V": {
+          "kind": "version_action",
+          "after": [
+            "label_B",
+            "label_C",
+            "reattach_A",
+            "rename_T",
+            "rename_Y",
+            "link_D"
+          ],
+          "operation": "upload_version",
+          "business": true,
+          "actor": "V"
+        },
+        "wait_V": {
+          "kind": "version_action",
+          "after": [
+            "upload_V"
+          ],
+          "operation": "wait_version",
+          "actor": "V"
+        },
+        "label_V": {
+          "kind": "version_action",
+          "after": [
+            "wait_V"
+          ],
+          "operation": "label",
+          "source": "V",
+          "business": true,
+          "actor": "V"
+        },
+        "final_graph": {
+          "kind": "version_action",
+          "after": [
+            "label_V"
+          ],
+          "operation": "checkpoint",
+          "actor": "verdict"
+        },
+        "finish": {
+          "kind": "finish",
+          "after": [
+            "final_graph"
+          ],
+          "actor": "verdict"
+        }
+      },
+      "actor_steps": {
+        "identity": [
+          "start"
+        ],
+        "T": [
+          "create_T",
+          "read_T",
+          "rename_T"
+        ],
+        "U": [
+          "create_U",
+          "read_U"
+        ],
+        "Y": [
+          "create_Y",
+          "read_Y",
+          "rename_Y"
+        ],
+        "A": [
+          "upload_A",
+          "wait_A",
+          "read_A",
+          "checksum_A",
+          "link_A",
+          "rename_A",
+          "detach_A",
+          "reattach_A"
+        ],
+        "B": [
+          "upload_B",
+          "wait_B",
+          "read_B",
+          "checksum_B",
+          "link_B",
+          "merge_B",
+          "label_B"
+        ],
+        "C": [
+          "upload_C",
+          "wait_C",
+          "read_C",
+          "checksum_C",
+          "link_C",
+          "merge_C",
+          "label_C"
+        ],
+        "D": [
+          "upload_D",
+          "wait_D",
+          "read_D",
+          "checksum_D",
+          "link_D"
+        ],
+        "V": [
+          "upload_V",
+          "wait_V",
+          "label_V"
+        ],
+        "verdict": [
+          "final_graph",
+          "finish"
+        ]
+      },
+      "sampling_policy": "two distinct business orders"
+    },
+    {
+      "id": "S5-REMOVE-VERSION",
+      "steps": {
+        "start": {
+          "kind": "start",
+          "after": [],
+          "actor": "identity"
+        },
+        "create_T": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "T",
+          "method": "POST",
+          "path": "/api/tags/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-T",
+            "owner": "$owner",
+            "matching_algorithm": 0,
+            "parent": null,
+            "is_inbox_tag": false
+          },
+          "actor": "T"
+        },
+        "read_T": {
+          "kind": "read",
+          "after": [
+            "create_T"
+          ],
+          "entity": "T",
+          "method": "GET",
+          "path": "/api/tags/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "T"
+        },
+        "rename_T": {
+          "kind": "version_action",
+          "after": [
+            "merge_B",
+            "read_T"
+          ],
+          "operation": "rename_tag",
+          "business": true,
+          "actor": "T"
+        },
+        "remove_T": {
+          "kind": "version_action",
+          "after": [
+            "remove_B",
+            "rename_T"
+          ],
+          "operation": "delete_tag",
+          "business": true,
+          "actor": "T"
+        },
+        "create_U": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "U",
+          "method": "POST",
+          "path": "/api/tags/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-U",
+            "owner": "$owner",
+            "matching_algorithm": 0,
+            "parent": null,
+            "is_inbox_tag": false
+          },
+          "actor": "U"
+        },
+        "read_U": {
+          "kind": "read",
+          "after": [
+            "create_U"
+          ],
+          "entity": "U",
+          "method": "GET",
+          "path": "/api/tags/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "U"
+        },
+        "create_Y": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "Y",
+          "method": "POST",
+          "path": "/api/document_types/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-Y",
+            "owner": "$owner",
+            "matching_algorithm": 0
+          },
+          "actor": "Y"
+        },
+        "read_Y": {
+          "kind": "read",
+          "after": [
+            "create_Y"
+          ],
+          "entity": "Y",
+          "method": "GET",
+          "path": "/api/document_types/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "Y"
+        },
+        "rename_Y": {
+          "kind": "version_action",
+          "after": [
+            "merge_C",
+            "read_Y"
+          ],
+          "operation": "rename_type",
+          "business": true,
+          "actor": "Y"
+        },
+        "remove_Y": {
+          "kind": "version_action",
+          "after": [
+            "remove_T",
+            "rename_Y"
+          ],
+          "operation": "delete_type",
+          "business": true,
+          "actor": "Y"
+        },
+        "upload_A": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "A",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "A"
+        },
+        "wait_A": {
+          "kind": "wait",
+          "after": [
+            "upload_A"
+          ],
+          "entity": "A",
+          "actor": "A"
+        },
+        "read_A": {
+          "kind": "read",
+          "after": [
+            "wait_A"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "A"
+        },
+        "checksum_A": {
+          "kind": "metadata",
+          "after": [
+            "read_A"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "A"
+        },
+        "link_A": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_A"
+          ],
+          "entity": "A",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "A"
+        },
+        "rename_A": {
+          "kind": "version_action",
+          "after": [
+            "link_B",
+            "link_D",
+            "link_A"
+          ],
+          "operation": "rename_root",
+          "business": true,
+          "actor": "A"
+        },
+        "detach_A": {
+          "kind": "version_action",
+          "after": [
+            "merge_B",
+            "rename_A"
+          ],
+          "operation": "detach_root_tag",
+          "business": true,
+          "actor": "A"
+        },
+        "reattach_A": {
+          "kind": "version_action",
+          "after": [
+            "detach_A"
+          ],
+          "operation": "reattach_root_tag",
+          "business": true,
+          "actor": "A"
+        },
+        "upload_B": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "B",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "B"
+        },
+        "wait_B": {
+          "kind": "wait",
+          "after": [
+            "upload_B"
+          ],
+          "entity": "B",
+          "actor": "B"
+        },
+        "read_B": {
+          "kind": "read",
+          "after": [
+            "wait_B"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "B"
+        },
+        "checksum_B": {
+          "kind": "metadata",
+          "after": [
+            "read_B"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "B"
+        },
+        "link_B": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_B"
+          ],
+          "entity": "B",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "B"
+        },
+        "merge_B": {
+          "kind": "version_action",
+          "after": [
+            "link_A",
+            "link_D",
+            "link_B"
+          ],
+          "operation": "merge",
+          "source": "B",
+          "business": true,
+          "actor": "B"
+        },
+        "label_B": {
+          "kind": "version_action",
+          "after": [
+            "merge_B"
+          ],
+          "operation": "label",
+          "source": "B",
+          "business": true,
+          "actor": "B"
+        },
+        "remove_B": {
+          "kind": "version_action",
+          "after": [
+            "label_V",
+            "label_B"
+          ],
+          "operation": "delete_version",
+          "source": "B",
+          "business": true,
+          "actor": "B"
+        },
+        "upload_C": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "C",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "C"
+        },
+        "wait_C": {
+          "kind": "wait",
+          "after": [
+            "upload_C"
+          ],
+          "entity": "C",
+          "actor": "C"
+        },
+        "read_C": {
+          "kind": "read",
+          "after": [
+            "wait_C"
+          ],
+          "entity": "C",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "C"
+        },
+        "checksum_C": {
+          "kind": "metadata",
+          "after": [
+            "read_C"
+          ],
+          "entity": "C",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "C"
+        },
+        "link_C": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_C"
+          ],
+          "entity": "C",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "C"
+        },
+        "merge_C": {
+          "kind": "version_action",
+          "after": [
+            "link_A",
+            "link_D",
+            "link_C"
+          ],
+          "operation": "merge",
+          "source": "C",
+          "business": true,
+          "actor": "C"
+        },
+        "label_C": {
+          "kind": "version_action",
+          "after": [
+            "merge_C"
+          ],
+          "operation": "label",
+          "source": "C",
+          "business": true,
+          "actor": "C"
+        },
+        "upload_D": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "D",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ],
+          "actor": "D"
+        },
+        "wait_D": {
+          "kind": "wait",
+          "after": [
+            "upload_D"
+          ],
+          "entity": "D",
+          "actor": "D"
+        },
+        "read_D": {
+          "kind": "read",
+          "after": [
+            "wait_D"
+          ],
+          "entity": "D",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "actor": "D"
+        },
+        "checksum_D": {
+          "kind": "metadata",
+          "after": [
+            "read_D"
+          ],
+          "entity": "D",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ],
+          "actor": "D"
+        },
+        "link_D": {
+          "kind": "patch",
+          "after": [
+            "read_T",
+            "read_U",
+            "read_Y",
+            "checksum_D"
+          ],
+          "entity": "D",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ],
+          "body": {
+            "tags": [
+              "$id:T",
+              "$id:U"
+            ],
+            "document_type": "$id:Y"
+          },
+          "actor": "D"
+        },
+        "upload_V": {
+          "kind": "version_action",
+          "after": [
+            "label_B",
+            "label_C",
+            "reattach_A",
+            "rename_T",
+            "rename_Y",
+            "link_D"
+          ],
+          "operation": "upload_version",
+          "business": true,
+          "actor": "V"
+        },
+        "wait_V": {
+          "kind": "version_action",
+          "after": [
+            "upload_V"
+          ],
+          "operation": "wait_version",
+          "actor": "V"
+        },
+        "label_V": {
+          "kind": "version_action",
+          "after": [
+            "wait_V"
+          ],
+          "operation": "label",
+          "source": "V",
+          "business": true,
+          "actor": "V"
+        },
+        "remove_V": {
+          "kind": "version_action",
+          "after": [
+            "remove_B",
+            "label_V"
+          ],
+          "operation": "delete_version",
+          "source": "V",
+          "business": true,
+          "actor": "V"
+        },
+        "final_graph": {
+          "kind": "version_action",
+          "after": [
+            "remove_B",
+            "remove_V",
+            "remove_T",
+            "remove_Y"
+          ],
+          "operation": "checkpoint",
+          "actor": "verdict"
+        },
+        "finish": {
+          "kind": "finish",
+          "after": [
+            "final_graph"
+          ],
+          "actor": "verdict"
+        }
+      },
+      "actor_steps": {
+        "identity": [
+          "start"
+        ],
+        "T": [
+          "create_T",
+          "read_T",
+          "rename_T",
+          "remove_T"
+        ],
+        "U": [
+          "create_U",
+          "read_U"
+        ],
+        "Y": [
+          "create_Y",
+          "read_Y",
+          "rename_Y",
+          "remove_Y"
+        ],
+        "A": [
+          "upload_A",
+          "wait_A",
+          "read_A",
+          "checksum_A",
+          "link_A",
+          "rename_A",
+          "detach_A",
+          "reattach_A"
+        ],
+        "B": [
+          "upload_B",
+          "wait_B",
+          "read_B",
+          "checksum_B",
+          "link_B",
+          "merge_B",
+          "label_B",
+          "remove_B"
+        ],
+        "C": [
+          "upload_C",
+          "wait_C",
+          "read_C",
+          "checksum_C",
+          "link_C",
+          "merge_C",
+          "label_C"
+        ],
+        "D": [
+          "upload_D",
+          "wait_D",
+          "read_D",
+          "checksum_D",
+          "link_D"
+        ],
+        "V": [
+          "upload_V",
+          "wait_V",
+          "label_V",
+          "remove_V"
+        ],
+        "verdict": [
+          "final_graph",
+          "finish"
+        ]
+      },
+      "sampling_policy": "two distinct business orders"
+    }
+  ],
+  "version_policy": {
+    "metadata_stays_on_root": true,
+    "explicit_version_checksum": "original input SHA256",
+    "membership": "exact owned version IDs",
+    "root_deletion": "not covered",
+    "external_document_reference_fields": "not covered"
+  }
+}

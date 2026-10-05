@@ -1,0 +1,216 @@
+{
+  "actors": {
+    "identity": [
+      "start"
+    ],
+    "T": [
+      "create_T",
+      "read_T",
+      "rename_T"
+    ],
+    "U": [
+      "create_U",
+      "read_U"
+    ],
+    "Y": [
+      "create_Y",
+      "read_Y",
+      "rename_Y"
+    ],
+    "A": [
+      "upload_A",
+      "wait_A",
+      "read_A",
+      "checksum_A",
+      "link_A",
+      "rename_A",
+      "detach_A",
+      "reattach_A"
+    ],
+    "B": [
+      "upload_B",
+      "wait_B",
+      "read_B",
+      "checksum_B",
+      "link_B",
+      "merge_B",
+      "label_B"
+    ],
+    "C": [
+      "upload_C",
+      "wait_C",
+      "read_C",
+      "checksum_C",
+      "link_C",
+      "merge_C",
+      "label_C"
+    ],
+    "D": [
+      "upload_D",
+      "wait_D",
+      "read_D",
+      "checksum_D",
+      "link_D"
+    ],
+    "V": [
+      "upload_V",
+      "wait_V",
+      "label_V"
+    ],
+    "verdict": [
+      "final_graph",
+      "finish"
+    ]
+  },
+  "prerequisites": {
+    "start": [],
+    "create_T": [
+      "start"
+    ],
+    "read_T": [
+      "create_T"
+    ],
+    "rename_T": [
+      "merge_B",
+      "read_T"
+    ],
+    "create_U": [
+      "start"
+    ],
+    "read_U": [
+      "create_U"
+    ],
+    "create_Y": [
+      "start"
+    ],
+    "read_Y": [
+      "create_Y"
+    ],
+    "rename_Y": [
+      "merge_C",
+      "read_Y"
+    ],
+    "upload_A": [
+      "start"
+    ],
+    "wait_A": [
+      "upload_A"
+    ],
+    "read_A": [
+      "wait_A"
+    ],
+    "checksum_A": [
+      "read_A"
+    ],
+    "link_A": [
+      "read_T",
+      "read_U",
+      "read_Y",
+      "checksum_A"
+    ],
+    "rename_A": [
+      "link_B",
+      "link_D",
+      "link_A"
+    ],
+    "detach_A": [
+      "merge_B",
+      "rename_A"
+    ],
+    "reattach_A": [
+      "detach_A"
+    ],
+    "upload_B": [
+      "start"
+    ],
+    "wait_B": [
+      "upload_B"
+    ],
+    "read_B": [
+      "wait_B"
+    ],
+    "checksum_B": [
+      "read_B"
+    ],
+    "link_B": [
+      "read_T",
+      "read_U",
+      "read_Y",
+      "checksum_B"
+    ],
+    "merge_B": [
+      "link_A",
+      "link_D",
+      "link_B"
+    ],
+    "label_B": [
+      "merge_B"
+    ],
+    "upload_C": [
+      "start"
+    ],
+    "wait_C": [
+      "upload_C"
+    ],
+    "read_C": [
+      "wait_C"
+    ],
+    "checksum_C": [
+      "read_C"
+    ],
+    "link_C": [
+      "read_T",
+      "read_U",
+      "read_Y",
+      "checksum_C"
+    ],
+    "merge_C": [
+      "link_A",
+      "link_D",
+      "link_C"
+    ],
+    "label_C": [
+      "merge_C"
+    ],
+    "upload_D": [
+      "start"
+    ],
+    "wait_D": [
+      "upload_D"
+    ],
+    "read_D": [
+      "wait_D"
+    ],
+    "checksum_D": [
+      "read_D"
+    ],
+    "link_D": [
+      "read_T",
+      "read_U",
+      "read_Y",
+      "checksum_D"
+    ],
+    "upload_V": [
+      "label_B",
+      "label_C",
+      "reattach_A",
+      "rename_T",
+      "rename_Y",
+      "link_D"
+    ],
+    "wait_V": [
+      "upload_V"
+    ],
+    "label_V": [
+      "wait_V"
+    ],
+    "final_graph": [
+      "label_V"
+    ],
+    "finish": [
+      "final_graph"
+    ]
+  },
+  "parent_completion_is_persistent": true,
+  "http_concurrency": false
+}
