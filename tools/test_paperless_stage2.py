@@ -5,6 +5,15 @@ from test_paperless_stage1 import Fixture,Server
 class HierarchyFixture(Fixture):
     children_objects=True
     def request(self,method,path,body):
+        if method=='PATCH' and path.startswith('/api/documents/') and 'tags' in body:
+            body=copy.deepcopy(body);ids=set(body['tags'])
+            for tag in body['tags']:
+                cursor=self.objects['/api/tags/%s/'%tag].get('parent');visited=set()
+                while cursor is not None and cursor not in visited:
+                    visited.add(cursor);ids.add(cursor);cursor=self.objects['/api/tags/%s/'%cursor].get('parent')
+            if self.fault=='unrelated-tag':
+                ids.update(o['id'] for p,o in self.objects.items() if p.startswith('/api/tags/') and o.get('name','').endswith('-T3'))
+            body['tags']=sorted(ids)
         if method=='PATCH' and path.startswith('/api/tags/') and 'parent' in body:
             current=int(path.rstrip('/').split('/')[-1]);parent=body['parent'];seen=set();cursor=parent
             while cursor is not None and cursor not in seen:
@@ -50,6 +59,8 @@ class Tests(unittest.TestCase):
         self.assertEqual(s.child_ids([{'id':2,'parent':1}]),[2])
         for invalid in ([{'name':'missing'}],[True],[{'id':2},2],'bad'):
             with self.subTest(invalid=invalid),self.assertRaises(s.Discrepancy):s.child_ids(invalid)
+    def test_unrelated_tag_is_not_accepted_as_inheritance(self):
+        with self.assertRaises(s.Discrepancy):exercise(profile()['cases'][0],'unrelated-tag')
     def test_every_dependency_is_declared(self):
         for case in profile()['cases']:
             for spec in case['steps'].values():self.assertTrue(set(spec.get('after',[])).issubset(case['steps']))

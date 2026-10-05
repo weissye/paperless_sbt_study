@@ -1623,6 +1623,8 @@
       "integer",
       "embedded-object-id"
     ],
-    "contract_representation_deviation": "record separately from semantic relation integrity"
-  }
+    "contract_representation_deviation": "record separately from semantic relation integrity",
+    "semantic_source": "DocumentSerializer.update adds requested child ancestors; current stage only adds document tags"
+  },
+  "document_tag_write_policy": "add_with_ancestor_closure"
 }

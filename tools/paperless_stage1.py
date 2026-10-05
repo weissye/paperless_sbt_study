@@ -179,7 +179,19 @@ class Engine:
                         self.pending_parent_status={'step':step_id,'expected':spec['expected_status'],'observed':code}
                         if spec['expected_status']==200 and code==200:self.expected[spec['entity']].update(copy.deepcopy(body))
                     elif kind=='patch':
-                        entity=spec['entity'];self.expected[entity].update(copy.deepcopy(body));self.verify(entity,b)
+                        entity=spec['entity'];predicted=copy.deepcopy(body)
+                        if self.profile.get('document_tag_write_policy')=='add_with_ancestor_closure' and entity in ('A','B') and 'tags' in body:
+                            ids=set(body['tags'])
+                            for tag in body['tags']:
+                                visited=set();cursor=tag
+                                while cursor is not None:
+                                    if cursor in visited:raise Incomplete('Expected hierarchy contains a cycle')
+                                    visited.add(cursor);ids.add(cursor)
+                                    tag_entity=next((x for x in ('T1','T2','T3') if self.ids.get(x)==cursor),None)
+                                    if tag_entity is None:raise Incomplete('Unbound tag in hierarchy policy')
+                                    cursor=self.expected[tag_entity].get('parent')
+                            predicted['tags']=sorted(ids)
+                        self.expected[entity].update(predicted);self.verify(entity,b)
                     elif kind=='read':self.verify(spec['entity'],b)
                     else:
                         entity=spec['entity'];self.record_check(entity+'.original_checksum',self.tasks[entity]['input_sha256'],b.get('original_checksum'))
