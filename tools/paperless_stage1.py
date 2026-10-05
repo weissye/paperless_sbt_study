@@ -73,6 +73,16 @@ class Transport:
         if code!=200 or not isinstance(b,dict) or not b.get('token'):raise Incomplete('Ordinary user authentication failed.')
         self.token=b['token'];self.password=None
 
+def child_ids(children):
+    if not isinstance(children,list):raise Discrepancy('children is not an array')
+    ids=[]
+    for child in children:
+        value=child.get('id') if isinstance(child,dict) else child
+        if not isinstance(value,int) or isinstance(value,bool):raise Discrepancy('Invalid child identity')
+        ids.append(value)
+    if len(ids)!=len(set(ids)):raise Discrepancy('Duplicate child identity')
+    return sorted(ids)
+
 class Engine:
     def __init__(self,profile,case,namespace,transport,out):
         self.profile=profile;self.case=case;self.ns=namespace;self.t=transport;self.out=out
@@ -184,12 +194,19 @@ class Engine:
                     for entity in ('A','B'):
                         code,body=self.t.request('GET','/api/documents/%s/metadata/'%self.ids[entity]);observations[entity+'_metadata']={'status':code,'body':body}
                     dump(self.out/'hierarchy'/(step_id+'.json'),observations)
+                    dump(self.out/'hierarchy'/(step_id+'_representation.json'),{'classification':'CONTRACT_REPRESENTATION_DEVIATION' if any(isinstance(child,dict) for entity in ('T1','T2','T3') for child in observations[entity]['body'].get('children',[]) if isinstance(observations[entity]['body'],dict)) else 'PINNED_CHILDREN_ID_FORM','semantic_comparison':'direct child IDs; embedded fields checked separately'})
                     for entity in ('T1','T2','T3','A','B'):
                         self.record_check(entity+'.read_status',200,observations[entity]['status'])
                         self.verify(entity,observations[entity]['body'])
                         if entity.startswith('T'):
                             children=sorted(self.ids[x] for x in ('T1','T2','T3') if self.expected[x].get('parent')==self.ids[entity])
-                            self.record_check(entity+'.children',children,sorted(observations[entity]['body'].get('children',[])))
+                            raw_children=observations[entity]['body'].get('children')
+                            self.record_check(entity+'.children',children,child_ids(raw_children))
+                            for child in raw_children:
+                                if isinstance(child,dict):
+                                    child_entity=next((x for x in ('T1','T2','T3') if self.ids[x]==child['id']),None)
+                                    if child_entity is None:raise Discrepancy('Unknown embedded child')
+                                    self.verify(child_entity,child)
                     for entity in ('A','B'):
                         observed=observations[entity+'_metadata']
                         self.record_check(entity+'.metadata_status',200,observed['status'])
@@ -402,10 +419,10 @@ def run(args):
         raise
     finally:
         password=None
-        dump(campaign/'campaign-summary.json',{'status':('STAGE1_SAMPLES_COMPLETE' if args.sample_only else ('STAGE1_REMAINING_THREE_PASS' if len(selected)==3 else ('STAGE2_SIX_RUNS_PASS' if profile.get('hierarchy_policy') else 'STAGE1_SIX_RUNS_PASS'))) if len(results)==len(selected) and all(x['status'] in ('SAMPLE_ONLY','STAGE1_FUNCTIONAL_PASS','STAGE2_FUNCTIONAL_PASS') for x in results) else 'STAGE1_NOT_COMPLETE','runs':results,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
+        dump(campaign/'campaign-summary.json',{'status':('STAGE1_SAMPLES_COMPLETE' if args.sample_only else ('STAGE1_REMAINING_THREE_PASS' if len(selected)==3 else ('STAGE2_SIX_RUNS_PASS' if profile.get('hierarchy_policy') else 'STAGE1_SIX_RUNS_PASS'))) if len(results)==len(selected) and all(x['status'] in ('SAMPLE_ONLY','STAGE1_FUNCTIONAL_PASS','STAGE2_FUNCTIONAL_PASS') for x in results) else ('STAGE2_NOT_COMPLETE' if profile.get('hierarchy_policy') else 'STAGE1_NOT_COMPLETE'),'runs':results,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
         print('Review ZIP: '+str(bundle(campaign)),flush=True)
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,required=True);parser.add_argument('--base-url',default='http://127.0.0.1:9930');parser.add_argument('--container');parser.add_argument('--sample-only',action='store_true');parser.add_argument('--remaining-from',type=Path);parser.add_argument('--profile',default='profiles/paperless-stage1-runtime.json');parser.add_argument('--label',default='stage1')
     try:run(parser.parse_args())
-    except Exception as e:print('STAGE1_NOT_ACCEPTED: '+str(e),file=sys.stderr);sys.exit(1)
+    except Exception as e:print('PAPERLESS_CAMPAIGN_NOT_ACCEPTED: '+str(e),file=sys.stderr);sys.exit(1)

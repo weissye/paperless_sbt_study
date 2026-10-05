@@ -1618,6 +1618,11 @@
   "hierarchy_policy": {
     "parent_relation": "direct",
     "cycle_rejection_status": 400,
-    "read_after_every_write": true
+    "read_after_every_write": true,
+    "children_identity_forms": [
+      "integer",
+      "embedded-object-id"
+    ],
+    "contract_representation_deviation": "record separately from semantic relation integrity"
   }
 }

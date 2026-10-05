@@ -33,13 +33,15 @@ $ErrorActionPreference = 'Stop'
     if ($LASTEXITCODE -ne 0) { throw 'Hierarchy checks failed. No Git changes were made.' }
     & py -3 -B (Join-Path $Root 'tools/verify_stage1_complete.py') $Root
     if ($LASTEXITCODE -ne 0) { throw 'Stage1 evidence verification failed. No Git changes were made.' }
+    & py -3 -B (Join-Path $Root 'tools/verify_stage2_children_original.py') $Root
+    if ($LASTEXITCODE -ne 0) { throw 'Original Stage2 evidence verification failed. Git was not changed.' }
     $paths += 'validation/paperless-stage2-release.json'
     git add -f -- @paths
     if ($LASTEXITCODE -ne 0) { throw 'Stage1 staging failed.' }
     git diff --cached --quiet -- @paths
     $diffCode = $LASTEXITCODE
     if ($diffCode -eq 1) {
-        git commit --only -m 'Preserve completed Paperless stage1 and add bounded tag hierarchy campaign' -- @paths
+        git commit --only -m 'Qualify children representation and repair hierarchy semantic oracle' -- @paths
         if ($LASTEXITCODE -ne 0) { throw 'Stage1 commit failed.' }
     } elseif ($diffCode -ne 0) { throw 'Stage1 staged diff failed.' }
     if ($Push) {

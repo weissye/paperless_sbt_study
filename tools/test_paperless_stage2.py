@@ -3,6 +3,7 @@ from pathlib import Path
 import paperless_stage1 as s
 from test_paperless_stage1 import Fixture,Server
 class HierarchyFixture(Fixture):
+    children_objects=True
     def request(self,method,path,body):
         if method=='PATCH' and path.startswith('/api/tags/') and 'parent' in body:
             current=int(path.rstrip('/').split('/')[-1]);parent=body['parent'];seen=set();cursor=parent
@@ -14,6 +15,9 @@ class HierarchyFixture(Fixture):
         code,b=super().request(method,path,body)
         if path.startswith('/api/tags/') and isinstance(b,dict) and 'id' in b:
             b=copy.deepcopy(b);b['children']=sorted(o['id'] for p,o in self.objects.items() if p.startswith('/api/tags/') and o.get('parent')==b['id'])
+            if self.children_objects:
+                b['children']=[copy.deepcopy(self.objects['/api/tags/%s/'%id]) for id in b['children']]
+                for child in b['children']:child['children']=[]
         return code,b
 
 def profile():return json.loads((Path(__file__).parent.parent/'profiles/paperless-stage2-runtime.json').read_text())
@@ -36,6 +40,16 @@ class Tests(unittest.TestCase):
     def test_rejected_write_that_mutates_is_detected(self):
         for case in profile()['cases'][1:]:
             with self.subTest(case=case['id']),self.assertRaises(s.Discrepancy):exercise(case,'mutate-on-reject')
+    def test_integer_children_form_also_passes(self):
+        HierarchyFixture.children_objects=False
+        try:
+            for case in profile()['cases']:self.assertGreater(exercise(case),100)
+        finally:HierarchyFixture.children_objects=True
+    def test_identity_normalization_is_strict(self):
+        self.assertEqual(s.child_ids([2,1]),[1,2])
+        self.assertEqual(s.child_ids([{'id':2,'parent':1}]),[2])
+        for invalid in ([{'name':'missing'}],[True],[{'id':2},2],'bad'):
+            with self.subTest(invalid=invalid),self.assertRaises(s.Discrepancy):s.child_ids(invalid)
     def test_every_dependency_is_declared(self):
         for case in profile()['cases']:
             for spec in case['steps'].values():self.assertTrue(set(spec.get('after',[])).issubset(case['steps']))
