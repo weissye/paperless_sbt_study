@@ -1,0 +1,11 @@
+{
+  "status": "STAGE1_COMPLETE_VERIFIED",
+  "accepted_runs": 6,
+  "passing_checks": 1562,
+  "target_http_responses_in_accepted_runs": 261,
+  "patches_in_accepted_runs": 22,
+  "extra_incomplete_run_responses": 13,
+  "new_bug_confirmed": false,
+  "identity": "one ordinary user / one client per campaign",
+  "reset_replay_accepted": false
+}

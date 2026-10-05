@@ -1,0 +1,17 @@
+{
+  "status": "STAGE2_NATIVE_FIXTURE_QUALIFIED_LIVE_PENDING",
+  "python_tests": 11,
+  "native_success_runs": 6,
+  "native_fixture_checks": 2238,
+  "native_fixture_http_responses": 330,
+  "injected_fault": {
+    "native_verdict": "SEMANTIC_CANDIDATE",
+    "step": "check_final",
+    "field": "T1.parent",
+    "all_seven_reads_preserved": true
+  },
+  "live_paperless_stage2_accepted": false,
+  "powershell_executed_locally": false,
+  "automatic_retry": false,
+  "automatic_deletion": false
+}

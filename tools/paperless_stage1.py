@@ -156,13 +156,18 @@ class Engine:
                 elif kind=='wait':result=self.wait(spec['entity'])
                 elif kind=='ready':
                     if any(not self.tasks.get(x,{}).get('ready') for x in ('A','B')):raise Incomplete('Documents not ready after bounded wait.')
-                elif kind in ('create','patch','read','metadata'):
+                elif kind in ('create','patch','read','metadata','parent_write'):
                     body=self.resolve(spec.get('body'))
-                    code,b=self.t.request(spec['method'],self.path(spec),body);self.expect_status(code,spec)
+                    code,b=self.t.request(spec['method'],self.path(spec),body)
+                    if kind!='parent_write':self.expect_status(code,spec)
                     if kind=='create':
                         entity=spec['entity'];self.capture(entity,b)
                         self.expected[entity]={'id':self.ids[entity],'owner':self.t.owner,'name':body['name']}
+                        if self.profile.get('hierarchy_policy') and entity.startswith('T'):self.expected[entity]['parent']=body.get('parent')
                         self.verify(entity,b)
+                    elif kind=='parent_write':
+                        self.pending_parent_status={'step':step_id,'expected':spec['expected_status'],'observed':code}
+                        if spec['expected_status']==200 and code==200:self.expected[spec['entity']].update(copy.deepcopy(body))
                     elif kind=='patch':
                         entity=spec['entity'];self.expected[entity].update(copy.deepcopy(body));self.verify(entity,b)
                     elif kind=='read':self.verify(spec['entity'],b)
@@ -170,6 +175,28 @@ class Engine:
                         entity=spec['entity'];self.record_check(entity+'.original_checksum',self.tasks[entity]['input_sha256'],b.get('original_checksum'))
                         self.record_check(entity+'.original_mime_type','application/pdf',b.get('original_mime_type'))
                     result={'target_status':code}
+                elif kind=='hierarchy_checkpoint':
+                    # Capture every read before evaluating any mismatch.
+                    observations={}
+                    for entity in ('T1','T2','T3','A','B'):
+                        route=('/api/tags/' if entity.startswith('T') else '/api/documents/')+str(self.ids[entity])+'/'
+                        code,body=self.t.request('GET',route);observations[entity]={'status':code,'body':body}
+                    for entity in ('A','B'):
+                        code,body=self.t.request('GET','/api/documents/%s/metadata/'%self.ids[entity]);observations[entity+'_metadata']={'status':code,'body':body}
+                    dump(self.out/'hierarchy'/(step_id+'.json'),observations)
+                    for entity in ('T1','T2','T3','A','B'):
+                        self.record_check(entity+'.read_status',200,observations[entity]['status'])
+                        self.verify(entity,observations[entity]['body'])
+                        if entity.startswith('T'):
+                            children=sorted(self.ids[x] for x in ('T1','T2','T3') if self.expected[x].get('parent')==self.ids[entity])
+                            self.record_check(entity+'.children',children,sorted(observations[entity]['body'].get('children',[])))
+                    for entity in ('A','B'):
+                        observed=observations[entity+'_metadata']
+                        self.record_check(entity+'.metadata_status',200,observed['status'])
+                        self.record_check(entity+'.original_checksum',self.tasks[entity]['input_sha256'],observed['body'].get('original_checksum'))
+                    pending=getattr(self,'pending_parent_status',None)
+                    if pending:self.record_check(pending['step']+'.http_status',pending['expected'],pending['observed']);self.pending_parent_status=None
+                    result={'all_owned_resource_reads_captured':True}
                 elif kind=='finish':
                     expected=set(self.case['steps'])-{step_id}
                     if set(self.done)!=expected:raise Incomplete('Missing completed native steps.')
@@ -217,6 +244,9 @@ return new Function('response',source);}
 def compile_model(contract,profile,case,project):
     # Every domain operation must exist in the contract. Scalar bindings and invariants are explicit policy.
     for spec in case['steps'].values():
+        if spec.get('kind')=='hierarchy_checkpoint':
+            for route in ('/api/tags/{id}/','/api/documents/{id}/','/api/documents/{id}/metadata/'):
+                if 'get' not in contract['paths'].get(route,{}):raise ValueError('Hierarchy checkpoint read outside pinned OpenAPI: '+route)
         if spec.get('path') and spec['method'].lower() not in contract['paths'].get(spec['path'],{}):raise ValueError('Operation outside pinned OpenAPI: '+spec['path'])
     specdir=project/'spec/js';specdir.mkdir(parents=True);(project/'config').mkdir()
     (project/'config/provengo.yml').write_text('version: 2\n',encoding='utf-8')
@@ -304,13 +334,13 @@ def bundle(folder):
 def run(args):
     root=args.root.resolve();contract_path=root/'model/paperless-openapi.json';original=contract_path.read_bytes()
     if hashlib.sha256(original).hexdigest()!=PIN:raise Incomplete('Pinned contract byte checksum mismatch. No requests sent.')
-    contract=json.loads(original);profile_path=root/'profiles/paperless-stage1-runtime.json';profile=json.loads(profile_path.read_text(encoding='utf-8-sig'))
+    contract=json.loads(original);profile_path=root/getattr(args,'profile','profiles/paperless-stage1-runtime.json');profile=json.loads(profile_path.read_text(encoding='utf-8-sig'))
     if profile.get('original_checksum_algorithm')!='sha256':raise Incomplete('Explicit SHA256 document checksum policy is required.')
     parsed=urlsplit(args.base_url)
     if parsed.scheme!='http' or parsed.hostname not in ('127.0.0.1','localhost') or parsed.port!=9930 or parsed.path not in ('','/') or parsed.query or parsed.fragment or parsed.username:raise Incomplete('Stage1 targets only the local study service on loopback port 9930.')
     if not shutil.which('provengo'):raise Incomplete('Provengo is not on PATH.')
     stamp=datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')+'-'+uuid.uuid4().hex[:8]
-    campaign=root/'runs'/('stage1-'+stamp);campaign.mkdir(parents=True)
+    campaign=root/'runs'/(getattr(args,'label','stage1')+'-'+stamp);campaign.mkdir(parents=True)
     print('Evidence directory: '+str(campaign),flush=True)
     dump(campaign/'registration.json',{'contract_sha256':PIN,'profile_sha256':hashlib.sha256(profile_path.read_bytes()).hexdigest(),'phase':'generate_sample_then_run','server':args.base_url,'identity_configuration':'one ordinary user / one client','case_count':3,'fresh_sets_per_case':2,'http_concurrency':False,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
     selected=[(case,repetition) for case in profile['cases'] for repetition in (1,2)]
@@ -362,7 +392,7 @@ def run(args):
             if accepted:
                 receipt=json.JSONDecoder().raw_decode(observed[1])[0]
                 accepted=receipt==json.loads((folder/'runtime-receipt.json').read_text()) and receipt['completed_steps']==len(case['steps']) and engine.done==order
-            status='STAGE1_FUNCTIONAL_PASS' if accepted else (engine.failed or {}).get('classification','INCOMPLETE')
+            status=('STAGE2_FUNCTIONAL_PASS' if profile.get('hierarchy_policy') else 'STAGE1_FUNCTIONAL_PASS') if accepted else (engine.failed or {}).get('classification','INCOMPLETE')
             result={'case':case['id'],'repetition':repetition,'status':status,'native_exit_code':r.returncode,'runtime_receipt_observed':bool(observed),'step_count':len(engine.done),'target_responses':transport.sequence,'checks':len(engine.checks),'reset_replay_accepted':False,'automatic_retry':False,'automatic_deletion':False}
             dump(folder/'run-acceptance.json',result);results.append(result);print(status,flush=True)
             # Preserve first discrepancy and stop. Fresh confirmation is an explicit later task.
@@ -372,10 +402,10 @@ def run(args):
         raise
     finally:
         password=None
-        dump(campaign/'campaign-summary.json',{'status':('STAGE1_SAMPLES_COMPLETE' if args.sample_only else ('STAGE1_REMAINING_THREE_PASS' if len(selected)==3 else 'STAGE1_SIX_RUNS_PASS')) if len(results)==len(selected) and all(x['status'] in ('SAMPLE_ONLY','STAGE1_FUNCTIONAL_PASS') for x in results) else 'STAGE1_NOT_COMPLETE','runs':results,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
+        dump(campaign/'campaign-summary.json',{'status':('STAGE1_SAMPLES_COMPLETE' if args.sample_only else ('STAGE1_REMAINING_THREE_PASS' if len(selected)==3 else ('STAGE2_SIX_RUNS_PASS' if profile.get('hierarchy_policy') else 'STAGE1_SIX_RUNS_PASS'))) if len(results)==len(selected) and all(x['status'] in ('SAMPLE_ONLY','STAGE1_FUNCTIONAL_PASS','STAGE2_FUNCTIONAL_PASS') for x in results) else 'STAGE1_NOT_COMPLETE','runs':results,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
         print('Review ZIP: '+str(bundle(campaign)),flush=True)
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,required=True);parser.add_argument('--base-url',default='http://127.0.0.1:9930');parser.add_argument('--container');parser.add_argument('--sample-only',action='store_true');parser.add_argument('--remaining-from',type=Path)
+    parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,required=True);parser.add_argument('--base-url',default='http://127.0.0.1:9930');parser.add_argument('--container');parser.add_argument('--sample-only',action='store_true');parser.add_argument('--remaining-from',type=Path);parser.add_argument('--profile',default='profiles/paperless-stage1-runtime.json');parser.add_argument('--label',default='stage1')
     try:run(parser.parse_args())
     except Exception as e:print('STAGE1_NOT_ACCEPTED: '+str(e),file=sys.stderr);sys.exit(1)
