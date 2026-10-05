@@ -1,0 +1,15 @@
+{
+  "status": "STAGE3_COMPLETE_OFFLINE_VERIFIED",
+  "campaign_sha256": "28fa4aa61d7f1d1e8f22a55e34f09b052d377115db77d643c8c2d1edf16b8166",
+  "native_schedules": 6,
+  "passing_checks": 2004,
+  "target_responses": 343,
+  "explicit_deletions": 6,
+  "delete_status": 204,
+  "deleted_resource_read_status": 404,
+  "new_semantic_bug_confirmed": false,
+  "ordinary_user_id": 9,
+  "source_commit_from_console": "bf1661464d0dbb0ab49f6cea249e40f2ca187fc8",
+  "evidence_push_verified": false,
+  "reset_replay_accepted": false
+}
