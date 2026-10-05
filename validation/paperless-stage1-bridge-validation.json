@@ -1,0 +1,12 @@
+{
+  "status": "NATIVE_FIXTURE_THREE_REMAINING_PASS",
+  "python_functional_tests": 6,
+  "bridge_tests": 2,
+  "sequential_bridge_posts": 120,
+  "native_runs": 3,
+  "native_target_fixture_responses": 143,
+  "native_checks": 937,
+  "live_paperless_continuation": "PENDING",
+  "original_failure_root_cause_proven": false,
+  "powershell_executed_locally": false
+}

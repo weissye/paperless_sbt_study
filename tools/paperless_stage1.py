@@ -187,14 +187,22 @@ class Engine:
 def serve(engine):
     key=secrets.token_urlsafe(32)
     class Handler(BaseHTTPRequestHandler):
+        protocol_version = "HTTP/1.1"
         def log_message(self,*args):pass
         def do_POST(self):
+            # Drain the request body before executing; explicitly close each response.
+            self.close_connection = True
+            length = int(self.headers.get("Content-Length", "0"))
+            if length < 0 or length > 4096:
+                self.send_error(413);return
+            if len(self.rfile.read(length)) != length:
+                self.send_error(400);return
             if self.headers.get('X-SBT-Key')!=key:self.send_error(403);return
             match=re.fullmatch(r'/sbt/step/([a-zA-Z0-9_-]+)',self.path)
             if not match:self.send_error(404);return
             try:payload=engine.execute(match[1]);status=200
             except Exception:payload={'ok':False,'failure':engine.failed or {'classification':'INCOMPLETE'}};status=409
-            data=json.dumps(payload).encode();self.send_response(status);self.send_header('Content-Type','application/json');self.send_header('Content-Length',str(len(data)));self.end_headers();self.wfile.write(data)
+            data=json.dumps(payload).encode();self.send_response(status);self.send_header('Content-Type','application/json');self.send_header('Content-Length',str(len(data)));self.send_header('Connection','close');self.end_headers();self.wfile.write(data);self.wfile.flush()
     server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
     threading.Thread(target=server.serve_forever,daemon=True).start()
     return server,key
@@ -305,6 +313,15 @@ def run(args):
     campaign=root/'runs'/('stage1-'+stamp);campaign.mkdir(parents=True)
     print('Evidence directory: '+str(campaign),flush=True)
     dump(campaign/'registration.json',{'contract_sha256':PIN,'profile_sha256':hashlib.sha256(profile_path.read_bytes()).hexdigest(),'phase':'generate_sample_then_run','server':args.base_url,'identity_configuration':'one ordinary user / one client','case_count':3,'fresh_sets_per_case':2,'http_concurrency':False,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
+    selected=[(case,repetition) for case in profile['cases'] for repetition in (1,2)]
+    if getattr(args,'remaining_from',None):
+        from verify_stage1_partial import verify
+        verify(args.remaining_from)
+        selected=[(case,repetition) for case in profile['cases'] for repetition in (1,2) if (case['id'],repetition) in [('S1-INTERLEAVED-RENAME',2),('S1-DETACH-REATTACH',1),('S1-DETACH-REATTACH',2)]]
+        dump(campaign/'continuation.json',{'original_campaign_sha256':hashlib.sha256(args.remaining_from.read_bytes()).hexdigest(),'fresh_resources':True,'selected':[(case['id'],rep) for case,rep in selected]})
+    registration=json.loads((campaign/'registration.json').read_text())
+    registration.update({'planned_schedules':[(case['id'],rep) for case,rep in selected], 'planned_run_count':len(selected), 'fresh_sets_per_case':None if len(selected)==3 else 2, 'case_count':len(set(case['id'] for case,rep in selected))})
+    dump(campaign/'registration.json',registration)
     results=[];identity=None;password=None
     try:
         if not args.sample_only:
@@ -312,54 +329,53 @@ def run(args):
             password=secrets.token_urlsafe(32);username='sbt_stage1_'+uuid.uuid4().hex[:16]
             identity=provision(container,username,password);dump(campaign/'ordinary-user.json',identity)
             print('Created ordinary fixture user '+username+' (no staff/superuser privileges).',flush=True)
-        for case in profile['cases']:
-            for repetition in (1,2):
-                namespace='sbt-s1-'+uuid.uuid4().hex[:16];folder=campaign/(case['id'].lower()+'-'+str(repetition));folder.mkdir()
-                project=folder/'model';compile_model(contract,profile,case,project)
-                files={str(p.relative_to(project)).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in project.rglob('*') if p.is_file()}
-                dump(folder/'model-hashes.json',files)
-                env=os.environ.copy()
-                if not any('-Xmx' in env.get(k,'') for k in ('JAVA_TOOL_OPTIONS','_JAVA_OPTIONS','JDK_JAVA_OPTIONS')):env['JAVA_TOOL_OPTIONS']=(env.get('JAVA_TOOL_OPTIONS','')+' -Xmx1g').strip()
-                env['SBT_STAGE1_BRIDGE']='http://127.0.0.1:1';env['SBT_STAGE1_KEY']='symbolic'
-                samples=project/'samples.json'
-                print('Sampling '+case['id']+' / fresh set '+str(repetition),flush=True)
-                r=native(root,['--batch-mode','sample','--size','1','--algorithm','random','--max-length',str(4*len(case['steps'])+10),'-o',str(samples)],project,env)
-                (folder/'sample-output.txt').write_text(r.stdout+r.stderr,encoding='utf-8')
-                if r.returncode or not samples.exists():raise Incomplete('Native sampling failed; inspect '+str(folder))
-                order=audit_sample(json.loads(samples.read_text(encoding='utf-8-sig')),case)
-                dump(folder/'sample-acceptance.json',{'status':'NATIVE_SYMBOLIC_SAMPLE_VERIFIED','step_count':len(order),'order':order,'samples_sha256':hashlib.sha256(samples.read_bytes()).hexdigest(),'model_hashes':files,'native_exit_code':r.returncode})
-                if args.sample_only:
-                    results.append({'case':case['id'],'repetition':repetition,'status':'SAMPLE_ONLY'});continue
-                transport=Transport(args.base_url.rstrip('/'),folder,identity['username'],password,identity['id'])
-                engine=Engine(profile,case,namespace,transport,folder);server,key=serve(engine)
-                env['SBT_STAGE1_BRIDGE']='http://127.0.0.1:'+str(server.server_port);env['SBT_STAGE1_KEY']=key
-                print('Running '+case['id']+' / fresh set '+str(repetition)+'; resources are retained.',flush=True)
-                try:
-                    r=native(root,['--batch-mode','run','--run-source',str(samples),'--run-id','1','--output-file',str(folder/'native-result.json')],project,env)
-                    native_text=(r.stdout+r.stderr).replace(key,'<REDACTED_LOCAL_KEY>')
-                    result_file=folder/'native-result.json'
-                    if result_file.exists():result_file.write_text(result_file.read_text(encoding='utf-8-sig').replace(key,'<REDACTED_LOCAL_KEY>'),encoding='utf-8')
-                    (folder/'run-output.txt').write_text(native_text,encoding='utf-8')
-                finally:server.shutdown();server.server_close()
-                observed=re.search(r"(?:STAGE1_NATIVE_RECEIPT\s+|setting\s+'stage1_receipt'\s+to\s+')(\{[^\n]+\})",native_text)
-                accepted=engine.completed and not engine.failed and r.returncode==0 and observed is not None and 'Test Result: SUCCESS' in native_text
-                if accepted:
-                    receipt=json.JSONDecoder().raw_decode(observed[1])[0]
-                    accepted=receipt==json.loads((folder/'runtime-receipt.json').read_text()) and receipt['completed_steps']==len(case['steps']) and engine.done==order
-                status='STAGE1_FUNCTIONAL_PASS' if accepted else (engine.failed or {}).get('classification','INCOMPLETE')
-                result={'case':case['id'],'repetition':repetition,'status':status,'native_exit_code':r.returncode,'runtime_receipt_observed':bool(observed),'step_count':len(engine.done),'target_responses':transport.sequence,'checks':len(engine.checks),'reset_replay_accepted':False,'automatic_retry':False,'automatic_deletion':False}
-                dump(folder/'run-acceptance.json',result);results.append(result);print(status,flush=True)
-                # Preserve first discrepancy and stop. Fresh confirmation is an explicit later task.
-                if not accepted:raise Incomplete('Campaign stopped at first incomplete or candidate run. See evidence directory.')
+        for case,repetition in selected:
+            namespace='sbt-s1-'+uuid.uuid4().hex[:16];folder=campaign/(case['id'].lower()+'-'+str(repetition));folder.mkdir()
+            project=folder/'model';compile_model(contract,profile,case,project)
+            files={str(p.relative_to(project)).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in project.rglob('*') if p.is_file()}
+            dump(folder/'model-hashes.json',files)
+            env=os.environ.copy()
+            if not any('-Xmx' in env.get(k,'') for k in ('JAVA_TOOL_OPTIONS','_JAVA_OPTIONS','JDK_JAVA_OPTIONS')):env['JAVA_TOOL_OPTIONS']=(env.get('JAVA_TOOL_OPTIONS','')+' -Xmx1g').strip()
+            env['SBT_STAGE1_BRIDGE']='http://127.0.0.1:1';env['SBT_STAGE1_KEY']='symbolic'
+            samples=project/'samples.json'
+            print('Sampling '+case['id']+' / fresh set '+str(repetition),flush=True)
+            r=native(root,['--batch-mode','sample','--size','1','--algorithm','random','--max-length',str(4*len(case['steps'])+10),'-o',str(samples)],project,env)
+            (folder/'sample-output.txt').write_text(r.stdout+r.stderr,encoding='utf-8')
+            if r.returncode or not samples.exists():raise Incomplete('Native sampling failed; inspect '+str(folder))
+            order=audit_sample(json.loads(samples.read_text(encoding='utf-8-sig')),case)
+            dump(folder/'sample-acceptance.json',{'status':'NATIVE_SYMBOLIC_SAMPLE_VERIFIED','step_count':len(order),'order':order,'samples_sha256':hashlib.sha256(samples.read_bytes()).hexdigest(),'model_hashes':files,'native_exit_code':r.returncode})
+            if args.sample_only:
+                results.append({'case':case['id'],'repetition':repetition,'status':'SAMPLE_ONLY'});continue
+            transport=Transport(args.base_url.rstrip('/'),folder,identity['username'],password,identity['id'])
+            engine=Engine(profile,case,namespace,transport,folder);server,key=serve(engine)
+            env['SBT_STAGE1_BRIDGE']='http://127.0.0.1:'+str(server.server_port);env['SBT_STAGE1_KEY']=key
+            print('Running '+case['id']+' / fresh set '+str(repetition)+'; resources are retained.',flush=True)
+            try:
+                r=native(root,['--batch-mode','run','--run-source',str(samples),'--run-id','1','--output-file',str(folder/'native-result.json')],project,env)
+                native_text=(r.stdout+r.stderr).replace(key,'<REDACTED_LOCAL_KEY>')
+                result_file=folder/'native-result.json'
+                if result_file.exists():result_file.write_text(result_file.read_text(encoding='utf-8-sig').replace(key,'<REDACTED_LOCAL_KEY>'),encoding='utf-8')
+                (folder/'run-output.txt').write_text(native_text,encoding='utf-8')
+            finally:server.shutdown();server.server_close()
+            observed=re.search(r"(?:STAGE1_NATIVE_RECEIPT\s+|setting\s+'stage1_receipt'\s+to\s+')(\{[^\n]+\})",native_text)
+            accepted=engine.completed and not engine.failed and r.returncode==0 and observed is not None and 'Test Result: SUCCESS' in native_text
+            if accepted:
+                receipt=json.JSONDecoder().raw_decode(observed[1])[0]
+                accepted=receipt==json.loads((folder/'runtime-receipt.json').read_text()) and receipt['completed_steps']==len(case['steps']) and engine.done==order
+            status='STAGE1_FUNCTIONAL_PASS' if accepted else (engine.failed or {}).get('classification','INCOMPLETE')
+            result={'case':case['id'],'repetition':repetition,'status':status,'native_exit_code':r.returncode,'runtime_receipt_observed':bool(observed),'step_count':len(engine.done),'target_responses':transport.sequence,'checks':len(engine.checks),'reset_replay_accepted':False,'automatic_retry':False,'automatic_deletion':False}
+            dump(folder/'run-acceptance.json',result);results.append(result);print(status,flush=True)
+            # Preserve first discrepancy and stop. Fresh confirmation is an explicit later task.
+            if not accepted:raise Incomplete('Campaign stopped at first incomplete or candidate run. See evidence directory.')
     except Exception as e:
         dump(campaign/'campaign-error.json',{'classification':'INCOMPLETE','error':str(e),'source_resources_preserved':True})
         raise
     finally:
         password=None
-        dump(campaign/'campaign-summary.json',{'status':('STAGE1_SAMPLES_COMPLETE' if args.sample_only else 'STAGE1_SIX_RUNS_PASS') if len(results)==6 and all(x['status'] in ('SAMPLE_ONLY','STAGE1_FUNCTIONAL_PASS') for x in results) else 'STAGE1_NOT_COMPLETE','runs':results,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
+        dump(campaign/'campaign-summary.json',{'status':('STAGE1_SAMPLES_COMPLETE' if args.sample_only else ('STAGE1_REMAINING_THREE_PASS' if len(selected)==3 else 'STAGE1_SIX_RUNS_PASS')) if len(results)==len(selected) and all(x['status'] in ('SAMPLE_ONLY','STAGE1_FUNCTIONAL_PASS') for x in results) else 'STAGE1_NOT_COMPLETE','runs':results,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
         print('Review ZIP: '+str(bundle(campaign)),flush=True)
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,required=True);parser.add_argument('--base-url',default='http://127.0.0.1:9930');parser.add_argument('--container');parser.add_argument('--sample-only',action='store_true')
+    parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,required=True);parser.add_argument('--base-url',default='http://127.0.0.1:9930');parser.add_argument('--container');parser.add_argument('--sample-only',action='store_true');parser.add_argument('--remaining-from',type=Path)
     try:run(parser.parse_args())
     except Exception as e:print('STAGE1_NOT_ACCEPTED: '+str(e),file=sys.stderr);sys.exit(1)

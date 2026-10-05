@@ -27,13 +27,17 @@ $ErrorActionPreference = 'Stop'
     }
     & py -3 -B (Join-Path $Root 'tools/test_paperless_stage1.py')
     if ($LASTEXITCODE -ne 0) { throw 'Stage1 tests failed. No Git changes were made.' }
+    & py -3 -B (Join-Path $Root 'tools/test_stage1_bridge.py')
+    if ($LASTEXITCODE -ne 0) { throw 'Bridge tests failed. No Git changes were made.' }
+    & py -3 -B (Join-Path $Root 'tools/verify_stage1_partial.py') (Join-Path $Root 'evidence/stage1-partial-20261005-174618/campaign-original.zip')
+    if ($LASTEXITCODE -ne 0) { throw 'Partial evidence verification failed. No Git changes were made.' }
     $paths += 'validation/paperless-stage1-release.json'
     git add -f -- @paths
     if ($LASTEXITCODE -ne 0) { throw 'Stage1 staging failed.' }
     git diff --cached --quiet -- @paths
     $diffCode = $LASTEXITCODE
     if ($diffCode -eq 1) {
-        git commit --only -m 'Add bounded Paperless document relationship stage with native schedule audits' -- @paths
+        git commit --only -m 'Preserve partial Paperless campaign and harden bridge for bounded continuation' -- @paths
         if ($LASTEXITCODE -ne 0) { throw 'Stage1 commit failed.' }
     } elseif ($diffCode -ne 0) { throw 'Stage1 staged diff failed.' }
     if ($Push) {

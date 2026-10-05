@@ -1,0 +1,11 @@
+{
+  "classification": "LOCAL_BRIDGE_TRANSPORT_INCOMPLETE",
+  "paperless_bug_confirmed": false,
+  "complete_passes": 3,
+  "complete_checks": 625,
+  "incomplete_passing_checks": 38,
+  "total_target_responses": 124,
+  "remaining_schedules": 3,
+  "original_cause_proven": false,
+  "reset_replay_accepted": false
+}

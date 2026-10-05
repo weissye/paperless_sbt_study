@@ -1,15 +1,15 @@
 {
-  "version": 2,
-  "status": "SHA256_ORACLE_CORRECTED_NATIVE_FIXTURE_VALIDATED_LIVE_RELATIONSHIP_CAMPAIGN_PENDING",
+  "version": 3,
+  "status": "PARTIAL_LIVE_EVIDENCE_PRESERVED_BRIDGE_HARDENED_NATIVE_FIXTURE_CONTINUATION_PASS_LIVE_PENDING",
   "files": {
     "README-PAPERLESS-STAGE1-RUN.md": "878d6078f36493a4dfdccf2a4571f40480f020ce435dfcdcf465ffa3c515d1b5",
     "validation/paperless-stage1-validation.json": "4f05cb0ca47462d5ccfde888cbe1eccc92fe47bc3a4ead87d7779e13c46cc136",
     "validation/native-fixture-injected-fault.zip": "730f7edc522a23df9b2408d84e37d73963b974094a84fec4d8fc6b8046a10352",
     "validation/native-fixture-success.zip": "107b965c8822f67e3185f8ffc71ff403013b236a61437557bc5df0198d9a3cfe",
-    "scripts/Save-Paperless-Stage1.ps1": "58341879922214be9a6127f226fbeaaa50abfe6f43c44c371e81dc9cab694676",
+    "scripts/Save-Paperless-Stage1.ps1": "03d5aab2eb1ca20d63e6b0faa4f76cfc2d06ee535206bc11671b8789c90fd4be",
     "scripts/Run-Paperless-Stage1.ps1": "ed728b84e1c0e6ab9ba6b0dc33b56340656000e5afb888be5994b7ebcb0b996c",
     "tools/test_paperless_stage1.py": "35b2ef39befea7019825fcf2954010d4d20e3f4ffdd2d5644097242ceab867ad",
-    "tools/paperless_stage1.py": "d685e034b3b68dad734d0206c95e8de66650f2eb1aadab06cb2583bef7ffe37d",
+    "tools/paperless_stage1.py": "0c3a2fd5d7e1b792136e022369e622a4d48fb2dbffba1679915456bd757ade8a",
     "profiles/paperless-stage1-runtime.json": "c4f1ef6ebbb593857d31628fb9655162a5d5b95ff307746a276add6e108d4dec",
     "examples/paperless-stage1/S1-CONTROL/stage1-plan.json": "78e257bcc68eed522b2d17226bf462ee860fd468dd1735556af7cc05fbce3896",
     "examples/paperless-stage1/S1-CONTROL/interfaces.paperless.stage1.js": "c905c76ddd59331ba21940fa32070672c9bae4039235de8bed1e2424f2b9dff1",
@@ -26,6 +26,15 @@
     "evidence/stage1-checksum-oracle-20261005-173820/verify_original.py": "a839c52939f8a8232c102ec138c9ac112b077f601034599b53daca63771d1542",
     "evidence/stage1-checksum-oracle-20261005-173820/qualification.json": "54d4e7328fb2615756ffff3c9f4fe9bfb9d15aad19bf589009334ac453103799",
     "evidence/stage1-checksum-oracle-20261005-173820/campaign-original.zip": "e02bb1c0559918635599dcc725622e5f27cf2d065a62ce8c4f2bf184893b0f42",
-    "evidence/stage1-checksum-oracle-20261005-173820/SHA256.txt": "cccb6688e344daf0df8bc9e3843c5a12d66ffae0f39ad50f7f6080326ef2af8f"
+    "evidence/stage1-checksum-oracle-20261005-173820/SHA256.txt": "cccb6688e344daf0df8bc9e3843c5a12d66ffae0f39ad50f7f6080326ef2af8f",
+    "validation/native-bridge-continuation-fixture.zip": "68d40f2bbeb038a56c8f2b484f22ff8586ee51ac7b170e2f1e0e8afa2583745f",
+    "validation/paperless-stage1-bridge-validation.json": "0ab2f822ddb89f00789681a396fab9d805d0fe8bffc763076cfbc8e1b1c300dd",
+    "scripts/Complete-Paperless-Stage1.ps1": "59c4a03483105e6d3f15340e27dbde1cf67022f32ab5a1cbcead853c6267da65",
+    "docs/PAPERLESS-STAGE1-PARTIAL-AND-CONTINUATION.md": "a6f2315c46ce2bd4562725b0302461ffa7b6b44306c90e050d3b8d96a6cc75ad",
+    "tools/test_stage1_bridge.py": "691526776ed96e9cfebcc1f75b05b794786f071bb72c645c20887ed14cf8e5e9",
+    "tools/verify_stage1_partial.py": "be01823f20384b488699dd54578b27d52f2be3b03c477d39a4b62385cc277d77",
+    "evidence/stage1-partial-20261005-174618/qualification.json": "4caedbbee3181fce80dbc7da15cd86a89f6c872bfe08e89b3b4863737d034e8b",
+    "evidence/stage1-partial-20261005-174618/campaign-original.zip": "c15f19f99de8138a8c0f488c70e60fad66b0d09644d441ceaae1a122859839cc",
+    "evidence/stage1-partial-20261005-174618/SHA256.txt": "db0db0dc9e55102cd15c37c66ebcebba66c6bbfc305d5c359382f83349d6b3a5"
   }
 }
