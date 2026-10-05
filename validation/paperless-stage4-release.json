@@ -1,0 +1,26 @@
+{
+  "status": "STAGE4_NATIVE_FIXTURE_QUALIFIED_LIVE_PENDING",
+  "files": {
+    "validation/paperless-stage1-release.json": "6b225f671af14b376a26ec1eea7761fc2aa9941ee82612206bd6ce61518cd6a3",
+    "validation/paperless-stage3-release.json": "1f7b76debd4a95e9dda004b7501cac26b792496a0963552657504c1989087d54",
+    "validation/paperless-stage2-release.json": "1a4733a82e0a42e25e04cf6a6eb854123cc91d30c4a504582a481c3b92e28bb7",
+    "validation/paperless-stage3-complete-release.json": "65b2ff8906ea6c8f222ccc6500d0c73e8349a21661408b1cb30eb01096ad4d73",
+    "validation/stage4-native-fixture-success.zip": "bca9bc822c677ff7df19ec5525c8bc66becf34f8b317b886352a8aef1cc889ff",
+    "validation/paperless-stage4-validation.json": "843c6a133b111bb10bb83950f5105a38beb6d6c0cde19b94ce9995fda3d2f840",
+    "validation/stage4-native-unselected-mutation.zip": "c1eca534fc564dde30bf3cd8da14635fe34dc5f93ce68f1ce38bd17d36a1ac64",
+    "scripts/Save-Paperless-Stage4.ps1": "14e9807cf6c44581a8e84d825e1d0bdf8c42bb6dcba81969cc1c4292ffdabf6d",
+    "scripts/Save-Paperless-Stage3-Complete.ps1": "2476b283878570a3b84e92d2448e35a3136f8d9f9b92b42c6b79735245ba3fb0",
+    "scripts/Run-Paperless-Stage4.ps1": "69e6fa75e94dd77be7b3f20c7ff7227d8ae60e3ad42a728d693c933a6f4a21f1",
+    "docs/PAPERLESS-STAGE3-COMPLETE.md": "ecd3834149a12309dd328f073f4e00d3274208019fe151810665f8b8f852de8d",
+    "docs/PAPERLESS-STAGE4-BULK-PLAN.md": "5c3c789ffa252e168c22f438a53fee55861f55d7313c0a97c8b26968a8f35f47",
+    "docs/PAPERLESS-STAGE4.md": "80ec6dd2b75f95800a9568e7b6d01fa1a61b683c1e24b3bf12b721ba8fdf4d74",
+    "tools/test_paperless_stage4.py": "81413e87116ea4d10d8fa8bd14b54650fee77e4fb7b95bace2e829ab6d8d8d95",
+    "tools/verify_stage3_complete.py": "638c16cba4350e562623878db3dd06dac2ea7c5c9d666eff4c56437ec0764341",
+    "tools/paperless_stage1.py": "c7d72689184d78caa32e8f19e8a86f8f78d503da5ca3cb8eafc7b31ab02eae2b",
+    "profiles/paperless-stage4-runtime.json": "7528d710abd5e8a9b72f3574fa2c01353f20b8d6ac32601b6ae681a5d2f21fb0",
+    "evidence/stage3-complete-20261005-190045/HANDOFF.md": "2d83f97d68ac741854fb36a31f942119977ea3fb82f70db1502139759755147a",
+    "evidence/stage3-complete-20261005-190045/qualification.json": "6635ff42f90050d4ce03038955d8162659263d1fa5c02b3c88e3bc8a1d6713d2",
+    "evidence/stage3-complete-20261005-190045/campaign-original.zip": "28fa4aa61d7f1d1e8f22a55e34f09b052d377115db77d643c8c2d1edf16b8166",
+    "evidence/stage3-complete-20261005-190045/SHA256.txt": "7a2eb641f7631b8fe38a89d2146a620c0ab9773b7336a6e3b5b1275d05e921ca"
+  }
+}

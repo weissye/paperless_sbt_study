@@ -109,9 +109,9 @@ class Engine:
         if not item['passed']:raise Discrepancy(label)
     def capture(self,entity,body):
         if not isinstance(body,dict) or not isinstance(body.get('id'),int) or isinstance(body.get('id'),bool):raise Incomplete('Missing returned resource identity.')
-        if body['id'] in [self.ids[x] for x in ('A','B') if x in self.ids] and entity in ('A','B'):raise Discrepancy('Distinct documents resolved to one id')
+        if body['id'] in [self.ids[x] for x in self.profile.get('document_entities',('A','B')) if x in self.ids] and entity in self.profile.get('document_entities',('A','B')):raise Discrepancy('Distinct documents resolved to one id')
         self.ids[entity]=body['id'];self.record_check(entity+'.owner',self.t.owner,body.get('owner'))
-        if entity in ('A','B'):
+        if entity in self.profile.get('document_entities',('A','B')):
             self.expected[entity]={'id':body['id'],'owner':self.t.owner,'tags':[],'document_type':None,'title':self.ns+'-'+entity}
             self.protected[entity]={k:copy.deepcopy(body[k]) for k in self.profile['document_protected_fields'] if k in body}
         dump(self.out/'bindings.json',{'ordinary_user_id':self.t.owner,'ids':self.ids,'ingestion_tasks':self.tasks})
@@ -165,7 +165,7 @@ class Engine:
                     result={'task_id':b}
                 elif kind=='wait':result=self.wait(spec['entity'])
                 elif kind=='ready':
-                    if any(not self.tasks.get(x,{}).get('ready') for x in ('A','B')):raise Incomplete('Documents not ready after bounded wait.')
+                    if any(not self.tasks.get(x,{}).get('ready') for x in self.profile.get('document_entities',('A','B'))):raise Incomplete('Documents not ready after bounded wait.')
                 elif kind in ('create','patch','read','metadata','parent_write'):
                     body=self.resolve(spec.get('body'))
                     code,b=self.t.request(spec['method'],self.path(spec),body)
@@ -180,7 +180,7 @@ class Engine:
                         if spec['expected_status']==200 and code==200:self.expected[spec['entity']].update(copy.deepcopy(body))
                     elif kind=='patch':
                         entity=spec['entity'];predicted=copy.deepcopy(body)
-                        if self.profile.get('document_tag_write_policy')=='add_with_ancestor_closure' and entity in ('A','B') and 'tags' in body:
+                        if self.profile.get('document_tag_write_policy')=='add_with_ancestor_closure' and entity in self.profile.get('document_entities',('A','B')) and 'tags' in body:
                             ids=set(body['tags'])
                             for tag in body['tags']:
                                 visited=set();cursor=tag
@@ -197,6 +197,43 @@ class Engine:
                         entity=spec['entity'];self.record_check(entity+'.original_checksum',self.tasks[entity]['input_sha256'],b.get('original_checksum'))
                         self.record_check(entity+'.original_mime_type','application/pdf',b.get('original_mime_type'))
                     result={'target_status':code}
+                elif kind=='bulk_tags':
+                    if not self.profile.get('bulk_tag_policy') or spec['operation'] not in ('add_tag','remove_tag'):
+                        raise Incomplete('Bulk operation outside explicit flat-tag profile')
+                    selected=spec['documents']
+                    if not selected or any(doc not in self.profile['document_entities'] or doc not in self.ids for doc in selected):
+                        raise Incomplete('Bulk selection contains an unbound document')
+                    body={'documents':[self.ids[doc] for doc in selected],'method':spec['operation'],'parameters':{'tag':self.ids['T']}}
+                    code,response=self.t.request('POST',spec['path'],body)
+                    self.pending_bulk_status={'step':step_id,'expected':200,'observed':code}
+                    if code==200:
+                        for doc in selected:
+                            tags=set(self.expected[doc]['tags'])
+                            if spec['operation']=='add_tag':tags.add(self.ids['T'])
+                            else:tags.discard(self.ids['T'])
+                            self.expected[doc]['tags']=sorted(tags)
+                    result={'target_status':code,'readback_required':True}
+                elif kind=='bulk_checkpoint':
+                    observations={}
+                    for entity in ('T','U','Y')+tuple(self.profile['document_entities']):
+                        family='documents' if entity in self.profile['document_entities'] else 'document_types' if entity=='Y' else 'tags'
+                        code,body=self.t.request('GET','/api/'+family+'/'+str(self.ids[entity])+'/')
+                        observations[entity]={'status':code,'body':body}
+                    for entity in self.profile['document_entities']:
+                        code,body=self.t.request('GET','/api/documents/%s/metadata/'%self.ids[entity])
+                        observations[entity+'_metadata']={'status':code,'body':body}
+                    dump(self.out/'bulk'/(step_id+'.json'),observations)
+                    # Preserve selected and unselected documents before evaluating any mismatch.
+                    for entity in ('T','U','Y')+tuple(self.profile['document_entities']):
+                        self.record_check(entity+'.read_status',200,observations[entity]['status'])
+                        self.verify(entity,observations[entity]['body'])
+                    for entity in self.profile['document_entities']:
+                        observed=observations[entity+'_metadata']
+                        self.record_check(entity+'.metadata_status',200,observed['status'])
+                        self.record_check(entity+'.original_checksum',self.tasks[entity]['input_sha256'],observed['body'].get('original_checksum'))
+                    pending=getattr(self,'pending_bulk_status',None)
+                    if pending:self.record_check(pending['step']+'.http_status',pending['expected'],pending['observed']);self.pending_bulk_status=None
+                    result={'all_nine_resource_reads_captured':True}
                 elif kind=='delete_owned':
                     entity=spec['entity']
                     if not self.profile.get('deletion_policy') or entity not in ('T','Y') or entity not in self.ids:
@@ -205,17 +242,17 @@ class Engine:
                     self.pending_delete_status={'step':step_id,'expected':204,'observed':code}
                     if code==204:
                         self.expected[entity]['_deleted']=True
-                        for doc in ('A','B'):
+                        for doc in self.profile.get('document_entities',('A','B')):
                             if entity=='T':self.expected[doc]['tags']=[x for x in self.expected[doc]['tags'] if x!=self.ids[entity]]
                             else:self.expected[doc]['document_type']=None
                     result={'target_status':code,'readback_required':True}
                 elif kind=='deletion_checkpoint':
                     observations={}
                     for entity in ('T','U','Y','A','B'):
-                        family='documents' if entity in ('A','B') else 'document_types' if entity=='Y' else 'tags'
+                        family='documents' if entity in self.profile.get('document_entities',('A','B')) else 'document_types' if entity=='Y' else 'tags'
                         code,body=self.t.request('GET','/api/'+family+'/'+str(self.ids[entity])+'/')
                         observations[entity]={'status':code,'body':body}
-                    for entity in ('A','B'):
+                    for entity in self.profile.get('document_entities',('A','B')):
                         code,body=self.t.request('GET','/api/documents/%s/metadata/'%self.ids[entity])
                         observations[entity+'_metadata']={'status':code,'body':body}
                     dump(self.out/'deletion'/(step_id+'.json'),observations)
@@ -224,7 +261,7 @@ class Engine:
                         deleted=self.expected[entity].get('_deleted',False)
                         self.record_check(entity+'.read_status',404 if deleted else 200,observations[entity]['status'])
                         if not deleted:self.verify(entity,observations[entity]['body'])
-                    for entity in ('A','B'):
+                    for entity in self.profile.get('document_entities',('A','B')):
                         metadata=observations[entity+'_metadata']
                         self.record_check(entity+'.metadata_status',200,metadata['status'])
                         self.record_check(entity+'.original_checksum',self.tasks[entity]['input_sha256'],metadata['body'].get('original_checksum'))
@@ -237,7 +274,7 @@ class Engine:
                     for entity in ('T1','T2','T3','A','B'):
                         route=('/api/tags/' if entity.startswith('T') else '/api/documents/')+str(self.ids[entity])+'/'
                         code,body=self.t.request('GET',route);observations[entity]={'status':code,'body':body}
-                    for entity in ('A','B'):
+                    for entity in self.profile.get('document_entities',('A','B')):
                         code,body=self.t.request('GET','/api/documents/%s/metadata/'%self.ids[entity]);observations[entity+'_metadata']={'status':code,'body':body}
                     dump(self.out/'hierarchy'/(step_id+'.json'),observations)
                     dump(self.out/'hierarchy'/(step_id+'_representation.json'),{'classification':'CONTRACT_REPRESENTATION_DEVIATION' if any(isinstance(child,dict) for entity in ('T1','T2','T3') for child in observations[entity]['body'].get('children',[]) if isinstance(observations[entity]['body'],dict)) else 'PINNED_CHILDREN_ID_FORM','semantic_comparison':'direct child IDs; embedded fields checked separately'})
@@ -253,7 +290,7 @@ class Engine:
                                     child_entity=next((x for x in ('T1','T2','T3') if self.ids[x]==child['id']),None)
                                     if child_entity is None:raise Discrepancy('Unknown embedded child')
                                     self.verify(child_entity,child)
-                    for entity in ('A','B'):
+                    for entity in self.profile.get('document_entities',('A','B')):
                         observed=observations[entity+'_metadata']
                         self.record_check(entity+'.metadata_status',200,observed['status'])
                         self.record_check(entity+'.original_checksum',self.tasks[entity]['input_sha256'],observed['body'].get('original_checksum'))
@@ -263,7 +300,8 @@ class Engine:
                 elif kind=='finish':
                     expected=set(self.case['steps'])-{step_id}
                     if set(self.done)!=expected:raise Incomplete('Missing completed native steps.')
-                    self.record_check('distinct_document_checksums',False,self.tasks['A']['input_sha256']==self.tasks['B']['input_sha256'])
+                    if self.profile.get('bulk_tag_policy'):self.record_check('distinct_document_checksums',len(self.profile['document_entities']),len({self.tasks[x]['input_sha256'] for x in self.profile['document_entities']}))
+                    else:self.record_check('distinct_document_checksums',False,self.tasks['A']['input_sha256']==self.tasks['B']['input_sha256'])
                     self.completed=True
                     result={'status':'STAGE1_NATIVE_RECEIPT','case':self.case['id'],'completed_steps':len(self.done)+1,'checks':len(self.checks),'ids':self.ids,'ordinary_user_id':self.t.owner,'target_http_responses':self.t.sequence}
                     dump(self.out/'runtime-receipt.json',result)
@@ -307,7 +345,7 @@ return new Function('response',source);}
 def compile_model(contract,profile,case,project):
     # Every domain operation must exist in the contract. Scalar bindings and invariants are explicit policy.
     for spec in case['steps'].values():
-        if spec.get('kind') in ('hierarchy_checkpoint','deletion_checkpoint'):
+        if spec.get('kind') in ('hierarchy_checkpoint','deletion_checkpoint','bulk_checkpoint'):
             for route in (('/api/tags/{id}/','/api/documents/{id}/','/api/documents/{id}/metadata/') if spec['kind']=='hierarchy_checkpoint' else ('/api/tags/{id}/','/api/document_types/{id}/','/api/documents/{id}/','/api/documents/{id}/metadata/')):
                 if 'get' not in contract['paths'].get(route,{}):raise ValueError('Hierarchy checkpoint read outside pinned OpenAPI: '+route)
         if spec.get('path') and spec['method'].lower() not in contract['paths'].get(spec['path'],{}):raise ValueError('Operation outside pinned OpenAPI: '+spec['path'])
@@ -456,7 +494,7 @@ def run(args):
             if accepted:
                 receipt=json.JSONDecoder().raw_decode(observed[1])[0]
                 accepted=receipt==json.loads((folder/'runtime-receipt.json').read_text()) and receipt['completed_steps']==len(case['steps']) and engine.done==order
-            status=('STAGE3_FUNCTIONAL_PASS' if profile.get('deletion_policy') else ('STAGE2_FUNCTIONAL_PASS' if profile.get('hierarchy_policy') else 'STAGE1_FUNCTIONAL_PASS')) if accepted else (engine.failed or {}).get('classification','INCOMPLETE')
+            status=('STAGE4_FUNCTIONAL_PASS' if profile.get('bulk_tag_policy') else 'STAGE3_FUNCTIONAL_PASS' if profile.get('deletion_policy') else ('STAGE2_FUNCTIONAL_PASS' if profile.get('hierarchy_policy') else 'STAGE1_FUNCTIONAL_PASS')) if accepted else (engine.failed or {}).get('classification','INCOMPLETE')
             result={'case':case['id'],'repetition':repetition,'status':status,'native_exit_code':r.returncode,'runtime_receipt_observed':bool(observed),'step_count':len(engine.done),'target_responses':transport.sequence,'checks':len(engine.checks),'reset_replay_accepted':False,'automatic_retry':False,'automatic_deletion':False}
             dump(folder/'run-acceptance.json',result);results.append(result);print(status,flush=True)
             # Preserve first discrepancy and stop. Fresh confirmation is an explicit later task.
@@ -466,7 +504,7 @@ def run(args):
         raise
     finally:
         password=None
-        dump(campaign/'campaign-summary.json',{'status':('STAGE1_SAMPLES_COMPLETE' if args.sample_only else ('STAGE1_REMAINING_THREE_PASS' if len(selected)==3 else ('STAGE3_SIX_RUNS_PASS' if profile.get('deletion_policy') else ('STAGE2_SIX_RUNS_PASS' if profile.get('hierarchy_policy') else 'STAGE1_SIX_RUNS_PASS')))) if len(results)==len(selected) and all(x['status'] in ('SAMPLE_ONLY','STAGE1_FUNCTIONAL_PASS','STAGE2_FUNCTIONAL_PASS','STAGE3_FUNCTIONAL_PASS') for x in results) else ('STAGE3_NOT_COMPLETE' if profile.get('deletion_policy') else ('STAGE2_NOT_COMPLETE' if profile.get('hierarchy_policy') else 'STAGE1_NOT_COMPLETE')),'runs':results,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
+        dump(campaign/'campaign-summary.json',{'status':('STAGE1_SAMPLES_COMPLETE' if args.sample_only else ('STAGE1_REMAINING_THREE_PASS' if len(selected)==3 else ('STAGE4_SIX_RUNS_PASS' if profile.get('bulk_tag_policy') else 'STAGE3_SIX_RUNS_PASS' if profile.get('deletion_policy') else ('STAGE2_SIX_RUNS_PASS' if profile.get('hierarchy_policy') else 'STAGE1_SIX_RUNS_PASS')))) if len(results)==len(selected) and all(x['status'] in ('SAMPLE_ONLY','STAGE1_FUNCTIONAL_PASS','STAGE2_FUNCTIONAL_PASS','STAGE3_FUNCTIONAL_PASS','STAGE4_FUNCTIONAL_PASS') for x in results) else ('STAGE4_NOT_COMPLETE' if profile.get('bulk_tag_policy') else 'STAGE3_NOT_COMPLETE' if profile.get('deletion_policy') else ('STAGE2_NOT_COMPLETE' if profile.get('hierarchy_policy') else 'STAGE1_NOT_COMPLETE')),'runs':results,'automatic_retry':False,'automatic_deletion':False,'reset_replay_accepted':False})
         print('Review ZIP: '+str(bundle(campaign)),flush=True)
 
 if __name__=='__main__':
