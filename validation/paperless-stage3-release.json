@@ -1,0 +1,17 @@
+{
+  "status": "STAGE3_NATIVE_FIXTURE_QUALIFIED_LIVE_PENDING",
+  "files": {
+    "validation/paperless-stage1-release.json": "6b225f671af14b376a26ec1eea7761fc2aa9941ee82612206bd6ce61518cd6a3",
+    "validation/stage3-native-fixture-success.zip": "79dc04ff9369e7643aa551513f58ea7fb61e9d75d82c4e8acd3df43700bdbeb8",
+    "validation/paperless-stage2-release.json": "1a4733a82e0a42e25e04cf6a6eb854123cc91d30c4a504582a481c3b92e28bb7",
+    "validation/stage3-native-mutation-after-error.zip": "26fdc02f84b5dfa87acf84440851857a1a8eb0c34ef596c5ec94080ebd1b9410",
+    "validation/paperless-stage3-validation.json": "de4677101179b032f5debb3f3e0ecaa94337df9d390b86804e7178c15214e32b",
+    "scripts/Save-Paperless-Stage3.ps1": "066c23ab50d35d1f54de42f1e4eed4c33826022ccd132ac480b0f705a8833b17",
+    "scripts/Run-Paperless-Stage3.ps1": "c91e65071335749d9e9e16ed0c2dda74ecb598406353f2cbc9bedb9d365e2c1d",
+    "docs/PAPERLESS-STAGE3.md": "213e7b3c6b28c1fe295d990090c642d4733b8335a0f76138b241f0c63d9a6d6b",
+    "tools/paperless_stage1.py": "c7d72689184d78caa32e8f19e8a86f8f78d503da5ca3cb8eafc7b31ab02eae2b",
+    "tools/test_paperless_stage3.py": "2b554d9cd72a6a28e6d03a3b333be2a8ccf1c1670bb4c845d7145d3615ddf246",
+    "profiles/paperless-stage3-runtime.json": "a5fe9fd71bc13ea4675bfe75300cc4e6f3f387e85bc3f5262ddefef50e1f6731"
+  },
+  "version": 1
+}

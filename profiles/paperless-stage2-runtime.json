@@ -1,0 +1,1630 @@
+{
+  "version": 1,
+  "contract_sha256": "7840d7816133c13fdeb43e1cd9a3013c7fff886538f5612bff3d0b42b2119d0c",
+  "identity_configuration": "one ordinary user and one client",
+  "ingestion_timeout_seconds": 180,
+  "poll_window_seconds": 10,
+  "poll_windows_per_document": 18,
+  "document_protected_fields": [
+    "content",
+    "correspondent",
+    "storage_path",
+    "custom_fields",
+    "notes",
+    "original_file_name",
+    "mime_type",
+    "page_count",
+    "root_document"
+  ],
+  "cases": [
+    {
+      "id": "S2-HIERARCHY-CONTROL",
+      "steps": {
+        "start": {
+          "kind": "start",
+          "after": []
+        },
+        "create_tag": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "T1",
+          "method": "POST",
+          "path": "/api/tags/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-tag",
+            "owner": "$owner",
+            "matching_algorithm": 0,
+            "is_inbox_tag": false,
+            "parent": null
+          }
+        },
+        "create_type": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "Y",
+          "method": "POST",
+          "path": "/api/document_types/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-type",
+            "owner": "$owner",
+            "matching_algorithm": 0
+          }
+        },
+        "upload_A": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "A",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ]
+        },
+        "wait_A_1": {
+          "kind": "wait",
+          "after": [
+            "upload_A"
+          ],
+          "entity": "A"
+        },
+        "wait_A_2": {
+          "kind": "wait",
+          "after": [
+            "wait_A_1"
+          ],
+          "entity": "A"
+        },
+        "wait_A_3": {
+          "kind": "wait",
+          "after": [
+            "wait_A_2"
+          ],
+          "entity": "A"
+        },
+        "wait_A_4": {
+          "kind": "wait",
+          "after": [
+            "wait_A_3"
+          ],
+          "entity": "A"
+        },
+        "wait_A_5": {
+          "kind": "wait",
+          "after": [
+            "wait_A_4"
+          ],
+          "entity": "A"
+        },
+        "wait_A_6": {
+          "kind": "wait",
+          "after": [
+            "wait_A_5"
+          ],
+          "entity": "A"
+        },
+        "wait_A_7": {
+          "kind": "wait",
+          "after": [
+            "wait_A_6"
+          ],
+          "entity": "A"
+        },
+        "wait_A_8": {
+          "kind": "wait",
+          "after": [
+            "wait_A_7"
+          ],
+          "entity": "A"
+        },
+        "wait_A_9": {
+          "kind": "wait",
+          "after": [
+            "wait_A_8"
+          ],
+          "entity": "A"
+        },
+        "wait_A_10": {
+          "kind": "wait",
+          "after": [
+            "wait_A_9"
+          ],
+          "entity": "A"
+        },
+        "wait_A_11": {
+          "kind": "wait",
+          "after": [
+            "wait_A_10"
+          ],
+          "entity": "A"
+        },
+        "wait_A_12": {
+          "kind": "wait",
+          "after": [
+            "wait_A_11"
+          ],
+          "entity": "A"
+        },
+        "wait_A_13": {
+          "kind": "wait",
+          "after": [
+            "wait_A_12"
+          ],
+          "entity": "A"
+        },
+        "wait_A_14": {
+          "kind": "wait",
+          "after": [
+            "wait_A_13"
+          ],
+          "entity": "A"
+        },
+        "wait_A_15": {
+          "kind": "wait",
+          "after": [
+            "wait_A_14"
+          ],
+          "entity": "A"
+        },
+        "wait_A_16": {
+          "kind": "wait",
+          "after": [
+            "wait_A_15"
+          ],
+          "entity": "A"
+        },
+        "wait_A_17": {
+          "kind": "wait",
+          "after": [
+            "wait_A_16"
+          ],
+          "entity": "A"
+        },
+        "wait_A_18": {
+          "kind": "wait",
+          "after": [
+            "wait_A_17"
+          ],
+          "entity": "A"
+        },
+        "upload_B": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "B",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ]
+        },
+        "wait_B_1": {
+          "kind": "wait",
+          "after": [
+            "upload_B"
+          ],
+          "entity": "B"
+        },
+        "wait_B_2": {
+          "kind": "wait",
+          "after": [
+            "wait_B_1"
+          ],
+          "entity": "B"
+        },
+        "wait_B_3": {
+          "kind": "wait",
+          "after": [
+            "wait_B_2"
+          ],
+          "entity": "B"
+        },
+        "wait_B_4": {
+          "kind": "wait",
+          "after": [
+            "wait_B_3"
+          ],
+          "entity": "B"
+        },
+        "wait_B_5": {
+          "kind": "wait",
+          "after": [
+            "wait_B_4"
+          ],
+          "entity": "B"
+        },
+        "wait_B_6": {
+          "kind": "wait",
+          "after": [
+            "wait_B_5"
+          ],
+          "entity": "B"
+        },
+        "wait_B_7": {
+          "kind": "wait",
+          "after": [
+            "wait_B_6"
+          ],
+          "entity": "B"
+        },
+        "wait_B_8": {
+          "kind": "wait",
+          "after": [
+            "wait_B_7"
+          ],
+          "entity": "B"
+        },
+        "wait_B_9": {
+          "kind": "wait",
+          "after": [
+            "wait_B_8"
+          ],
+          "entity": "B"
+        },
+        "wait_B_10": {
+          "kind": "wait",
+          "after": [
+            "wait_B_9"
+          ],
+          "entity": "B"
+        },
+        "wait_B_11": {
+          "kind": "wait",
+          "after": [
+            "wait_B_10"
+          ],
+          "entity": "B"
+        },
+        "wait_B_12": {
+          "kind": "wait",
+          "after": [
+            "wait_B_11"
+          ],
+          "entity": "B"
+        },
+        "wait_B_13": {
+          "kind": "wait",
+          "after": [
+            "wait_B_12"
+          ],
+          "entity": "B"
+        },
+        "wait_B_14": {
+          "kind": "wait",
+          "after": [
+            "wait_B_13"
+          ],
+          "entity": "B"
+        },
+        "wait_B_15": {
+          "kind": "wait",
+          "after": [
+            "wait_B_14"
+          ],
+          "entity": "B"
+        },
+        "wait_B_16": {
+          "kind": "wait",
+          "after": [
+            "wait_B_15"
+          ],
+          "entity": "B"
+        },
+        "wait_B_17": {
+          "kind": "wait",
+          "after": [
+            "wait_B_16"
+          ],
+          "entity": "B"
+        },
+        "wait_B_18": {
+          "kind": "wait",
+          "after": [
+            "wait_B_17"
+          ],
+          "entity": "B"
+        },
+        "ready": {
+          "kind": "ready",
+          "after": [
+            "wait_A_18",
+            "wait_B_18",
+            "create_tag",
+            "create_type",
+            "create_T2",
+            "create_T3"
+          ]
+        },
+        "baseline_read_A": {
+          "kind": "read",
+          "after": [
+            "ready"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ]
+        },
+        "baseline_read_B": {
+          "kind": "read",
+          "after": [
+            "ready"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ]
+        },
+        "baseline_checksum_A": {
+          "kind": "metadata",
+          "after": [
+            "ready"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ]
+        },
+        "baseline_checksum_B": {
+          "kind": "metadata",
+          "after": [
+            "ready"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ]
+        },
+        "create_T2": {
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/tags/",
+          "entity": "T2",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-T2",
+            "owner": "$owner",
+            "parent": null,
+            "matching_algorithm": 0,
+            "is_inbox_tag": false
+          },
+          "after": [
+            "start"
+          ]
+        },
+        "create_T3": {
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/tags/",
+          "entity": "T3",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-T3",
+            "owner": "$owner",
+            "parent": null,
+            "matching_algorithm": 0,
+            "is_inbox_tag": false
+          },
+          "after": [
+            "start"
+          ]
+        },
+        "attach_A": {
+          "kind": "patch",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "entity": "A",
+          "body": {
+            "tags": [
+              "$id:T1"
+            ],
+            "document_type": "$id:Y"
+          },
+          "codes": [
+            200
+          ],
+          "after": [
+            "baseline_read_A",
+            "baseline_read_B",
+            "baseline_checksum_A",
+            "baseline_checksum_B"
+          ]
+        },
+        "check_A": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "attach_A"
+          ]
+        },
+        "link_T2_T1": {
+          "kind": "parent_write",
+          "method": "PATCH",
+          "path": "/api/tags/{id}/",
+          "entity": "T2",
+          "body": {
+            "parent": "$id:T1"
+          },
+          "expected_status": 200,
+          "after": [
+            "check_A"
+          ]
+        },
+        "check_parent_2": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "link_T2_T1"
+          ]
+        },
+        "attach_B": {
+          "kind": "patch",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "entity": "B",
+          "body": {
+            "tags": [
+              "$id:T2"
+            ],
+            "document_type": "$id:Y"
+          },
+          "codes": [
+            200
+          ],
+          "after": [
+            "check_parent_2"
+          ]
+        },
+        "check_B": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "attach_B"
+          ]
+        },
+        "link_T3_T2": {
+          "kind": "parent_write",
+          "method": "PATCH",
+          "path": "/api/tags/{id}/",
+          "entity": "T3",
+          "body": {
+            "parent": "$id:T2"
+          },
+          "expected_status": 200,
+          "after": [
+            "check_B"
+          ]
+        },
+        "check_chain": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "link_T3_T2"
+          ]
+        },
+        "reparent_T3": {
+          "kind": "parent_write",
+          "method": "PATCH",
+          "path": "/api/tags/{id}/",
+          "entity": "T3",
+          "body": {
+            "parent": "$id:T1"
+          },
+          "expected_status": 200,
+          "after": [
+            "check_chain"
+          ]
+        },
+        "check_final": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "reparent_T3"
+          ]
+        },
+        "finish": {
+          "kind": "finish",
+          "after": [
+            "check_final"
+          ]
+        }
+      }
+    },
+    {
+      "id": "S2-CYCLE-2",
+      "steps": {
+        "start": {
+          "kind": "start",
+          "after": []
+        },
+        "create_tag": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "T1",
+          "method": "POST",
+          "path": "/api/tags/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-tag",
+            "owner": "$owner",
+            "matching_algorithm": 0,
+            "is_inbox_tag": false,
+            "parent": null
+          }
+        },
+        "create_type": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "Y",
+          "method": "POST",
+          "path": "/api/document_types/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-type",
+            "owner": "$owner",
+            "matching_algorithm": 0
+          }
+        },
+        "upload_A": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "A",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ]
+        },
+        "wait_A_1": {
+          "kind": "wait",
+          "after": [
+            "upload_A"
+          ],
+          "entity": "A"
+        },
+        "wait_A_2": {
+          "kind": "wait",
+          "after": [
+            "wait_A_1"
+          ],
+          "entity": "A"
+        },
+        "wait_A_3": {
+          "kind": "wait",
+          "after": [
+            "wait_A_2"
+          ],
+          "entity": "A"
+        },
+        "wait_A_4": {
+          "kind": "wait",
+          "after": [
+            "wait_A_3"
+          ],
+          "entity": "A"
+        },
+        "wait_A_5": {
+          "kind": "wait",
+          "after": [
+            "wait_A_4"
+          ],
+          "entity": "A"
+        },
+        "wait_A_6": {
+          "kind": "wait",
+          "after": [
+            "wait_A_5"
+          ],
+          "entity": "A"
+        },
+        "wait_A_7": {
+          "kind": "wait",
+          "after": [
+            "wait_A_6"
+          ],
+          "entity": "A"
+        },
+        "wait_A_8": {
+          "kind": "wait",
+          "after": [
+            "wait_A_7"
+          ],
+          "entity": "A"
+        },
+        "wait_A_9": {
+          "kind": "wait",
+          "after": [
+            "wait_A_8"
+          ],
+          "entity": "A"
+        },
+        "wait_A_10": {
+          "kind": "wait",
+          "after": [
+            "wait_A_9"
+          ],
+          "entity": "A"
+        },
+        "wait_A_11": {
+          "kind": "wait",
+          "after": [
+            "wait_A_10"
+          ],
+          "entity": "A"
+        },
+        "wait_A_12": {
+          "kind": "wait",
+          "after": [
+            "wait_A_11"
+          ],
+          "entity": "A"
+        },
+        "wait_A_13": {
+          "kind": "wait",
+          "after": [
+            "wait_A_12"
+          ],
+          "entity": "A"
+        },
+        "wait_A_14": {
+          "kind": "wait",
+          "after": [
+            "wait_A_13"
+          ],
+          "entity": "A"
+        },
+        "wait_A_15": {
+          "kind": "wait",
+          "after": [
+            "wait_A_14"
+          ],
+          "entity": "A"
+        },
+        "wait_A_16": {
+          "kind": "wait",
+          "after": [
+            "wait_A_15"
+          ],
+          "entity": "A"
+        },
+        "wait_A_17": {
+          "kind": "wait",
+          "after": [
+            "wait_A_16"
+          ],
+          "entity": "A"
+        },
+        "wait_A_18": {
+          "kind": "wait",
+          "after": [
+            "wait_A_17"
+          ],
+          "entity": "A"
+        },
+        "upload_B": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "B",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ]
+        },
+        "wait_B_1": {
+          "kind": "wait",
+          "after": [
+            "upload_B"
+          ],
+          "entity": "B"
+        },
+        "wait_B_2": {
+          "kind": "wait",
+          "after": [
+            "wait_B_1"
+          ],
+          "entity": "B"
+        },
+        "wait_B_3": {
+          "kind": "wait",
+          "after": [
+            "wait_B_2"
+          ],
+          "entity": "B"
+        },
+        "wait_B_4": {
+          "kind": "wait",
+          "after": [
+            "wait_B_3"
+          ],
+          "entity": "B"
+        },
+        "wait_B_5": {
+          "kind": "wait",
+          "after": [
+            "wait_B_4"
+          ],
+          "entity": "B"
+        },
+        "wait_B_6": {
+          "kind": "wait",
+          "after": [
+            "wait_B_5"
+          ],
+          "entity": "B"
+        },
+        "wait_B_7": {
+          "kind": "wait",
+          "after": [
+            "wait_B_6"
+          ],
+          "entity": "B"
+        },
+        "wait_B_8": {
+          "kind": "wait",
+          "after": [
+            "wait_B_7"
+          ],
+          "entity": "B"
+        },
+        "wait_B_9": {
+          "kind": "wait",
+          "after": [
+            "wait_B_8"
+          ],
+          "entity": "B"
+        },
+        "wait_B_10": {
+          "kind": "wait",
+          "after": [
+            "wait_B_9"
+          ],
+          "entity": "B"
+        },
+        "wait_B_11": {
+          "kind": "wait",
+          "after": [
+            "wait_B_10"
+          ],
+          "entity": "B"
+        },
+        "wait_B_12": {
+          "kind": "wait",
+          "after": [
+            "wait_B_11"
+          ],
+          "entity": "B"
+        },
+        "wait_B_13": {
+          "kind": "wait",
+          "after": [
+            "wait_B_12"
+          ],
+          "entity": "B"
+        },
+        "wait_B_14": {
+          "kind": "wait",
+          "after": [
+            "wait_B_13"
+          ],
+          "entity": "B"
+        },
+        "wait_B_15": {
+          "kind": "wait",
+          "after": [
+            "wait_B_14"
+          ],
+          "entity": "B"
+        },
+        "wait_B_16": {
+          "kind": "wait",
+          "after": [
+            "wait_B_15"
+          ],
+          "entity": "B"
+        },
+        "wait_B_17": {
+          "kind": "wait",
+          "after": [
+            "wait_B_16"
+          ],
+          "entity": "B"
+        },
+        "wait_B_18": {
+          "kind": "wait",
+          "after": [
+            "wait_B_17"
+          ],
+          "entity": "B"
+        },
+        "ready": {
+          "kind": "ready",
+          "after": [
+            "wait_A_18",
+            "wait_B_18",
+            "create_tag",
+            "create_type",
+            "create_T2",
+            "create_T3"
+          ]
+        },
+        "baseline_read_A": {
+          "kind": "read",
+          "after": [
+            "ready"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ]
+        },
+        "baseline_read_B": {
+          "kind": "read",
+          "after": [
+            "ready"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ]
+        },
+        "baseline_checksum_A": {
+          "kind": "metadata",
+          "after": [
+            "ready"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ]
+        },
+        "baseline_checksum_B": {
+          "kind": "metadata",
+          "after": [
+            "ready"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ]
+        },
+        "create_T2": {
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/tags/",
+          "entity": "T2",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-T2",
+            "owner": "$owner",
+            "parent": null,
+            "matching_algorithm": 0,
+            "is_inbox_tag": false
+          },
+          "after": [
+            "start"
+          ]
+        },
+        "create_T3": {
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/tags/",
+          "entity": "T3",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-T3",
+            "owner": "$owner",
+            "parent": null,
+            "matching_algorithm": 0,
+            "is_inbox_tag": false
+          },
+          "after": [
+            "start"
+          ]
+        },
+        "attach_A": {
+          "kind": "patch",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "entity": "A",
+          "body": {
+            "tags": [
+              "$id:T1"
+            ],
+            "document_type": "$id:Y"
+          },
+          "codes": [
+            200
+          ],
+          "after": [
+            "baseline_read_A",
+            "baseline_read_B",
+            "baseline_checksum_A",
+            "baseline_checksum_B"
+          ]
+        },
+        "check_A": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "attach_A"
+          ]
+        },
+        "link_T2_T1": {
+          "kind": "parent_write",
+          "method": "PATCH",
+          "path": "/api/tags/{id}/",
+          "entity": "T2",
+          "body": {
+            "parent": "$id:T1"
+          },
+          "expected_status": 200,
+          "after": [
+            "check_A"
+          ]
+        },
+        "check_parent_2": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "link_T2_T1"
+          ]
+        },
+        "attach_B": {
+          "kind": "patch",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "entity": "B",
+          "body": {
+            "tags": [
+              "$id:T2"
+            ],
+            "document_type": "$id:Y"
+          },
+          "codes": [
+            200
+          ],
+          "after": [
+            "check_parent_2"
+          ]
+        },
+        "check_B": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "attach_B"
+          ]
+        },
+        "link_T3_T2": {
+          "kind": "parent_write",
+          "method": "PATCH",
+          "path": "/api/tags/{id}/",
+          "entity": "T3",
+          "body": {
+            "parent": "$id:T2"
+          },
+          "expected_status": 200,
+          "after": [
+            "check_B"
+          ]
+        },
+        "check_chain": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "link_T3_T2"
+          ]
+        },
+        "attempt_cycle": {
+          "kind": "parent_write",
+          "method": "PATCH",
+          "path": "/api/tags/{id}/",
+          "entity": "T1",
+          "body": {
+            "parent": "$id:T2"
+          },
+          "expected_status": 400,
+          "after": [
+            "check_chain"
+          ]
+        },
+        "check_final": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "attempt_cycle"
+          ]
+        },
+        "finish": {
+          "kind": "finish",
+          "after": [
+            "check_final"
+          ]
+        }
+      }
+    },
+    {
+      "id": "S2-CYCLE-3",
+      "steps": {
+        "start": {
+          "kind": "start",
+          "after": []
+        },
+        "create_tag": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "T1",
+          "method": "POST",
+          "path": "/api/tags/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-tag",
+            "owner": "$owner",
+            "matching_algorithm": 0,
+            "is_inbox_tag": false,
+            "parent": null
+          }
+        },
+        "create_type": {
+          "kind": "create",
+          "after": [
+            "start"
+          ],
+          "entity": "Y",
+          "method": "POST",
+          "path": "/api/document_types/",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-type",
+            "owner": "$owner",
+            "matching_algorithm": 0
+          }
+        },
+        "upload_A": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "A",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ]
+        },
+        "wait_A_1": {
+          "kind": "wait",
+          "after": [
+            "upload_A"
+          ],
+          "entity": "A"
+        },
+        "wait_A_2": {
+          "kind": "wait",
+          "after": [
+            "wait_A_1"
+          ],
+          "entity": "A"
+        },
+        "wait_A_3": {
+          "kind": "wait",
+          "after": [
+            "wait_A_2"
+          ],
+          "entity": "A"
+        },
+        "wait_A_4": {
+          "kind": "wait",
+          "after": [
+            "wait_A_3"
+          ],
+          "entity": "A"
+        },
+        "wait_A_5": {
+          "kind": "wait",
+          "after": [
+            "wait_A_4"
+          ],
+          "entity": "A"
+        },
+        "wait_A_6": {
+          "kind": "wait",
+          "after": [
+            "wait_A_5"
+          ],
+          "entity": "A"
+        },
+        "wait_A_7": {
+          "kind": "wait",
+          "after": [
+            "wait_A_6"
+          ],
+          "entity": "A"
+        },
+        "wait_A_8": {
+          "kind": "wait",
+          "after": [
+            "wait_A_7"
+          ],
+          "entity": "A"
+        },
+        "wait_A_9": {
+          "kind": "wait",
+          "after": [
+            "wait_A_8"
+          ],
+          "entity": "A"
+        },
+        "wait_A_10": {
+          "kind": "wait",
+          "after": [
+            "wait_A_9"
+          ],
+          "entity": "A"
+        },
+        "wait_A_11": {
+          "kind": "wait",
+          "after": [
+            "wait_A_10"
+          ],
+          "entity": "A"
+        },
+        "wait_A_12": {
+          "kind": "wait",
+          "after": [
+            "wait_A_11"
+          ],
+          "entity": "A"
+        },
+        "wait_A_13": {
+          "kind": "wait",
+          "after": [
+            "wait_A_12"
+          ],
+          "entity": "A"
+        },
+        "wait_A_14": {
+          "kind": "wait",
+          "after": [
+            "wait_A_13"
+          ],
+          "entity": "A"
+        },
+        "wait_A_15": {
+          "kind": "wait",
+          "after": [
+            "wait_A_14"
+          ],
+          "entity": "A"
+        },
+        "wait_A_16": {
+          "kind": "wait",
+          "after": [
+            "wait_A_15"
+          ],
+          "entity": "A"
+        },
+        "wait_A_17": {
+          "kind": "wait",
+          "after": [
+            "wait_A_16"
+          ],
+          "entity": "A"
+        },
+        "wait_A_18": {
+          "kind": "wait",
+          "after": [
+            "wait_A_17"
+          ],
+          "entity": "A"
+        },
+        "upload_B": {
+          "kind": "upload",
+          "after": [
+            "start"
+          ],
+          "entity": "B",
+          "method": "POST",
+          "path": "/api/documents/post_document/",
+          "codes": [
+            200
+          ]
+        },
+        "wait_B_1": {
+          "kind": "wait",
+          "after": [
+            "upload_B"
+          ],
+          "entity": "B"
+        },
+        "wait_B_2": {
+          "kind": "wait",
+          "after": [
+            "wait_B_1"
+          ],
+          "entity": "B"
+        },
+        "wait_B_3": {
+          "kind": "wait",
+          "after": [
+            "wait_B_2"
+          ],
+          "entity": "B"
+        },
+        "wait_B_4": {
+          "kind": "wait",
+          "after": [
+            "wait_B_3"
+          ],
+          "entity": "B"
+        },
+        "wait_B_5": {
+          "kind": "wait",
+          "after": [
+            "wait_B_4"
+          ],
+          "entity": "B"
+        },
+        "wait_B_6": {
+          "kind": "wait",
+          "after": [
+            "wait_B_5"
+          ],
+          "entity": "B"
+        },
+        "wait_B_7": {
+          "kind": "wait",
+          "after": [
+            "wait_B_6"
+          ],
+          "entity": "B"
+        },
+        "wait_B_8": {
+          "kind": "wait",
+          "after": [
+            "wait_B_7"
+          ],
+          "entity": "B"
+        },
+        "wait_B_9": {
+          "kind": "wait",
+          "after": [
+            "wait_B_8"
+          ],
+          "entity": "B"
+        },
+        "wait_B_10": {
+          "kind": "wait",
+          "after": [
+            "wait_B_9"
+          ],
+          "entity": "B"
+        },
+        "wait_B_11": {
+          "kind": "wait",
+          "after": [
+            "wait_B_10"
+          ],
+          "entity": "B"
+        },
+        "wait_B_12": {
+          "kind": "wait",
+          "after": [
+            "wait_B_11"
+          ],
+          "entity": "B"
+        },
+        "wait_B_13": {
+          "kind": "wait",
+          "after": [
+            "wait_B_12"
+          ],
+          "entity": "B"
+        },
+        "wait_B_14": {
+          "kind": "wait",
+          "after": [
+            "wait_B_13"
+          ],
+          "entity": "B"
+        },
+        "wait_B_15": {
+          "kind": "wait",
+          "after": [
+            "wait_B_14"
+          ],
+          "entity": "B"
+        },
+        "wait_B_16": {
+          "kind": "wait",
+          "after": [
+            "wait_B_15"
+          ],
+          "entity": "B"
+        },
+        "wait_B_17": {
+          "kind": "wait",
+          "after": [
+            "wait_B_16"
+          ],
+          "entity": "B"
+        },
+        "wait_B_18": {
+          "kind": "wait",
+          "after": [
+            "wait_B_17"
+          ],
+          "entity": "B"
+        },
+        "ready": {
+          "kind": "ready",
+          "after": [
+            "wait_A_18",
+            "wait_B_18",
+            "create_tag",
+            "create_type",
+            "create_T2",
+            "create_T3"
+          ]
+        },
+        "baseline_read_A": {
+          "kind": "read",
+          "after": [
+            "ready"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ]
+        },
+        "baseline_read_B": {
+          "kind": "read",
+          "after": [
+            "ready"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/",
+          "codes": [
+            200
+          ]
+        },
+        "baseline_checksum_A": {
+          "kind": "metadata",
+          "after": [
+            "ready"
+          ],
+          "entity": "A",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ]
+        },
+        "baseline_checksum_B": {
+          "kind": "metadata",
+          "after": [
+            "ready"
+          ],
+          "entity": "B",
+          "method": "GET",
+          "path": "/api/documents/{id}/metadata/",
+          "codes": [
+            200
+          ]
+        },
+        "create_T2": {
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/tags/",
+          "entity": "T2",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-T2",
+            "owner": "$owner",
+            "parent": null,
+            "matching_algorithm": 0,
+            "is_inbox_tag": false
+          },
+          "after": [
+            "start"
+          ]
+        },
+        "create_T3": {
+          "kind": "create",
+          "method": "POST",
+          "path": "/api/tags/",
+          "entity": "T3",
+          "codes": [
+            201
+          ],
+          "body": {
+            "name": "$namespace-T3",
+            "owner": "$owner",
+            "parent": null,
+            "matching_algorithm": 0,
+            "is_inbox_tag": false
+          },
+          "after": [
+            "start"
+          ]
+        },
+        "attach_A": {
+          "kind": "patch",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "entity": "A",
+          "body": {
+            "tags": [
+              "$id:T1"
+            ],
+            "document_type": "$id:Y"
+          },
+          "codes": [
+            200
+          ],
+          "after": [
+            "baseline_read_A",
+            "baseline_read_B",
+            "baseline_checksum_A",
+            "baseline_checksum_B"
+          ]
+        },
+        "check_A": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "attach_A"
+          ]
+        },
+        "link_T2_T1": {
+          "kind": "parent_write",
+          "method": "PATCH",
+          "path": "/api/tags/{id}/",
+          "entity": "T2",
+          "body": {
+            "parent": "$id:T1"
+          },
+          "expected_status": 200,
+          "after": [
+            "check_A"
+          ]
+        },
+        "check_parent_2": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "link_T2_T1"
+          ]
+        },
+        "attach_B": {
+          "kind": "patch",
+          "method": "PATCH",
+          "path": "/api/documents/{id}/",
+          "entity": "B",
+          "body": {
+            "tags": [
+              "$id:T2"
+            ],
+            "document_type": "$id:Y"
+          },
+          "codes": [
+            200
+          ],
+          "after": [
+            "check_parent_2"
+          ]
+        },
+        "check_B": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "attach_B"
+          ]
+        },
+        "link_T3_T2": {
+          "kind": "parent_write",
+          "method": "PATCH",
+          "path": "/api/tags/{id}/",
+          "entity": "T3",
+          "body": {
+            "parent": "$id:T2"
+          },
+          "expected_status": 200,
+          "after": [
+            "check_B"
+          ]
+        },
+        "check_chain": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "link_T3_T2"
+          ]
+        },
+        "attempt_cycle": {
+          "kind": "parent_write",
+          "method": "PATCH",
+          "path": "/api/tags/{id}/",
+          "entity": "T1",
+          "body": {
+            "parent": "$id:T3"
+          },
+          "expected_status": 400,
+          "after": [
+            "check_chain"
+          ]
+        },
+        "check_final": {
+          "kind": "hierarchy_checkpoint",
+          "after": [
+            "attempt_cycle"
+          ]
+        },
+        "finish": {
+          "kind": "finish",
+          "after": [
+            "check_final"
+          ]
+        }
+      }
+    }
+  ],
+  "original_checksum_algorithm": "sha256",
+  "hierarchy_policy": {
+    "parent_relation": "direct",
+    "cycle_rejection_status": 400,
+    "read_after_every_write": true,
+    "children_identity_forms": [
+      "integer",
+      "embedded-object-id"
+    ],
+    "contract_representation_deviation": "record separately from semantic relation integrity",
+    "semantic_source": "DocumentSerializer.update adds requested child ancestors; current stage only adds document tags"
+  },
+  "document_tag_write_policy": "add_with_ancestor_closure"
+}

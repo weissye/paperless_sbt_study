@@ -1,0 +1,62 @@
+{
+  "status": "ORACLE_FALSE_POSITIVE_CONFIRMED",
+  "new_bug_confirmed": false,
+  "archive_sha256": "e02bb1c0559918635599dcc725622e5f27cf2d065a62ce8c4f2bf184893b0f42",
+  "case": "S1-CONTROL",
+  "repetition": 1,
+  "failed_step": "baseline_checksum_A",
+  "incorrect_expected_algorithm": "MD5",
+  "correct_algorithm": "SHA256",
+  "input_md5": "04d810fb28b712f59713675cb0945ad7",
+  "input_sha256": "d592908a1a18b0b51bc0b447bf1e284e6737d4532e89284121072129ebcbd002",
+  "server_original_checksum": "d592908a1a18b0b51bc0b447bf1e284e6737d4532e89284121072129ebcbd002",
+  "checks_observed": 59,
+  "checks_passed_under_original_oracle": 58,
+  "target_responses": 17,
+  "relationship_mutations_sent": 0,
+  "fixture": {
+    "id": 3,
+    "username": "sbt_stage1_0ebded1297bd44ed",
+    "is_staff": false,
+    "is_superuser": false,
+    "permissions": [
+      "documents.add_document",
+      "documents.add_documenttype",
+      "documents.add_tag",
+      "documents.change_document",
+      "documents.change_documenttype",
+      "documents.change_tag",
+      "documents.view_document",
+      "documents.view_documenttype",
+      "documents.view_paperlesstask",
+      "documents.view_tag"
+    ]
+  },
+  "bindings": {
+    "ordinary_user_id": 3,
+    "ids": {
+      "B": 1,
+      "Y": 1,
+      "T": 3,
+      "A": 2
+    },
+    "ingestion_tasks": {
+      "B": {
+        "task_id": "269f4ade-329e-49f5-9e71-e9f57376d919",
+        "deadline": 1559866.75,
+        "ready": true,
+        "input_sha256": "d7577cae22e422bab1fb7ec0ae6f59992c7adf9083843e7b8913523eea394862",
+        "input_md5": "b17ee1f2c0adaaf6685a96f4c7b833e4"
+      },
+      "A": {
+        "task_id": "c0086e91-9e78-44d9-910d-e1299e8e3664",
+        "deadline": 1559870.187,
+        "ready": true,
+        "input_sha256": "d592908a1a18b0b51bc0b447bf1e284e6737d4532e89284121072129ebcbd002",
+        "input_md5": "04d810fb28b712f59713675cb0945ad7"
+      }
+    }
+  },
+  "qualification_limit": "The corrected checksum qualifies this archived observation only; relationship cases and the other five runs have not executed on this server.",
+  "source_commit_from_console": "756aca0"
+}

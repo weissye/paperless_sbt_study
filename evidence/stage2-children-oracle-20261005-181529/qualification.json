@@ -1,0 +1,11 @@
+{
+  "semantic_classification": "ORACLE_FALSE_POSITIVE",
+  "contract_classification": "CHILDREN_REPRESENTATION_DEVIATION",
+  "semantic_bug_confirmed": false,
+  "target_responses": 34,
+  "passing_original_checks": 152,
+  "failed_original_check": "T1.children",
+  "cycle_attempts_executed": 0,
+  "complete_schedules": 0,
+  "stage1_rerun_required": false
+}

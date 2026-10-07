@@ -1,0 +1,788 @@
+{
+  "id": "S1-INTERLEAVED-RENAME",
+  "fresh_repetitions": 2,
+  "steps": {
+    "start": {
+      "kind": "start",
+      "after": []
+    },
+    "create_tag": {
+      "kind": "create",
+      "after": [
+        "start"
+      ],
+      "entity": "T",
+      "method": "POST",
+      "path": "/api/tags/",
+      "codes": [
+        201
+      ],
+      "body": {
+        "name": "$namespace-tag",
+        "owner": "$owner",
+        "matching_algorithm": 0,
+        "is_inbox_tag": false,
+        "parent": null
+      }
+    },
+    "create_type": {
+      "kind": "create",
+      "after": [
+        "start"
+      ],
+      "entity": "Y",
+      "method": "POST",
+      "path": "/api/document_types/",
+      "codes": [
+        201
+      ],
+      "body": {
+        "name": "$namespace-type",
+        "owner": "$owner",
+        "matching_algorithm": 0
+      }
+    },
+    "upload_A": {
+      "kind": "upload",
+      "after": [
+        "start"
+      ],
+      "entity": "A",
+      "method": "POST",
+      "path": "/api/documents/post_document/",
+      "codes": [
+        200
+      ]
+    },
+    "wait_A_1": {
+      "kind": "wait",
+      "after": [
+        "upload_A"
+      ],
+      "entity": "A"
+    },
+    "wait_A_2": {
+      "kind": "wait",
+      "after": [
+        "wait_A_1"
+      ],
+      "entity": "A"
+    },
+    "wait_A_3": {
+      "kind": "wait",
+      "after": [
+        "wait_A_2"
+      ],
+      "entity": "A"
+    },
+    "wait_A_4": {
+      "kind": "wait",
+      "after": [
+        "wait_A_3"
+      ],
+      "entity": "A"
+    },
+    "wait_A_5": {
+      "kind": "wait",
+      "after": [
+        "wait_A_4"
+      ],
+      "entity": "A"
+    },
+    "wait_A_6": {
+      "kind": "wait",
+      "after": [
+        "wait_A_5"
+      ],
+      "entity": "A"
+    },
+    "wait_A_7": {
+      "kind": "wait",
+      "after": [
+        "wait_A_6"
+      ],
+      "entity": "A"
+    },
+    "wait_A_8": {
+      "kind": "wait",
+      "after": [
+        "wait_A_7"
+      ],
+      "entity": "A"
+    },
+    "wait_A_9": {
+      "kind": "wait",
+      "after": [
+        "wait_A_8"
+      ],
+      "entity": "A"
+    },
+    "wait_A_10": {
+      "kind": "wait",
+      "after": [
+        "wait_A_9"
+      ],
+      "entity": "A"
+    },
+    "wait_A_11": {
+      "kind": "wait",
+      "after": [
+        "wait_A_10"
+      ],
+      "entity": "A"
+    },
+    "wait_A_12": {
+      "kind": "wait",
+      "after": [
+        "wait_A_11"
+      ],
+      "entity": "A"
+    },
+    "wait_A_13": {
+      "kind": "wait",
+      "after": [
+        "wait_A_12"
+      ],
+      "entity": "A"
+    },
+    "wait_A_14": {
+      "kind": "wait",
+      "after": [
+        "wait_A_13"
+      ],
+      "entity": "A"
+    },
+    "wait_A_15": {
+      "kind": "wait",
+      "after": [
+        "wait_A_14"
+      ],
+      "entity": "A"
+    },
+    "wait_A_16": {
+      "kind": "wait",
+      "after": [
+        "wait_A_15"
+      ],
+      "entity": "A"
+    },
+    "wait_A_17": {
+      "kind": "wait",
+      "after": [
+        "wait_A_16"
+      ],
+      "entity": "A"
+    },
+    "wait_A_18": {
+      "kind": "wait",
+      "after": [
+        "wait_A_17"
+      ],
+      "entity": "A"
+    },
+    "upload_B": {
+      "kind": "upload",
+      "after": [
+        "start"
+      ],
+      "entity": "B",
+      "method": "POST",
+      "path": "/api/documents/post_document/",
+      "codes": [
+        200
+      ]
+    },
+    "wait_B_1": {
+      "kind": "wait",
+      "after": [
+        "upload_B"
+      ],
+      "entity": "B"
+    },
+    "wait_B_2": {
+      "kind": "wait",
+      "after": [
+        "wait_B_1"
+      ],
+      "entity": "B"
+    },
+    "wait_B_3": {
+      "kind": "wait",
+      "after": [
+        "wait_B_2"
+      ],
+      "entity": "B"
+    },
+    "wait_B_4": {
+      "kind": "wait",
+      "after": [
+        "wait_B_3"
+      ],
+      "entity": "B"
+    },
+    "wait_B_5": {
+      "kind": "wait",
+      "after": [
+        "wait_B_4"
+      ],
+      "entity": "B"
+    },
+    "wait_B_6": {
+      "kind": "wait",
+      "after": [
+        "wait_B_5"
+      ],
+      "entity": "B"
+    },
+    "wait_B_7": {
+      "kind": "wait",
+      "after": [
+        "wait_B_6"
+      ],
+      "entity": "B"
+    },
+    "wait_B_8": {
+      "kind": "wait",
+      "after": [
+        "wait_B_7"
+      ],
+      "entity": "B"
+    },
+    "wait_B_9": {
+      "kind": "wait",
+      "after": [
+        "wait_B_8"
+      ],
+      "entity": "B"
+    },
+    "wait_B_10": {
+      "kind": "wait",
+      "after": [
+        "wait_B_9"
+      ],
+      "entity": "B"
+    },
+    "wait_B_11": {
+      "kind": "wait",
+      "after": [
+        "wait_B_10"
+      ],
+      "entity": "B"
+    },
+    "wait_B_12": {
+      "kind": "wait",
+      "after": [
+        "wait_B_11"
+      ],
+      "entity": "B"
+    },
+    "wait_B_13": {
+      "kind": "wait",
+      "after": [
+        "wait_B_12"
+      ],
+      "entity": "B"
+    },
+    "wait_B_14": {
+      "kind": "wait",
+      "after": [
+        "wait_B_13"
+      ],
+      "entity": "B"
+    },
+    "wait_B_15": {
+      "kind": "wait",
+      "after": [
+        "wait_B_14"
+      ],
+      "entity": "B"
+    },
+    "wait_B_16": {
+      "kind": "wait",
+      "after": [
+        "wait_B_15"
+      ],
+      "entity": "B"
+    },
+    "wait_B_17": {
+      "kind": "wait",
+      "after": [
+        "wait_B_16"
+      ],
+      "entity": "B"
+    },
+    "wait_B_18": {
+      "kind": "wait",
+      "after": [
+        "wait_B_17"
+      ],
+      "entity": "B"
+    },
+    "ready": {
+      "kind": "ready",
+      "after": [
+        "wait_A_18",
+        "wait_B_18",
+        "create_tag",
+        "create_type"
+      ]
+    },
+    "baseline_read_A": {
+      "kind": "read",
+      "after": [
+        "ready"
+      ],
+      "entity": "A",
+      "method": "GET",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "baseline_read_B": {
+      "kind": "read",
+      "after": [
+        "ready"
+      ],
+      "entity": "B",
+      "method": "GET",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "baseline_read_T": {
+      "kind": "read",
+      "after": [
+        "ready"
+      ],
+      "entity": "T",
+      "method": "GET",
+      "path": "/api/tags/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "baseline_read_Y": {
+      "kind": "read",
+      "after": [
+        "ready"
+      ],
+      "entity": "Y",
+      "method": "GET",
+      "path": "/api/document_types/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "baseline_checksum_A": {
+      "kind": "metadata",
+      "after": [
+        "ready"
+      ],
+      "entity": "A",
+      "method": "GET",
+      "path": "/api/documents/{id}/metadata/",
+      "codes": [
+        200
+      ]
+    },
+    "baseline_checksum_B": {
+      "kind": "metadata",
+      "after": [
+        "ready"
+      ],
+      "entity": "B",
+      "method": "GET",
+      "path": "/api/documents/{id}/metadata/",
+      "codes": [
+        200
+      ]
+    },
+    "attach_A": {
+      "kind": "patch",
+      "after": [
+        "baseline_read_A",
+        "baseline_read_B",
+        "baseline_read_T",
+        "baseline_read_Y",
+        "baseline_checksum_A",
+        "baseline_checksum_B"
+      ],
+      "entity": "A",
+      "method": "PATCH",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ],
+      "body": {
+        "tags": [
+          "$id:T"
+        ],
+        "document_type": "$id:Y"
+      }
+    },
+    "after_A_read_A": {
+      "kind": "read",
+      "after": [
+        "attach_A"
+      ],
+      "entity": "A",
+      "method": "GET",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_A_read_B": {
+      "kind": "read",
+      "after": [
+        "attach_A"
+      ],
+      "entity": "B",
+      "method": "GET",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_A_read_T": {
+      "kind": "read",
+      "after": [
+        "attach_A"
+      ],
+      "entity": "T",
+      "method": "GET",
+      "path": "/api/tags/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_A_read_Y": {
+      "kind": "read",
+      "after": [
+        "attach_A"
+      ],
+      "entity": "Y",
+      "method": "GET",
+      "path": "/api/document_types/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_A_checksum_A": {
+      "kind": "metadata",
+      "after": [
+        "attach_A"
+      ],
+      "entity": "A",
+      "method": "GET",
+      "path": "/api/documents/{id}/metadata/",
+      "codes": [
+        200
+      ]
+    },
+    "after_A_checksum_B": {
+      "kind": "metadata",
+      "after": [
+        "attach_A"
+      ],
+      "entity": "B",
+      "method": "GET",
+      "path": "/api/documents/{id}/metadata/",
+      "codes": [
+        200
+      ]
+    },
+    "rename_tag": {
+      "kind": "patch",
+      "after": [
+        "after_A_read_A",
+        "after_A_read_B",
+        "after_A_read_T",
+        "after_A_read_Y",
+        "after_A_checksum_A",
+        "after_A_checksum_B"
+      ],
+      "entity": "T",
+      "method": "PATCH",
+      "path": "/api/tags/{id}/",
+      "codes": [
+        200
+      ],
+      "body": {
+        "name": "$namespace-tag-renamed"
+      }
+    },
+    "after_tag_rename_read_A": {
+      "kind": "read",
+      "after": [
+        "rename_tag"
+      ],
+      "entity": "A",
+      "method": "GET",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_tag_rename_read_B": {
+      "kind": "read",
+      "after": [
+        "rename_tag"
+      ],
+      "entity": "B",
+      "method": "GET",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_tag_rename_read_T": {
+      "kind": "read",
+      "after": [
+        "rename_tag"
+      ],
+      "entity": "T",
+      "method": "GET",
+      "path": "/api/tags/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_tag_rename_read_Y": {
+      "kind": "read",
+      "after": [
+        "rename_tag"
+      ],
+      "entity": "Y",
+      "method": "GET",
+      "path": "/api/document_types/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_tag_rename_checksum_A": {
+      "kind": "metadata",
+      "after": [
+        "rename_tag"
+      ],
+      "entity": "A",
+      "method": "GET",
+      "path": "/api/documents/{id}/metadata/",
+      "codes": [
+        200
+      ]
+    },
+    "after_tag_rename_checksum_B": {
+      "kind": "metadata",
+      "after": [
+        "rename_tag"
+      ],
+      "entity": "B",
+      "method": "GET",
+      "path": "/api/documents/{id}/metadata/",
+      "codes": [
+        200
+      ]
+    },
+    "attach_B": {
+      "kind": "patch",
+      "after": [
+        "after_tag_rename_read_A",
+        "after_tag_rename_read_B",
+        "after_tag_rename_read_T",
+        "after_tag_rename_read_Y",
+        "after_tag_rename_checksum_A",
+        "after_tag_rename_checksum_B"
+      ],
+      "entity": "B",
+      "method": "PATCH",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ],
+      "body": {
+        "tags": [
+          "$id:T"
+        ],
+        "document_type": "$id:Y"
+      }
+    },
+    "after_B_read_A": {
+      "kind": "read",
+      "after": [
+        "attach_B"
+      ],
+      "entity": "A",
+      "method": "GET",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_B_read_B": {
+      "kind": "read",
+      "after": [
+        "attach_B"
+      ],
+      "entity": "B",
+      "method": "GET",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_B_read_T": {
+      "kind": "read",
+      "after": [
+        "attach_B"
+      ],
+      "entity": "T",
+      "method": "GET",
+      "path": "/api/tags/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_B_read_Y": {
+      "kind": "read",
+      "after": [
+        "attach_B"
+      ],
+      "entity": "Y",
+      "method": "GET",
+      "path": "/api/document_types/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_B_checksum_A": {
+      "kind": "metadata",
+      "after": [
+        "attach_B"
+      ],
+      "entity": "A",
+      "method": "GET",
+      "path": "/api/documents/{id}/metadata/",
+      "codes": [
+        200
+      ]
+    },
+    "after_B_checksum_B": {
+      "kind": "metadata",
+      "after": [
+        "attach_B"
+      ],
+      "entity": "B",
+      "method": "GET",
+      "path": "/api/documents/{id}/metadata/",
+      "codes": [
+        200
+      ]
+    },
+    "rename_type": {
+      "kind": "patch",
+      "after": [
+        "after_B_read_A",
+        "after_B_read_B",
+        "after_B_read_T",
+        "after_B_read_Y",
+        "after_B_checksum_A",
+        "after_B_checksum_B"
+      ],
+      "entity": "Y",
+      "method": "PATCH",
+      "path": "/api/document_types/{id}/",
+      "codes": [
+        200
+      ],
+      "body": {
+        "name": "$namespace-type-renamed"
+      }
+    },
+    "after_type_rename_read_A": {
+      "kind": "read",
+      "after": [
+        "rename_type"
+      ],
+      "entity": "A",
+      "method": "GET",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_type_rename_read_B": {
+      "kind": "read",
+      "after": [
+        "rename_type"
+      ],
+      "entity": "B",
+      "method": "GET",
+      "path": "/api/documents/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_type_rename_read_T": {
+      "kind": "read",
+      "after": [
+        "rename_type"
+      ],
+      "entity": "T",
+      "method": "GET",
+      "path": "/api/tags/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_type_rename_read_Y": {
+      "kind": "read",
+      "after": [
+        "rename_type"
+      ],
+      "entity": "Y",
+      "method": "GET",
+      "path": "/api/document_types/{id}/",
+      "codes": [
+        200
+      ]
+    },
+    "after_type_rename_checksum_A": {
+      "kind": "metadata",
+      "after": [
+        "rename_type"
+      ],
+      "entity": "A",
+      "method": "GET",
+      "path": "/api/documents/{id}/metadata/",
+      "codes": [
+        200
+      ]
+    },
+    "after_type_rename_checksum_B": {
+      "kind": "metadata",
+      "after": [
+        "rename_type"
+      ],
+      "entity": "B",
+      "method": "GET",
+      "path": "/api/documents/{id}/metadata/",
+      "codes": [
+        200
+      ]
+    },
+    "finish": {
+      "kind": "finish",
+      "after": [
+        "after_type_rename_read_A",
+        "after_type_rename_read_B",
+        "after_type_rename_read_T",
+        "after_type_rename_read_Y",
+        "after_type_rename_checksum_A",
+        "after_type_rename_checksum_B"
+      ]
+    }
+  }
+}

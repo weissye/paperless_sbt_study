@@ -1,0 +1,27 @@
+{
+  "status": "STAGE2_COMPLETE_OFFLINE_VERIFIED",
+  "native_schedules": 6,
+  "target_responses": 356,
+  "passing_checks": 2382,
+  "legal_hierarchy_controls": 2,
+  "cycle_2_rejections": 2,
+  "cycle_3_rejections": 2,
+  "all_cycle_rejections_http": 400,
+  "independent_final_reads_per_run": 7,
+  "ordinary_user_id": 8,
+  "new_semantic_bug_confirmed": false,
+  "campaign_sha256": "e753d4f24334c50b3718cfa27548e2be562e153742b5a953bca17a127ea30727",
+  "source_commit_from_console": "b0040f5",
+  "reset_replay_accepted": false,
+  "evidence_push_verified": false,
+  "metadata_observation": {
+    "case": "S2-CYCLE-2",
+    "repetition": 2,
+    "entity": "A_metadata",
+    "field": "lang",
+    "before": "ca",
+    "after": "en",
+    "cause": "not established",
+    "original_checksum_unchanged": true
+  }
+}

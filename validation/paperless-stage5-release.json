@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "files": {
+    "README-PAPERLESS-STAGE5.md": "753a6bbb0d560d845add50f962d580d9a33e028e6e5ef94d95077841fc7be751",
+    "docs/PAPERLESS-STAGE5-VERSION-LIFECYCLES.md": "159befba7587306ed894d3222310e1204cfcee25777dc2c6d3c7485460887c50",
+    "examples/stage5-interleaved/README.md": "e997c72d35b8350d11e0cdad0ecd0d6f4cf4cfd510eefb9b4b71271bd2d07e59",
+    "examples/stage5-interleaved/lifecycle-plan.json": "bf74e6b6b31a1d390f7b73e2e3b93714e6403d96d5ded664c214587867992d7b",
+    "examples/stage5-interleaved/spec/js/interfaces.paperless.stage1.js": "bb446705a025ecf8eb85da8a5f3d71703dc64294b4750e7f0957a9fed5a4e9ea",
+    "examples/stage5-interleaved/spec/js/stories.paperless.stage1.js": "52886c7dbfabef6ecc9815d3b433487c9f45ce7371657937d64529f25d1b3fc0",
+    "profiles/paperless-stage5-runtime.json": "641495ad70fdeb3d129468e536e3b8e793240c2dddb3494ebbd296b30a2cf8f6",
+    "scripts/Run-Paperless-Stage5.ps1": "ade8c084f5fb6d04f55b870d7c3275eeb5fd7820c7751db9579340e58b18f98b",
+    "scripts/Save-Paperless-Stage5.ps1": "ade00c569124e2add5036269a763c4555fd533060be99b30e1aedc28678d791b",
+    "tools/build_paperless_version_profile.py": "1593d0000a5400a37d6d90769eb3040db4c682239f7a66891d66f4374bfacdfa",
+    "tools/paperless_lifecycles.py": "cfe02b50a650bb44434e9ef2570a4c382484c41f3c776c7762ed4a9b929c3488",
+    "tools/paperless_stage1.py": "c7d72689184d78caa32e8f19e8a86f8f78d503da5ca3cb8eafc7b31ab02eae2b",
+    "tools/paperless_versions.py": "5f5dce87d4f7cc99da4bcc800161551fa50f05850eb98fbaa07e6f4f42318970",
+    "tools/test_paperless_stage1.py": "35b2ef39befea7019825fcf2954010d4d20e3f4ffdd2d5644097242ceab867ad",
+    "tools/test_paperless_stage3.py": "2b554d9cd72a6a28e6d03a3b333be2a8ccf1c1670bb4c845d7145d3615ddf246",
+    "tools/test_paperless_versions.py": "3f0974d6bdaa7bacf2206863d72430071e9ba2ad8d957b7b734de316220a10fe",
+    "tools/verify_paperless_stage5.py": "62d97967ec1b0e9d3cdafbdc4572bc992a89ca4703eea3d1a10f32ff9088ba9c",
+    "validation/paperless-stage5-validation.json": "d11b35555a00d97dab5e289e442e87de10e118f77b3ed2fdd5b2ab3e22d56226",
+    "validation/stage5-native-fixture-success.zip": "4be144d79ff49e78dbf7df410db64ce0e6ee08435be86009234592b2c56da74b",
+    "validation/stage5-native-post-write-error.zip": "b183bb365dff2b766573c13ed7b1f1ac529d084e28411812b1dce99a138de5c5"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "status": "ORACLE_FALSE_POSITIVE",
+  "cause": "Expected document tags omitted inherited ancestor tags",
+  "new_semantic_bug_confirmed": false,
+  "campaign_sha256": "cb8c6ad88370ee6dde47cfd2d5266c96ac5418a6725822248d716a2cd48328d8",
+  "failed_step": "attach_B",
+  "requested_tags": [
+    15
+  ],
+  "parent_binding": {
+    "child": 15,
+    "parent": 16
+  },
+  "observed_tags": [
+    15,
+    16
+  ],
+  "http_status": 200,
+  "ordinary_user_id": 7,
+  "target_responses": 38,
+  "checks": 207,
+  "failed_checks": 1,
+  "post_write_B_get_captured": false,
+  "cycles_executed": false,
+  "stage2_complete": false,
+  "source_commit": "7575d6078227ebdb4cf443f263d53ebc7575aa37",
+  "source_rule": "DocumentSerializer.update: Adding a child adds its ancestors",
+  "resource_mutations_by_verifier": 0
+}

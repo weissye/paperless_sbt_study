@@ -4,3 +4,4 @@
 *.zip -text
 *.docx -text
 *.pdf -text
+model/paperless-openapi.json -text

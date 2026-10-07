@@ -1,0 +1,20 @@
+{
+  "status": "LOCAL_VALIDATION_COMPLETE",
+  "target_server_tested": false,
+  "native_version": "0.7.5-SNAPSHOT",
+  "unit_tests": 6,
+  "native_successful_runs": 6,
+  "native_checks": 6408,
+  "native_target_responses": 1274,
+  "selection_pool_size_per_case": 16,
+  "distinct_business_orders_per_case": [
+    16,
+    16,
+    16
+  ],
+  "http_concurrency": false,
+  "reset_replay_accepted": false,
+  "fixture_success_sha256": "4be144d79ff49e78dbf7df410db64ce0e6ee08435be86009234592b2c56da74b",
+  "native_injected_post_write_error": "SEMANTIC_CANDIDATE with preserved root/control/metadata reads",
+  "fixture_fault_sha256": "b183bb365dff2b766573c13ed7b1f1ac529d084e28411812b1dce99a138de5c5"
+}

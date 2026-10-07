@@ -1,0 +1,13 @@
+{
+  "status": "OFFLINE_QUALIFIED_LIVE_STAGE2_COMPLETE",
+  "files": {
+    "scripts/Save-Paperless-Stage2-Complete.ps1": "ac1182c15783119406f3fa0b4a5f2ad0b14c4411a7155f00a745bf4581c24a37",
+    "docs/PAPERLESS-STAGE2-COMPLETE.md": "857d8dbcf1a9e37ef79a723c1b7447e0e0047fea8786f41147229836dae5d79e",
+    "docs/PAPERLESS-STAGE3-LINKED-DELETION-PLAN.md": "f7583149474df4612a9d0a0f746c5d260e21aabaef31c72328fd1c3e26bb4572",
+    "tools/verify_stage2_complete.py": "28c828eb78f9f179d36eb20355d576cf6acd6f036518c87eeb7f49b7eee1fb89",
+    "evidence/stage2-complete-20261005-183241/HANDOFF.md": "e5d7632414baca1447737017b46f476b79943b5073d8f56a67945215b7fdab9d",
+    "evidence/stage2-complete-20261005-183241/qualification.json": "99caca2a5d94e818983e0e72eeb94e9f50c62ac453d0b7b67422920ac93b7378",
+    "evidence/stage2-complete-20261005-183241/campaign-original.zip": "e753d4f24334c50b3718cfa27548e2be562e153742b5a953bca17a127ea30727",
+    "evidence/stage2-complete-20261005-183241/SHA256.txt": "23d6ba992df69e0d477ba02b57104d7374f625dde6aadeec11d6e99395ca77e9"
+  }
+}

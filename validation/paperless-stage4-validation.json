@@ -1,0 +1,15 @@
+{
+  "status": "LOCAL_NATIVE_FIXTURE_QUALIFIED_LIVE_PENDING",
+  "python_tests": 25,
+  "native_pass_runs": 6,
+  "native_fixture_checks": 2586,
+  "native_fixture_http_responses": 398,
+  "unselected_document_mutation_detected": true,
+  "all_nine_readbacks_preserved": true,
+  "partial_update_detected": true,
+  "duplicate_link_detected": true,
+  "unrelated_loss_detected": true,
+  "mutation_after_500_detected": true,
+  "live_stage4_complete": false,
+  "powershell_executed_locally": false
+}

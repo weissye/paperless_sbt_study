@@ -1,0 +1,11 @@
+{
+  "status": "ANCESTOR_ORACLE_CORRECTED_NATIVE_FIXTURE_QUALIFIED_LIVE_PENDING",
+  "python_tests": 14,
+  "native_pass_runs": 6,
+  "native_fixture_checks": 2382,
+  "native_fixture_http_responses": 330,
+  "unrelated_tag_detected": true,
+  "mutation_after_rejection_detected": true,
+  "live_stage2_complete": false,
+  "powershell_executed_locally": false
+}
